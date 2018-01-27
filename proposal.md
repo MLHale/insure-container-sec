@@ -12,6 +12,13 @@ We chose this topic because the team consisits of individuals with strong intere
 
 **Time Frame**
 
+| Week          | Team focus    |
+| ------------- | ------------- |
+| 0-3           | Research protocols|
+| 4-6           | work on report  |
+| 7-9           | work on report |
+| 10            | Project report  |
+
 **Qualifications**
 
 This team consists of two graduate students and three undergrad students from the University of Nebraska – Omaha.  Each member of the team brings unique technical skills and past experiences, giving the team a diverse background.  A detailed description of each team member can be found below.
