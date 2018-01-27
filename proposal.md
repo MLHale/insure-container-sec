@@ -28,7 +28,7 @@ This team consists of two graduate students and three undergrad students from th
 
 - Kerolos Lotfy
   - klotfy@unomaha.edu
-  - 402.
+  - 402
 - Dan Ritter
   - danielritter@unomaha.edu
-  - 402.
+  - 402
