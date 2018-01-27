@@ -4,6 +4,8 @@
 
 **Motivation**
 
+We chose this topic because the team consisits of individuals with strong interest in learning about secure communications in containers within virtual machines.The team consists of diverese skills that together will be able to perform the research necessary to identify current configuration issues that would need to be mitigated to securely communicate amongst hosts on different machines.
+
 **Similar Work**
 
 **Plan of Action**
