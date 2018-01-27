@@ -23,3 +23,8 @@ This team consists of two graduate students and three undergrad students from th
 * Michael Keck is a undergraduate student at the University of Nebraska Omaha studying Cyber Security and Computer Science.  While his professional background is not in Cyber Security or Computer Science, Michael has ten years of military experience with which has contributed to personable skills such as leadership, working in a group to accomplish a common goal, and being a overall badass.  Michael is currently working on learning more about Cyber Security through classes at the university and also on his own time.  His interest is in digital and mobile forensics, industrial control systems, and penetration testing.  Michael is will be graduating fall 2018.
  
 * Alexander G. Diaz is a undergraduate student at the University of Omaha at Nebraska and is currently enrolled in the Cyber Security program with an expected graduation date in the Fall of 2018. He is currently working on his Security+ Certification, which should be completed by May 2018. His interest in Cyber Security developed from an desire to harden infrastructure systems against attacks, and is therefore interested in code hardening, digital forensics, and digital industrial systems.
+
+**Contact**
+*Kerolos Lotfy
+*klotfy@unomaha.edu
+*402-
