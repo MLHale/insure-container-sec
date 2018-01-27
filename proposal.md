@@ -27,5 +27,5 @@ This team consists of two graduate students and three undergrad students from th
 **Contact**
 
 * Kerolos Lotfy
-- klotfy@unomaha.edu
-- 402-
+* klotfy@unomaha.edu
+* 402-
