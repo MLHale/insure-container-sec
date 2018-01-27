@@ -25,6 +25,7 @@ This team consists of two graduate students and three undergrad students from th
 * Alexander G. Diaz is a undergraduate student at the University of Omaha at Nebraska and is currently enrolled in the Cyber Security program with an expected graduation date in the Fall of 2018. He is currently working on his Security+ Certification, which should be completed by May 2018. His interest in Cyber Security developed from an desire to harden infrastructure systems against attacks, and is therefore interested in code hardening, digital forensics, and digital industrial systems.
 
 **Contact**
-*Kerolos Lotfy
-*klotfy@unomaha.edu
-*402-
+
+* Kerolos Lotfy
+- klotfy@unomaha.edu
+- 402-
