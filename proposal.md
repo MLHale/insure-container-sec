@@ -10,12 +10,18 @@ We chose this topic because the team consisits of individuals with strong intere
 
 **Plan of Action**
 
+* General research 
+* Develop understanding of the CAVES Measurement and Attestation (M&A) protocols
+* Conduct tests for formal verifications conduted utilizing the Cryptographic Protocol Shape Analyzer (CPSA)
+* Define potential solution
+* Work on a report which includes research, testing methods, output, and recommendations.
+
 **Time Frame**
 
 | Week          | Team focus    |
 | ------------- | ------------- |
 | 0-3           | Research protocols|
-| 4-6           | work on report  |
+| 4-6           | Conduct test for formal verifications|
 | 7-9           | work on report |
 | 10            | Project report  |
 
