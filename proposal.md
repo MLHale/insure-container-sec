@@ -1,5 +1,7 @@
 **Introduction**
 
+The goal of this project is to provide a secure method to configure the requirments for the network bridged files, methods to instantiate containers, secure communciationsfor applications, and VMs.
+
 **Problem Statement**
 
 **Motivation**
