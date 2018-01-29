@@ -30,6 +30,14 @@ We chose this topic because the team consisits of individuals with strong intere
 | 7-9           | work on report |
 | 10            | Project report  |
 
+**Project Oriented Risks**
+
+| Risk       | Description of Risk | Likelihood | Impact Factor |
+| ---------- | ------------------- | ---------- | ------------- |
+| Lack of skill set | Group has an overall lack of experience with a given skill, hindering project efficiency.| | |
+| Team member availability | Group is unable to meet at the same time. | | |
+| Divergence in goals | Team and sponsor begin to picture different goals for project as time progresses. | | |
+
 **Qualifications**
 
 This team consists of two graduate students and three undergrad students from the University of Nebraska – Omaha.  Each member of the team brings unique technical skills and past experiences, giving the team a diverse background.  A detailed description of each team member can be found below.
