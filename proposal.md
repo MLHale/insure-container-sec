@@ -1,6 +1,9 @@
 **Introduction**
 
-The goal of this project is to provide a secure method to configure the requirments for the network bridged files, methods to instantiate containers, secure communciationsfor applications, and VMs.
+In today’s world, the use of virtual machines in daily business operation has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduce costs by removing the necessity to purchase physical machines, cutting energy and cooling consumption, and improving recovery operations.  Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  The more companies come to rely on virtual systems, the more these systems will become targets of security attacks.  Therefore, companies must adopt adequate configurations and practices when utilizing virtual machines.
+
+The completion of “Secure Communications among Containers” will provide a secure method to configure the requirements for the network bridged files, methods to instantiate containers, and secure communications for applications and VMs.  The end solution will reduce companies’ risk when operating in a virtual environment.
+
 
 **Problem Statement**
 
