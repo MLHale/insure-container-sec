@@ -32,6 +32,8 @@ We chose this topic because the team consisits of individuals with strong intere
 
 **Project Oriented Risks**
 
+Throughout the course of the project, the team will likely experience a variety of risks that threaten to hinder the project's completion.  Likelihood displays a risk factor, and ranks the risks with a value between one and five (one being the most likely to occur and five being the least likely to occur).  The impact factor shows the team's prediction of how bad the given risk will impact the completion of the project.
+
 | Risk       | Description of Risk | Likelihood | Impact Factor |
 | ---------- | ------------------- | ---------- | ------------- |
 | Lack of skill set | Group has an overall lack of experience with a given skill, hindering project efficiency.| | |
