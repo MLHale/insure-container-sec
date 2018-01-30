@@ -23,6 +23,16 @@ We chose this topic because the team consisits of individuals with strong intere
 * Define potential solution
 * Work on a report which includes research, testing methods, output, and recommendations.
 
+1. Learn Docker
+2. Set up a Docker container
+3. Find CAVES VM (or similar VMs for testing)
+4. Determine what vulnerabilities we need to test for
+5. Determine any relevant commands/write scripts to test against designated vulnerabilities
+6. Create report functionality
+7. Combine all scripts/containers into one large Docker container
+8. Write final report detailing our solution
+
+
 **Time Frame**
 
 | Week          | Team focus    |
