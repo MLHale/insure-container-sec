@@ -42,6 +42,14 @@ Throughout the course of the project, the team will likely experience a variety 
 | Scope creep | Unable to test all desired vulnerabilities due to lack of time. | 4 | 7 |
 | Divergence in goals | Team and sponsor begin to picture different goals for project as time progresses. | 5 | 2 |
 
+**Required Materials**
+
+In order to complete the CCVAC project, the team will need the following materials -
+
+* Each student will run docker and related materials on his/her personal computer.
+* Each student will download Docker.
+* A CAVES modelled virtual machine to test our container solutions on.
+
 **Qualifications**
 
 This team consists of two graduate students and three undergrad students from the University of Nebraska – Omaha.  Each member of the team brings unique technical skills and past experiences, giving the team a diverse background.  A detailed description of each team member can be found below.
