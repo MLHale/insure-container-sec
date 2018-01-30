@@ -36,9 +36,11 @@ Throughout the course of the project, the team will likely experience a variety 
 
 | Risk       | Description of Risk | Likelihood | Impact Factor |
 | ---------- | ------------------- | ---------- | ------------- |
-| Lack of skill set | Group has an overall lack of experience with a given skill, hindering project efficiency.| | |
-| Team member availability | Group is unable to meet at the same time. | | |
-| Divergence in goals | Team and sponsor begin to picture different goals for project as time progresses. | | |
+| Lack of skill set | Group has an overall lack of experience with a given skill, hindering project efficiency.| 1 | 3 |
+| Team member availability | Group is unable to meet at the same time. | 2 | 4 |
+| Unable to obtain or replicate CAVES model. | The team is unable to create/obtain a VM that follows the CAVES model for testing. | 3 | 4|
+| Scope creep | Unable to test all desired vulnerabilities due to lack of time. | 4 | 7 |
+| Divergence in goals | Team and sponsor begin to picture different goals for project as time progresses. | 5 | 2 |
 
 **Qualifications**
 
