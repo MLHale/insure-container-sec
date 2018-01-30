@@ -17,11 +17,7 @@ We chose this topic because the team consisits of individuals with strong intere
 
 **Plan of Action**
 
-* General research 
-* Develop understanding of the CAVES Measurement and Attestation (M&A) protocols
-* Conduct tests for formal verifications conduted utilizing the Cryptographic Protocol Shape Analyzer (CPSA)
-* Define potential solution
-* Work on a report which includes research, testing methods, output, and recommendations.
+In order to meet all of our project goals, the team has created a timeline to help them meet important deadlines.  The following list documents the basic tasks the team aims to meet throughout the weeks.  A more detailed Gantt chart can be referenced below for a week-by-week breakdown of project deadlines.
 
 1. Learn Docker
 2. Set up a Docker container
@@ -30,7 +26,8 @@ We chose this topic because the team consisits of individuals with strong intere
 5. Determine any relevant commands/write scripts to test against designated vulnerabilities
 6. Create report functionality
 7. Combine all scripts/containers into one large Docker container
-8. Write final report detailing our solution
+8. Write a report which includes research, testing methods, output, and recommendations
+
 
 
 **Time Frame**
@@ -44,7 +41,7 @@ We chose this topic because the team consisits of individuals with strong intere
 
 **Project Oriented Risks**
 
-Throughout the course of the project, the team will likely experience a variety of risks that threaten to hinder the project's completion.  Likelihood displays a risk factor, and ranks the risks with a value between one and five (one being the most likely to occur and five being the least likely to occur).  The impact factor shows the team's prediction of how bad the given risk will impact the completion of the project.
+Throughout the course of the project, the team will likely experience a variety of risks that threaten to hinder the project's completion.  Likelihood displays a risk factor, and ranks the risks with a value between one and five (one being the most likely to occur and five being the least likely to occur).  The impact factor shows the team's prediction of how bad the given risk will impact the completion of the project.  Impact factor will be ranked with a value between one and ten (one having the least impact on project completion and ten having the most).
 
 | Risk       | Description of Risk | Likelihood | Impact Factor |
 | ---------- | ------------------- | ---------- | ------------- |
