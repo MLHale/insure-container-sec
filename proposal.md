@@ -1,23 +1,30 @@
 **Introduction**
 
-
-
-The completion of “Secure Communications among Containers” will provide a secure method to configure the requirements for the network bridged files, methods to instantiate containers, and secure communications for applications and VMs.  The end solution will reduce companies’ risk when operating in a virtual environment.
-
+The completion of “Container Configuration Verification as a Container” (CCVAS) will provide a secure method to configure the requirements for the network bridged files, methods to instantiate containers, and secure communications for applications when working in a virtual environment.  CCVAS will utilize Docker containers to solve the current security problem faced when establishing and utlizing virtualization software.  The end project will provide both a simplified solution and reduce companies’ risk when operating in a virtual environment.
 
 **Problem Statement**
 
-In today’s world, the use of virtual machines in daily business operation has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduce costs by removing the necessity to purchase physical machines, cutting energy and cooling consumption, and improving recovery operations.  Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  The more companies come to rely on virtual systems, the more these systems will become targets of security attacks.  Therefore, companies must adopt adequate configurations and practices when utilizing virtual machines.
+In today’s world, the use of virtual machines in daily business operation has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduce costs by removing the necessity to purchase physical machines, cutting energy and cooling consumption, and improving recovery operations.  Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  The more companies come to rely on virtual systems, the more these systems will become targets of security attacks.  While using virtual systems can save a large amount of money, a hack due to poor configurations can end up costing companies much more than they saved.  Therefore, as companies look to take business to a virtual enviroinment, they need to be sure that they are properly utilizing the virtual environment.  Thus, CCVAS will look to bridge the gap between security and virtualization.
 
-**Motivation**
+**Project Goals**
 
-We chose this topic because the team consisits of individuals with strong interest in learning about secure communications in containers within virtual machines.The team consists of diverese skills that together will be able to perform the research necessary to identify current configuration issues that would need to be mitigated to securely communicate amongst hosts on different machines.
+The completion of CCVAS will look to achive the following list of goals.  Each of these goals will work towards better security for a virtual envirionment.
+* Determine a list of common Docker configurations that leave virtual envirionments vulnerable to attack.
+* Develop a set of scripts and commands that will test for each vulnerability.
+* Test created scripts and selected commands against a CAVES container.
+* Generate a PDF report documenting test findings.
+
+**Project Merit**
+
+We chose this topic because the team consisits of individuals with strong interest in learning about secure communications in containers within virtual machines.The team consists of diverese skills that together will be able to perform the research necessary to identify current configuration issues that would need to be mitigated to securely communicate amongst hosts on different machines.  --> do we still want this in here??
+
+Without proper configuration, virtual environments do little to benefit an organization.  They may temporarily save money, but that cost will eventually be offset by paying for recovery after an attack.  By successfully meeting all proposed goals and fulfilling the plan of action, CCVAS will help organizations determine security threats caused by poor container configurations before malicious users do.  Not only will this help strengthen an organization's defenses, but it will also help save a possible millions of dollars and confidential information.  Further, the CCVAS solution will simplify organizations' configuration process by efficiently providing all scripts and solutions in one container.  Thus, CCVAS should be a quick and simplified solution for those utilizing a Docker environment.
 
 **Similar Work**
 
 **Plan of Action**
 
-In order to meet all of our project goals, the team has created a timeline to help them meet important deadlines.  The following list documents the basic tasks the team aims to meet throughout the weeks.  A more detailed Gantt chart can be referenced below for a week-by-week breakdown of project deadlines.
+In order to achieve all of our project goals, the team has created a timeline to help them meet important deadlines.  The following list documents the basic tasks the team aims to meet throughout the weeks.  A more detailed Gantt chart can be referenced below for a week-by-week breakdown of project deadlines.
 
 1. Learn Docker
 2. Set up a Docker container
@@ -45,11 +52,11 @@ Throughout the course of the project, the team will likely experience a variety 
 
 | Risk       | Description of Risk | Likelihood | Impact Factor |
 | ---------- | ------------------- | ---------- | ------------- |
-| Lack of skill set | Group has an overall lack of experience with a given skill, hindering project efficiency.| 1 | 3 |
-| Team member availability | Group is unable to meet at the same time. | 2 | 4 |
-| Unable to obtain or replicate CAVES model. | The team is unable to create/obtain a VM that follows the CAVES model for testing. | 3 | 4|
-| Scope creep | Unable to test all desired vulnerabilities due to lack of time. | 4 | 7 |
-| Divergence in goals | Team and sponsor begin to picture different goals for project as time progresses. | 5 | 2 |
+| Lack of skill set (3) | Group has an overall lack of experience with a given skill, hindering project efficiency.| 1 | 3 |
+| Team member availability (8) | Group is unable to meet at the same time. | 2 | 4 |
+| Unable to obtain or replicate CAVES model. (12) | The team is unable to create/obtain a VM that follows the CAVES model for testing. | 3 | 4|
+| Scope creep | Unable to test all desired vulnerabilities due to lack of time. (28) | 4 | 7 |
+| Divergence in goals | Team and sponsor begin to picture different goals for project as time progresses. (10) | 5 | 2 |
 
 **Required Materials**
 
