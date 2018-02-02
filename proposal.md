@@ -21,6 +21,7 @@ We chose this topic because the team consisits of individuals with strong intere
 Without proper configuration, virtual environments do little to benefit an organization.  They may temporarily save money, but that cost will eventually be offset by paying for recovery after an attack.  By successfully meeting all proposed goals and fulfilling the plan of action, CCVAS will help organizations determine security threats caused by poor container configurations before malicious users do.  Not only will this help strengthen an organization's defenses, but it will also help save a possible millions of dollars and confidential information.  Further, the CCVAS solution will simplify organizations' configuration process by efficiently providing all scripts and solutions in one container.  Thus, CCVAS should be a quick and simplified solution for those utilizing a Docker environment.
 
 **Similar Work**
+In 2015 IBM released the Vulnerability Advisor, a service that scans containers for vulnerbilites and flaws in policy. Looking at IBM's product what information professionals are looking for when having their containers inspected for flaws. This includes both known vulnerabilites and policy flaws and notes how serious the threat is.
 
 **Plan of Action**
 
