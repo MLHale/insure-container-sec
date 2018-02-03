@@ -1,18 +1,18 @@
 **Introduction**
 
-The completion of “Container Configuration Verification as a Container” (CCVAS) will provide a secure method to configure the requirements for the network bridged files, methods to instantiate containers, and secure communications for applications when working in a virtual environment.  CCVAS will utilize Docker containers to solve the current security problem faced when establishing and utilizing virtualization software.  The end project will provide both a simplified solution and reduce companies’ risk when operating in a virtual environment.
+The completion of “Container Configuration Verification as a Container” (CCVAS) will provide a secure method to configure the requirements for the network bridged files, methods to instantiate containers, and secure communications for applications when working in a virtual environment.  CCVAS will utilize Docker containers to solve the current security problem faced when establishing and utilizing virtualization software.  The end project will provide both a simplified solution and reduce organizations’ risk when operating in a virtual environment.
 
 **Problem Statement**
 
-In today’s world, the use of virtual machines in daily business operation has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduce costs by removing the necessity to purchase physical machines, cutting energy and cooling consumption, and improving recovery operations.  Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  The more companies come to rely on virtual systems, the more these systems will become targets of security attacks.  While using virtual systems can save a large amount of money, a hack due to poor configurations can end up costing companies much more than they saved.  Therefore, as companies look to take business to a virtual environment, they need to be sure that they are properly utilizing the virtual environment.  Thus, CCVAS will look to bridge the gap between security and virtualization.
+In today’s world, the use of virtual machines in daily business operations has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduce costs by removing the necessity to purchase physical machines, cutting energy and cooling consumption, and improving recovery operations.  Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  The more companies come to rely on virtual systems, the more these systems will become targets of security attacks.  While using virtual systems can save a large amount of money, a security breach due to poor configurations can end up costing organizations much more than they saved.  Therefore, as organizations move operations to virtual environments, they need tools to ensure that they are being properly utilized. Thus, CCVAS will look to bridge the gap between security and virtualization.
 
 **Project Goals**
 
 The completion of CCVAS will look to achieve the following list of goals.  Each of these goals will work towards better security for a virtual environment.
 * Determine a list of common Docker configurations that leave virtual environments vulnerable to attack.
-* Develop a set of scripts and commands that will test for each vulnerability.
-* Test created scripts and selected commands against a CAVES container.
-* Generate a PDF report documenting test findings.
+* Develop a set of scripts and commands that will test for vulnerabilities.
+* Test created scripts and selected commands against a container that implements CAVES.
+* Generate a PDF report documenting findings of tested containers.
 
 **Project Merit**
 
@@ -70,7 +70,7 @@ Throughout the course of the project, the team will likely experience a variety 
 In order to complete the CCVAC project, the team will need the following materials -
 
 * A central VM (hosted at UNO), to run Docker.  The team will SSH into this machine.
-* A CAVES modelled virtual machine to test our container solutions on.
+* A CAVES modeled virtual machine to test our container solutions on.
 
 **Qualifications**
 
