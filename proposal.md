@@ -16,8 +16,6 @@ The completion of CCVAS will look to achieve the following list of goals.  Each 
 
 **Project Merit**
 
-We chose this topic because the team consists of individuals with strong interest in learning about secure communications in containers within virtual machines.The team consists of diverse skills that together will be able to perform the research necessary to identify current configuration issues that would need to be mitigated to securely communicate amongst hosts on different machines.  --> do we still want this in here??
-
 Without proper configuration, virtual environments do little to benefit an organization.  They may temporarily save money, but that cost will eventually be offset by paying for recovery after an attack.  By successfully meeting all proposed goals and fulfilling the plan of action, CCVAS will help organizations determine security threats caused by poor container configurations before malicious users do.  Not only will this help strengthen an organization's defenses, but it will also help save a possible millions of dollars and confidential information.  Further, the CCVAS solution will simplify organizations' configuration process by efficiently providing all scripts and solutions in one container.  Thus, CCVAS should be a quick and simplified solution for those utilizing a Docker environment.
 
 **Similar Work**
@@ -35,9 +33,6 @@ In order to achieve all of our project goals, the team has created a timeline to
 6. Create report functionality
 7. Combine all scripts/containers into one large Docker container
 8. Write a report which includes research, testing methods, output, and recommendations
-
-
-
 
 **Time Frame**
 
@@ -88,6 +83,7 @@ This team consists of two graduate students and three undergrad students from th
 
 **Contact**
 
+please for the rest of the team should probably place their contact info (Kero)
 - Kerolos Lotfy
   - klotfy@unomaha.edu
   - 402
