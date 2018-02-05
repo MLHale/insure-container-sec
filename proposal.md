@@ -4,7 +4,7 @@ The completion of “Container Configuration Verification as a Container” (CCV
 
 **Problem Statement**
 
-In today’s world, the use of virtual machines in daily business operations has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduce costs by removing the necessity to purchase physical machines, cutting energy and cooling consumption, and improving recovery operations.  Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  The more companies come to rely on virtual systems, the more these systems will become targets of security attacks.  While using virtual systems can save a large amount of money, a security breach due to poor configurations can end up costing organizations much more than they saved.  Therefore, as organizations move operations to virtual environments, they need tools to ensure that they are being properly utilized. Thus, CCVAS will look to bridge the gap between security and virtualization.
+In today’s world, the use of virtual machines in daily business operations has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduces costs by removing the necessity to purchase physical machines, cutting energy and cooling consumption, and improving recovery operations.  Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  The more organizations come to rely on virtual systems, the more these systems will become targets of security attacks.  While using virtual systems can save a large amount of money, a security breach due to poor configurations can end up costing organizations much more than they saved.  Therefore, as organizations move operations to virtual environments, they need tools to ensure that they are being properly utilized. Thus, CCVAS will look to bridge the gap between security and virtualization.
 
 **Project Goals**
 
@@ -16,7 +16,7 @@ The completion of CCVAS will look to achieve the following list of goals.  Each 
 
 **Project Merit**
 
-Without proper configuration, virtual environments do little to benefit an organization.  They may temporarily save money, but that cost will eventually be offset by paying for recovery after an attack.  By successfully meeting all proposed goals and fulfilling the plan of action, CCVAS will help organizations determine security threats caused by poor container configurations before malicious users do.  Not only will this help strengthen an organization's defenses, but it will also help save a possible millions of dollars and confidential information.  Further, the CCVAS solution will simplify organizations' configuration process by efficiently providing all scripts and solutions in one container.  Thus, CCVAS should be a quick and simplified solution for those utilizing a Docker environment.
+Without proper configuration, virtual environments do little to benefit  organizations. They may temporarily save money, but those savings will eventually be offset by costs associated with recovery after an attack. By successfully meeting all proposed goals and fulfilling the plan of action, CCVAS will help organizations determine security threats caused by poor container configurations before malicious users do. Not only will CCVAS help strengthen organization's defenses, but could prevent the loss of confidential information and the financial implications associated with it.  Further, the CCVAS solution will simplify organizations' configuration process by efficiently providing all scripts and solutions in one container.  Thus, CCVAS should be a quick and simplified solution for those utilizing a Docker environment.
 
 **Similar Work**
 In 2015 IBM released the Vulnerability Advisor, a service that scans containers for vulnerabilities and flaws in policy. Looking at IBM's product what information professionals are looking for when having their containers inspected for flaws. This includes both known vulnerabilities and policy flaws and notes how serious the threat is.
@@ -83,13 +83,8 @@ This team consists of two graduate students and three undergrad students from th
 
 **Contact**
 
-please for the rest of the team should probably place their contact info (Kero)
-- Kerolos Lotfy
-  - klotfy@unomaha.edu
-  - 402
-- Dan Ritter
-  - danielritter@unomaha.edu
-  - 402
-- Michael Keck
-  - michaelkeck@unomaha.edu
-  - 402
+- Kerolos Lotfy (klotfy@unomaha.edu)
+- Dan Ritter (danielritter@unomaha.edu)
+- Michael Keck (michaelkeck@unomaha.edu)
+- Alisa Bohac (abohac@unomaha.edu)
+- Alexander Diaz (agdiaz@unomaha.edu)
