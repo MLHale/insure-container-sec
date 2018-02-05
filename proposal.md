@@ -90,3 +90,6 @@ please for the rest of the team should probably place their contact info (Kero)
 - Dan Ritter
   - danielritter@unomaha.edu
   - 402
+- Michael Keck
+  - michaelkeck@unomaha.edu
+  - 402
