@@ -1,6 +1,6 @@
 **Introduction**
 
-The completion of “Container Configuration Verification as a Container” (CCVAS) will provide a secure method to configure the requirements for the network bridged files, methods to instantiate containers, and secure communications for applications when working in a virtual environment.  CCVAS will utilize Docker containers to solve the current security problem faced when establishing and utilizing virtualization software.  The end project will provide both a simplified solution and reduce organizations’ risk when operating in a virtual environment.
+The completion of “Container Configuration Verification as a Container” (CCVAS) will provide a method to evaluate systems that implement protocols similar to CAVES. CCVAS will utilize Docker containers to solve the  security problem faced when establishing and utilizing virtualization software such as Docker. The end project deliverable will be a container that evaluates the security of other containers. This provides a simplified solution and can help reduce organizations’ risk when operating in a virtual environment.
 
 **Problem Statement**
 
@@ -25,14 +25,12 @@ In 2015 IBM released the Vulnerability Advisor, a service that scans containers 
 
 In order to achieve all of our project goals, the team has created a timeline to help them meet important deadlines.  The following list documents the basic tasks the team aims to meet throughout the weeks.  A more detailed Gantt chart can be referenced below for a week-by-week breakdown of project deadlines.
 
-1. Learn Docker
-2. Set up a Docker container
-3. Find or create CAVES virtual environment (or similar VMs for testing)
-4. Determine what vulnerabilities we need to test for
-5. Determine any relevant commands/write scripts to test against designated vulnerabilities
-6. Create report functionality
-7. Combine all scripts/containers into one large Docker container
-8. Write a report which includes research, testing methods, output, and recommendations
+1. Learn about CAVES and how to use Docker.
+2. Find or create CAVES virtual environment for testing.
+3. Identify important vulnerabilities that may affect CAVES.
+4. Create scripts using relevant programs to test against identified vulnerabilities
+5. Combine created scripts and containers into one large Docker container
+6. Write a report which includes research, testing methods, output, and recommendations.
 
 **Time Frame**
 
