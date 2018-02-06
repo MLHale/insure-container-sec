@@ -19,6 +19,7 @@ The completion of CCVAS will look to achieve the following list of goals.  Each 
 Without proper configuration, virtual environments do little to benefit  organizations. They may temporarily save money, but those savings will eventually be offset by costs associated with recovery after an attack. By successfully meeting all proposed goals and fulfilling the plan of action, CCVAS will help organizations determine security threats caused by poor container configurations before malicious users do. Not only will CCVAS help strengthen organization's defenses, but could prevent the loss of confidential information and the financial implications associated with it.  Further, the CCVAS solution will simplify organizations' configuration process by efficiently providing all scripts and solutions in one container.  Thus, CCVAS should be a quick and simplified solution for those utilizing a Docker environment.
 
 **Similar Work**
+
 In 2015 IBM released the Vulnerability Advisor, a service that scans containers for vulnerabilities and flaws in policy. Looking at IBM's product what information professionals are looking for when having their containers inspected for flaws. This includes both known vulnerabilities and policy flaws and notes how serious the threat is.
 
 **Plan of Action**
@@ -64,6 +65,16 @@ In order to complete the CCVAC project, the team will need the following materia
 
 * A central VM (hosted at UNO), to run Docker.  The team will SSH into this machine.
 * A CAVES modeled virtual machine to test our container solutions on.
+
+**Literature Review**
+
+// MIKE 
+
+**Technical Plan**
+
+**Sprint Plan**
+
+
 
 **Qualifications**
 
