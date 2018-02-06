@@ -67,7 +67,7 @@ In order to complete the CCVAC project, the team will need the following materia
 | --------------- | ----------------- | ------------------------- | ---------------- |
 | Central VM to run Docker | Yes | Alex and Alisa | This VM will be hosted at UNO. The team will SSH into this machine. |
 | Scripting Languages | No | Mike | The team will be utilizing shell and python scripts to generate our tests. |
-| CAVES modeled VMs | No | Dan | These VMs will be used to test our container solutions on. |
+| CAVES modeled VMs | No | Dan and Kero | These VMs will be used to test our container solutions on. |
 | VMWare Workstation | No | All team members | Each student will need to download a copy of VMWare Workstation to be able to access the VMs. |
 
 **Literature Review**
