@@ -55,8 +55,8 @@ Throughout the course of the project, the team will likely experience a variety 
 | Lack of skill set (3) | Group has an overall lack of experience with a given skill, hindering project efficiency.| 1 | 3 |
 | Team member availability (8) | Group is unable to meet at the same time. | 2 | 4 |
 | Unable to obtain or replicate CAVES model. (12) | The team is unable to create/obtain a VM that follows the CAVES model for testing. | 3 | 4|
-| Scope creep | Unable to test all desired vulnerabilities due to lack of time. (28) | 4 | 7 |
-| Divergence in goals | Team and sponsor begin to picture different goals for project as time progresses. (10) | 5 | 2 |
+| Scope creep (28) | Unable to test all desired vulnerabilities due to lack of time. | 4 | 7 |
+| Divergence in goals (10) | Team and sponsor begin to picture different goals for project as time progresses. | 5 | 2 |
 
 **Required Materials**
 
