@@ -1,53 +1,30 @@
-**Introduction**
+# Executive Summary
 
-The completion of “Container Configuration Verification as a Container” (CCVAS) will provide a method to evaluate systems that implement protocols similar to CAVES. CCVAS will utilize Docker containers to solve the  security problem faced when establishing and utilizing virtualization software such as Docker. The end project deliverable will be a container that evaluates the security of other containers. This provides a simplified solution and can help reduce organizations’ risk when operating in a virtual environment.
+In today’s world, the use of virtual machines in daily business operations has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduces costs associated with purchases of physical machines, energy consumption and cooling. Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  As organizations dependence on virtual infrastructure, continues to grow, so do security attacks against these systems. A single security breach due to poor configurations can end up costing organizations much more than they saved by switching to virtual infrastructure.
 
-**Problem Statement**
+As organizations move operations to virtual environments, they need tools to ensure that they are being properly utilized. The completion of “Container Configuration Verification as a Container” (CCVAS) will provide a method to evaluate systems that use a virtualization technology known as containers. In particular, CCVAS will try to solve the security problems faced when establishing and utilizing Docker. The end project deliverable will be a container that evaluates the security of other containers. This provides a simplified solution that can help reduce organizations’ risk when operating in virtual environments.
 
-In today’s world, the use of virtual machines in daily business operations has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduces costs by removing the necessity to purchase physical machines, cutting energy and cooling consumption, and improving recovery operations.  Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  The more organizations come to rely on virtual systems, the more these systems will become targets of security attacks.  While using virtual systems can save a large amount of money, a security breach due to poor configurations can end up costing organizations much more than they saved.  Therefore, as organizations move operations to virtual environments, they need tools to ensure that they are being properly utilized. Thus, CCVAS will look to bridge the gap between security and virtualization.
-
-**Project Goals**
-
-The completion of CCVAS will look to achieve the following list of goals.  Each of these goals will work towards better security for a virtual environment.
-* Determine a list of common Docker configurations that leave virtual environments vulnerable to attack.
+The completion of CCVAS will look to achieve the following list of goals:
+- Determine a list of common Docker configurations that leave virtual environments vulnerable to attack.
 * Develop a set of scripts and commands that will test for vulnerabilities.
 * Test created scripts and selected commands against a container that implements CAVES.
 * Generate a PDF report documenting findings of tested containers.
 
-**Project Merit**
-
-Without proper configuration, virtual environments do little to benefit  organizations. They may temporarily save money, but those savings will eventually be offset by costs associated with recovery after an attack. By successfully meeting all proposed goals and fulfilling the plan of action, CCVAS will help organizations determine security threats caused by poor container configurations before malicious users do. Not only will CCVAS help strengthen organization's defenses, but could prevent the loss of confidential information and the financial implications associated with it.  Further, the CCVAS solution will simplify organizations' configuration process by efficiently providing all scripts and solutions in one container.  Thus, CCVAS should be a quick and simplified solution for those utilizing a Docker environment.
-
-**Similar Work**
-
-In 2015 IBM released the Vulnerability Advisor, a service that scans containers for vulnerabilities and flaws in policy. Looking at IBM's product what information professionals are looking for when having their containers inspected for flaws. This includes both known vulnerabilities and policy flaws and notes how serious the threat is.
-
-**Plan of Action**
+# Preposed Project Timeline
 
 In order to achieve all of our project goals, the team has created a timeline to help them meet important deadlines.  The following list documents the basic tasks the team aims to meet throughout the weeks.  A more detailed Gantt chart can be referenced below for a week-by-week breakdown of project deadlines.
 
-1. Learn about CAVES and how to use Docker.
-2. Find or create CAVES virtual environment for testing.
-3. Identify important vulnerabilities that may affect CAVES.
-4. Create scripts using relevant programs to test against identified vulnerabilities
-5. Combine created scripts and containers into one large Docker container
-6. Write a report which includes research, testing methods, output, and recommendations.
-
-**Time Frame**
-
 | Week          | Team focus    |
 | ------------- | ------------- |
-| 0-3           | Research protocols|
-| 4-6           | Conduct test for formal verifications|
-| 7-9           | work on report |
-| 10            | Project report  |
+| 0-3           | Learn about CAVES and how to use Docker.<br> Find or create CAVES virtual environment for testing.|
+| 4-7           | Identify important vulnerabilities that may affect CAVES.<br>Create scripts using relevant programs to test against identified vulnerabilities|
+| 8-9           | Work on report.<br> Combine created scripts and containers into one large Docker container. |
+| 10            | Write a report which includes research, testing methods, output, and recommendations.<br>Prepare for and deliver presentation. |
 
-
-## Proposed Project Timeline
 ![Gant Chart](/assets/gant_chart.png "Project Timeline")
 
 
-**Project Oriented Risks**
+# Project Oriented Risks
 
 Throughout the course of the project, the team will likely experience a variety of risks that threaten to hinder the project's completion.  Likelihood displays a risk factor, and ranks the risks with a value between one and five (one being the most likely to occur and five being the least likely to occur).  The impact factor shows the team's prediction of how bad the given risk will impact the completion of the project.  Impact factor will be ranked with a value between one and ten (one having the least impact on project completion and ten having the most).
 
@@ -59,7 +36,19 @@ Throughout the course of the project, the team will likely experience a variety 
 | Scope creep (28) | Unable to test all desired vulnerabilities due to lack of time. | 4 | 7 |
 | Divergence in goals (10) | Team and sponsor begin to picture different goals for project as time progresses. | 5 | 2 |
 
-**Required Materials**
+# Project Methodology
+
+**Literature Review**
+
+// MIKE
+
+**Similar Work**
+
+In 2015 IBM released the Vulnerability Advisor, a service that scans containers for vulnerabilities and flaws in policy. Looking at IBM's product what information professionals are looking for when having their containers inspected for flaws. This includes both known vulnerabilities and policy flaws and notes how serious the threat is.
+
+**Technical Plan**
+
+# Required Materials
 
 In order to complete the CCVAC project, the team will need the following materials -
 
@@ -70,17 +59,10 @@ In order to complete the CCVAC project, the team will need the following materia
 | CAVES modeled VMs | No | Dan and Kero | These VMs will be used to test our container solutions on. |
 | VMWare Workstation | No | All team members | Each student will need to download a copy of VMWare Workstation to be able to access the VMs. |
 
-**Literature Review**
+# First Sprint Plan
+![First Sprint](/assets/first_sprint.png "First Sprint")
 
-// MIKE 
-
-**Technical Plan**
-
-**Sprint Plan**
-
-
-
-**Qualifications**
+## Qualifications
 
 This team consists of two graduate students and three undergrad students from the University of Nebraska – Omaha.  Each member of the team brings unique technical skills and past experiences, giving the team a diverse background.  A detailed description of each team member can be found below.
 
@@ -94,7 +76,7 @@ This team consists of two graduate students and three undergrad students from th
 
 * Alexander G. Diaz is a undergraduate student at the University of Omaha at Nebraska and is currently enrolled in the Cyber Security program with an expected graduation date in the Fall of 2018. He is currently working on his Security+ Certification, which should be completed by May 2018. His interest in Cyber Security developed from an desire to harden infrastructure systems against attacks, and is therefore interested in code hardening, digital forensics, and digital industrial systems.
 
-**Contact**
+## Contact
 
 - Kerolos Lotfy (klotfy@unomaha.edu)
 - Dan Ritter (danielritter@unomaha.edu)
