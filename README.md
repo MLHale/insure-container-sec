@@ -44,8 +44,7 @@ In order to determine the best path for the project, some important user stories
 ```As a security professional, I want to confirm my organization's containers are secure, so there is no unauthorized information disclosure.```
 
 
-```As a security professional, I want a automated tool to confirm the security of containers, so I can improve my efficiency and focus efforts elsewhere.
-```
+```As a security professional, I want a automated tool to confirm the security of containers, so I can improve my efficiency and focus efforts elsewhere.```
 
 **Literature Review**<br>
 Relevant research papers have been identified. These are listed in the "Relevant Literature" section below. These each somehow touch the scope of our project, and will be utilized and referenced when possible for the duration of our project.
@@ -53,7 +52,7 @@ Relevant research papers have been identified. These are listed in the "Relevant
 **Technical Plan**<br>
 Our general plan is to create a Docker container, composed of other Docker containers and components. Each component will complete a dedicated security related task. Components will use existing scripts and tools when possible, to evaluate targets. Scripts to use these tools will be written in bash and python. Any important output will be sent up to the component caller, where it will be added to a report.
 
-To scan a target, a configuration file will be specified and ingested by the scanning container. 
+To scan a target, a configuration file will be specified and ingested by the scanning container.
 
 # Required Materials
 
