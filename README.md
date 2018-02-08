@@ -102,4 +102,5 @@ This team consists of two graduate students and three undergrad students from th
 * Luo, Y., Luo, W., Sun, X., Shen, Q., Ruan, A., & Wu, Z. (2016). Whispers between the Containers: High-Capacity Covert Channel Attacks in Docker. 2016 IEEE Trustcom/BigDataSE/ISPA. doi:10.1109/trustcom.2016.0119
 
 * Mp, A. R., Kumar, A., Pai, S. J., & Gopal, A. (2016). Enhancing security of Docker using Linux hardening techniques. 2016 2nd International Conference on Applied and Theoretical Computing and Communication Technology (iCATccT). doi:10.1109/icatcct.2016.7911971
-* (need to cite the caves paper but having issues finding the citation)
+
+* Ramsdell, J. D., Guttman, J. D., Millen, J. K., & O'Hanlon, B. (2012). An analysis of the CAVES attestation protocol using CPSA. arXiv preprint arXiv:1207.0418. https://arxiv.org/abs/1207.0418
