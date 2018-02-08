@@ -40,7 +40,16 @@ Throughout the course of the project, the team will likely experience a variety 
 
 **Literature Review**
 
-// MIKE
+* Azab, A. (2017). Enabling Docker Containers for High-Performance and Many-Task Computing. 2017 IEEE International Conference on Cloud Engineering (IC2E). doi:10.1109/ic2e.2017.52
+
+* Chelladhurai, J., Chelliah, P. R., & Kumar, S. A. (2016). Securing Docker Containers from Denial of Service (DoS) Attacks. 2016 IEEE International Conference on Services Computing (SCC). doi:10.1109/scc.2016.123
+
+* Combe, T., Martin, A., & Pietro, R. D. (2016). To Docker or Not to Docker: A Security Perspective. IEEE Cloud Computing,3(5), 54-62. doi:10.1109/mcc.2016.100
+
+* Luo, Y., Luo, W., Sun, X., Shen, Q., Ruan, A., & Wu, Z. (2016). Whispers between the Containers: High-Capacity Covert Channel Attacks in Docker. 2016 IEEE Trustcom/BigDataSE/ISPA. doi:10.1109/trustcom.2016.0119
+
+* Mp, A. R., Kumar, A., Pai, S. J., & Gopal, A. (2016). Enhancing security of Docker using Linux hardening techniques. 2016 2nd International Conference on Applied and Theoretical Computing and Communication Technology (iCATccT). doi:10.1109/icatcct.2016.7911971
+
 
 **Similar Work**
 
