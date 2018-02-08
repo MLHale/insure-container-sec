@@ -38,25 +38,22 @@ Throughout the course of the project, the team will likely experience a variety 
 
 # Project Methodology
 
-**Literature Review**
+**User Stories**<br>
+In order to determine the best path for the project, some important user stories were identified. Those were:
 
-* Azab, A. (2017). Enabling Docker Containers for High-Performance and Many-Task Computing. 2017 IEEE International Conference on Cloud Engineering (IC2E). doi:10.1109/ic2e.2017.52
+```As a security professional, I want to confirm my organization's containers are secure, so there is no unauthorized information disclosure.```
 
-* Chelladhurai, J., Chelliah, P. R., & Kumar, S. A. (2016). Securing Docker Containers from Denial of Service (DoS) Attacks. 2016 IEEE International Conference on Services Computing (SCC). doi:10.1109/scc.2016.123
 
-* Combe, T., Martin, A., & Pietro, R. D. (2016). To Docker or Not to Docker: A Security Perspective. IEEE Cloud Computing,3(5), 54-62. doi:10.1109/mcc.2016.100
+```As a security professional, I want a automated tool to confirm the security of containers, so I can improve my efficiency and focus efforts elsewhere.
+```
 
-* Luo, Y., Luo, W., Sun, X., Shen, Q., Ruan, A., & Wu, Z. (2016). Whispers between the Containers: High-Capacity Covert Channel Attacks in Docker. 2016 IEEE Trustcom/BigDataSE/ISPA. doi:10.1109/trustcom.2016.0119
+**Literature Review**<br>
+Relevant research papers have been identified. These are listed in the "Relevant Literature" section below. These each somehow touch the scope of our project, and will be utilized and referenced when possible for the duration of our project.
 
-* Mp, A. R., Kumar, A., Pai, S. J., & Gopal, A. (2016). Enhancing security of Docker using Linux hardening techniques. 2016 2nd International Conference on Applied and Theoretical Computing and Communication Technology (iCATccT). doi:10.1109/icatcct.2016.7911971
+**Technical Plan**<br>
+Our general plan is to create a Docker container, composed of other Docker containers and components. Each component will complete a dedicated security related task. Components will use existing scripts and tools when possible, to evaluate targets. Scripts to use these tools will be written in bash and python. Any important output will be sent up to the component caller, where it will be added to a report.
 
-* (need to cite the caves paper but having issues finding the citation) 
-
-**Similar Work**
-
-In 2015 IBM released the Vulnerability Advisor, a service that scans containers for vulnerabilities and flaws in policy. Looking at IBM's product what information professionals are looking for when having their containers inspected for flaws. This includes both known vulnerabilities and policy flaws and notes how serious the threat is.
-
-**Technical Plan**
+To scan a target, a configuration file will be specified and ingested by the scanning container. 
 
 # Required Materials
 
@@ -71,6 +68,7 @@ In order to complete the CCVAC project, the team will need the following materia
 
 # First Sprint Plan
 ![First Sprint](/assets/first_sprint.png "First Sprint")
+
 
 ## Qualifications
 
@@ -93,3 +91,16 @@ This team consists of two graduate students and three undergrad students from th
 - Michael Keck (michaelkeck@unomaha.edu)
 - Alisa Bohac (abohac@unomaha.edu)
 - Alexander Diaz (agdiaz@unomaha.edu)
+
+### Relevant Literature
+
+* Azab, A. (2017). Enabling Docker Containers for High-Performance and Many-Task Computing. 2017 IEEE International Conference on Cloud Engineering (IC2E). doi:10.1109/ic2e.2017.52
+
+* Chelladhurai, J., Chelliah, P. R., & Kumar, S. A. (2016). Securing Docker Containers from Denial of Service (DoS) Attacks. 2016 IEEE International Conference on Services Computing (SCC). doi:10.1109/scc.2016.123
+
+* Combe, T., Martin, A., & Pietro, R. D. (2016). To Docker or Not to Docker: A Security Perspective. IEEE Cloud Computing,3(5), 54-62. doi:10.1109/mcc.2016.100
+
+* Luo, Y., Luo, W., Sun, X., Shen, Q., Ruan, A., & Wu, Z. (2016). Whispers between the Containers: High-Capacity Covert Channel Attacks in Docker. 2016 IEEE Trustcom/BigDataSE/ISPA. doi:10.1109/trustcom.2016.0119
+
+* Mp, A. R., Kumar, A., Pai, S. J., & Gopal, A. (2016). Enhancing security of Docker using Linux hardening techniques. 2016 2nd International Conference on Applied and Theoretical Computing and Communication Technology (iCATccT). doi:10.1109/icatcct.2016.7911971
+* (need to cite the caves paper but having issues finding the citation)
