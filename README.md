@@ -10,7 +10,7 @@ The completion of CCVAS will look to achieve the following list of goals:
 * Test created scripts and selected commands against a container that implements CAVES.
 * Generate a PDF report documenting findings of tested containers.
 
-# Preposed Project Timeline
+# Proposed Project Timeline
 
 In order to achieve all of our project goals, the team has created a timeline to help them meet important deadlines.  The following list documents the basic tasks the team aims to meet throughout the weeks.  A more detailed Gantt chart can be referenced below for a week-by-week breakdown of project deadlines.
 
