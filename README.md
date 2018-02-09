@@ -93,8 +93,6 @@ This team consists of two graduate students and three undergrad students from th
 
 ### Relevant Literature
 
-* Azab, A. (2017). Enabling Docker Containers for High-Performance and Many-Task Computing. 2017 IEEE International Conference on Cloud Engineering (IC2E). doi:10.1109/ic2e.2017.52
-
 * Chelladhurai, J., Chelliah, P. R., & Kumar, S. A. (2016). Securing Docker Containers from Denial of Service (DoS) Attacks. 2016 IEEE International Conference on Services Computing (SCC). doi:10.1109/scc.2016.123
   * Securing Docker Containers from Denial of Service (DOS) Attacks gives users a look at a few vulnerabilities that comes with using       the Docker environment.  The Paper points out that because of the way containers forwards all incoming packets without filtering         them, they are open to ARP and MAC flooding attacks.  This information will help by providing our team with known issues of the         containers architect that we will be able look at and expand on during our testing of the containers. 
   
