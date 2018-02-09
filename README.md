@@ -96,11 +96,13 @@ This team consists of two graduate students and three undergrad students from th
 * Azab, A. (2017). Enabling Docker Containers for High-Performance and Many-Task Computing. 2017 IEEE International Conference on Cloud Engineering (IC2E). doi:10.1109/ic2e.2017.52
 
 * Chelladhurai, J., Chelliah, P. R., & Kumar, S. A. (2016). Securing Docker Containers from Denial of Service (DoS) Attacks. 2016 IEEE International Conference on Services Computing (SCC). doi:10.1109/scc.2016.123
-
+  * Securing Docker Containers from Denial of Service (DOS) Attacks gives users a look at a few vulnerabilities that comes with using       the Docker environment.  The Paper points out that because of the way containers forwards all incoming packets without filtering         them, they are open to ARP and MAC flooding attacks.  This information will help by providing our team with known issues of the         containers architect that we will be able look at and expand on during our testing of the containers. 
+  
 * Combe, T., Martin, A., & Pietro, R. D. (2016). To Docker or Not to Docker: A Security Perspective. IEEE Cloud Computing,3(5), 54-62. doi:10.1109/mcc.2016.100
-
+  * To Docker or Not to Docker: A Security Perspective, provides and overview of the container environment.   The over view encompasses     everything from Docker internals, and specifications to security issues that come with using the containers.  The paper provides         Common Vulnerabilities and Exposures (CVE) that are relevant to the Docker containers, and gives information on weak access         controls, image distribution vulnerabilities and configuration security issues. 
+  
 * Luo, Y., Luo, W., Sun, X., Shen, Q., Ruan, A., & Wu, Z. (2016). Whispers between the Containers: High-Capacity Covert Channel Attacks in Docker. 2016 IEEE Trustcom/BigDataSE/ISPA. doi:10.1109/trustcom.2016.0119
+  * Due to the rapid development of the Docker environment, security was not set as a high priority leaving the system opened to             security issues.  This paper investigates several possible covert channels that cause information leaks between containers.  
 
 * Mp, A. R., Kumar, A., Pai, S. J., & Gopal, A. (2016). Enhancing security of Docker using Linux hardening techniques. 2016 2nd International Conference on Applied and Theoretical Computing and Communication Technology (iCATccT). doi:10.1109/icatcct.2016.7911971
-
-* Ramsdell, J. D., Guttman, J. D., Millen, J. K., & O'Hanlon, B. (2012). An analysis of the CAVES attestation protocol using CPSA. arXiv preprint arXiv:1207.0418. https://arxiv.org/abs/1207.0418
+  * 
