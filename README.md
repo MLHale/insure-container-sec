@@ -103,4 +103,4 @@ This team consists of two graduate students and three undergrad students from th
   * Due to the rapid development of the Docker environment, security was not set as a high priority leaving the system opened to             security issues.  This paper investigates several possible covert channels that cause information leaks between containers.  
 
 * Mp, A. R., Kumar, A., Pai, S. J., & Gopal, A. (2016). Enhancing security of Docker using Linux hardening techniques. 2016 2nd International Conference on Applied and Theoretical Computing and Communication Technology (iCATccT). doi:10.1109/icatcct.2016.7911971
-  * 
+  * This paper provides Linux security features and techniques that will enhance the security of the Docker container.  Using AppArmor       and SELinux module settings within this systems to help harden the Docker system.  
