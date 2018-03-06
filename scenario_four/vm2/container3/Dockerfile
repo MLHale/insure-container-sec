@@ -12,7 +12,7 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 WORKDIR /root
 ADD container4.sh ./container4.sh
-
+RUN chmod 700 container4.sh
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
