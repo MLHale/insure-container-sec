@@ -1,0 +1,4 @@
+Host container3.cont
+  User          root
+  HostName      container3.cont
+  ProxyCommand  ssh root@container2.cont nc %h %p 2> /dev/null

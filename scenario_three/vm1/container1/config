@@ -1,0 +1,4 @@
+Host container3.cont
+  User          root
+  HostName      container3.cont
+  ProxyCommand  ssh root@172.16.239.205 -p 5555 nc %h %p 2> /dev/null
