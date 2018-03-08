@@ -13,7 +13,7 @@ Below are detailed steps to how Docker was setup along installing the containers
 
   1. Please note, the Dockerfile initiates port 22 to be open to create a secure channel amongst the contaiers.
 
-Below are the senarios that were needed to be designed and needed to be tested that secure communication is working properly amongst them all.
+Below are the senarios that were needed to be designed and implementated secure communication amongst them all.
 
 -- need to discuss more about the different senarios and hypervisors
 ![vmorginal](/Diagrams/vmorginal.png "vm on architecture")
