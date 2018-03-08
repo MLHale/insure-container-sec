@@ -11,7 +11,7 @@ Below are detailed steps to how Docker was setup along installing the containers
 3. cd /home/capstone/ and create containers directories
 4. Below is a sample of the Dockerfile (necessary to generate containers) that was created for the first senario container 1.![sampleDockerfile](/Diagrams/sampleDockerfile.png "sampleDockerfile")
 
-  1. Please note, the Dockerfile initaites port 22 to be open to create a secure channel amongst the contaiers.
+  1. Please note, the Dockerfile initiates port 22 to be open to create a secure channel amongst the contaiers.
 
 Below are the senarios that were needed to be designed and needed to be tested that secure communication is working properly amongst them all.
 
