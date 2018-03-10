@@ -8,11 +8,19 @@ To recap the two parts of the project -
 - Part 1 (Secure Communication Amongst Containers): Using NSA scenarios, verify SSH capabilities between containers located on different VMs.
 - Part 2 (Container Verification Configuration as a Container): Create a script that can be run from a Docker container to test another Docker container for predetermined vulnerabilities.
 
-# Progress
+### Progress
 
 The team has nearly finished part one of the project in its entirety.  Over the past weeks, they created four Docker containers with SSH capabilties and have establishes three Ubuntu 16.04 virtual machines.  Specifically, these virtual machines are running on two different ESXI hypervisors as requested by the project sponsor.  To simplify the transfer of the data file between multiple containers, the SSH ProxyCommand configuration option has been utilized.  A bash script has been written for each specific scenario.
 
 While the team has been focusing on completing Part 1, they have also determined a baseline of what they want to test for in Part 2.  They will be running tests from each of the seven sections in the "CIS Docker Community Edition Benchmark v1.0" document.  
+
+### Outcomes
+
+The progress outcomes referneced above are summarized by the bullets below.
+* Established three VMs on two different ESXI Hypervisors
+* Created four Docker containers
+* Created a Bash script to satisfy each of the four NSA scenarios
+* Determined a baseline to begin Part 2 of the project
 
 # Technical Implementation
 
