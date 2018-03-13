@@ -48,12 +48,17 @@ Below are detailed steps to how Docker was setup along installing the containers
 Below are the senarios that were needed to be designed and implementated secure communication amongst them all.
 
 -- need to discuss more about the different senarios and hypervisors
+###Scenario 1
 ![vmorginal](/Diagrams/vmorginal.png "vm on architecture")
 
+###Scenario 2
 ![vm1](/Diagrams/vm1.png "1vm on hypervisor")
 
+###Scenario 3
 ![2vms](/Diagrams/2vms.png "2vms on same hypervisor")
 
+###Scenario 4
 ![3vms](/Diagrams/3vms.png "3vms on different hypervisors")
 
+###CCVAS
 ![testplan](/Diagrams/testplan.png "Containers high-level")
