@@ -30,6 +30,11 @@ The progress outcomes referneced above are summarized by the bullets below.
 * Created a Bash script to satisfy each of the four NSA scenarios
 * Determined a baseline to begin Part 2 of the project
 
+### Hinderances
+
+Thus far, we have had a total of 2.5 project changes.  Unfortuantley, this set us back a bit at the beginning.  The only other hinderance we ran into was miscommunication with our project sponsor about Part 2 of our project.
+
+
 # Technical Implementation
 
 The team has broked down the technical portion in two parts: the setup of the containers then testing.
