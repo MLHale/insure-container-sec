@@ -59,7 +59,7 @@ Below are detailed steps to how Docker was setup along installing the containers
 3. cd /home/capstone/ and create containers directories
 4. Below is a sample of the Dockerfile (necessary to generate containers) that was created for the first senario container 1.![sampleDockerfile](/Diagrams/sampleDockerfile.png "sampleDockerfile")
 
-  1. Please note, the Dockerfile initiates port 22 to be open to create a secure channel amongst the contaiers.
+  1. Please note, the Dockerfile initiates port 22 to create a secure channel amongst the containers. 
 
 Below are the senarios that were needed to be designed and implementated secure communication amongst them all.
 
@@ -78,3 +78,16 @@ Below are the senarios that were needed to be designed and implementated secure 
 
 ### CCVAS
 ![testplan](/Diagrams/testplan.png "Containers high-level")
+
+###Next Milestone Planning
+
+The team will stand up another container that will be utilized for testing other containers. To do so the team will further research potential tools to include in the container that will run on the containter that will be tested. 
+
+Potential Tools:
+ 1. OpenVas vulnerability scanning
+ 2. nmap
+ 3. CIS Benchmark
+
+The plan is to implement those tools and run them against a potential container for finding potential vulnerabilities. In which those findings would be benefial for our project partenter. As they could take this container and test any container they have for potential vulnerabilities. 
+
+The team would utilzie the test container to test one of the containers in the initial scenariors that were setup. 
