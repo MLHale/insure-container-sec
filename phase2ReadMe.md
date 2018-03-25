@@ -42,7 +42,7 @@ Most of our risks have remained the same throughout the semseter.  The only chan
 | ---------- | ------------------- | ---------- | ------------- |
 | Lack of skill set (3) | Group has an overall lack of experience with a given skill, hindering project efficiency.| 1 | 3 |
 | Team member availability (8) | Group is unable to meet at the same time as the class meets at different sessions for graduates and undergraduates. | 2 | 4 |
-| ~~Unable to obtain or replicate CAVES model. (12)~~| ~~The team is unable to create/obtain a VM that follows the CAVES model for testing.~~| ~~3~~| ~~4~~ | 
+| ~~Unable to obtain or replicate CAVES model. (12)~~| ~~The team is unable to create/obtain a VM that follows the CAVES model for testing.~~| ~~3~~| ~~4~~ |
 | Scope creep (28) | Unable to test all desired vulnerabilities due to lack of time. | 4 | 7 |
 | Divergence in goals (10) | Team and sponsor begin to picture different goals for project as time progresses. | 5 | 2 |
 
@@ -59,13 +59,14 @@ Below are detailed steps to how Docker was setup along installing the containers
 3. cd /home/capstone/ and create containers directories
 4. Below is a sample of the Dockerfile (necessary to generate containers) that was created for the first senario container 1.![sampleDockerfile](/Diagrams/sampleDockerfile.png "sampleDockerfile")
 
-  1. Please note, the Dockerfile initiates port 22 to create a secure channel amongst the containers. 
+  1. Please note, the Dockerfile initiates port 22 to create a secure channel amongst the containers.
 
 Below are the senarios that were needed to be designed and implementated secure communication amongst them all.
 
 -- need to discuss more about the different senarios and hypervisors
 ### Scenario 1
 ![vmorginal](/Diagrams/vmorginal.png "vm on architecture")
+![Documentation](/scenario_one_and_two/docs.md)
 
 ### Scenario 2
 ![vm1](/Diagrams/vm1.png "1vm on hypervisor")
@@ -81,13 +82,13 @@ Below are the senarios that were needed to be designed and implementated secure 
 
 ### Next Milestone Planning
 
-The team will stand up another container that will be utilized for testing other containers. To do so the team will further research potential tools to include in the container that will run on the containter that will be tested. 
+The team will stand up another container that will be utilized for testing other containers. To do so the team will further research potential tools to include in the container that will run on the containter that will be tested.
 
 Potential Tools:
  1. OpenVas vulnerability scanning
  2. nmap
  3. CIS Benchmark
 
-The plan is to implement those tools and run them against a potential container for finding potential vulnerabilities. In which those findings would be benefial for our project partenter. As they could take this container and test any container they have for potential vulnerabilities. 
+The plan is to implement those tools and run them against a potential container for finding potential vulnerabilities. In which those findings would be benefial for our project partenter. As they could take this container and test any container they have for potential vulnerabilities.
 
-The team would utilzie the test container to test one of the containers in the initial scenariors that were setup. 
+The team would utilzie the test container to test one of the containers in the initial scenariors that were setup.
