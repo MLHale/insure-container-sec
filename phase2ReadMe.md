@@ -65,8 +65,9 @@ Below are the senarios that were needed to be designed and implementated secure 
 
 -- need to discuss more about the different senarios and hypervisors
 ### Scenario 1
+[Documentation](/scenario_one_and_two/docs.md)
 ![vmorginal](/Diagrams/vmorginal.png "vm on architecture")
-![Documentation](/scenario_one_and_two/docs.md)
+
 
 ### Scenario 2
 ![vm1](/Diagrams/vm1.png "1vm on hypervisor")
