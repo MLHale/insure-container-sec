@@ -79,7 +79,7 @@ Below are the senarios that were needed to be designed and implementated secure 
 ### CCVAS
 ![testplan](/Diagrams/testplan.png "Containers high-level")
 
-###Next Milestone Planning
+### Next Milestone Planning
 
 The team will stand up another container that will be utilized for testing other containers. To do so the team will further research potential tools to include in the container that will run on the containter that will be tested. 
 
