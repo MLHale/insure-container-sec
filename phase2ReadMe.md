@@ -96,4 +96,4 @@ The plan is to implement those tools and run them against a potential container 
 The team would utilzie the test container to test one of the containers in the initial scenariors that were setup.
 
 The updated Kanban board can be viewed below:
-![Updated Kanban](/assets/kanban.gif "Updated Kanban")
+![kanban](/assets/kanban.gif "Updated Kanban")
