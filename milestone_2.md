@@ -10,7 +10,7 @@ To recap the two parts of the project -
 
 ### Progress
 
-The team has nearly finished part one of the project in its entirety.  Over the past weeks, they created four Docker containers with SSH capabilties and have establishes three Ubuntu 16.04 virtual machines.  These virtual machines are running on two different ESXI hypervisors as requested by the project sponsor.  To simplify the transfer of the data file between multiple containers, the SSH ProxyCommand configuration option has been utilized.  A bash script has been written for each specific scenario.
+The team has nearly finished part one of the project in its entirety.  Over the past weeks, they created four Docker containers with SSH capabilities and have establishes three Ubuntu 16.04 virtual machines.  These virtual machines are running on two different ESXI hypervisors as requested by the project sponsor.  To simplify the transfer of the data file between multiple containers, the SSH ProxyCommand configuration option has been utilized.  A bash script has been written for each specific scenario.
 
 While the team has been focusing on completing Part 1, they have also determined a baseline of what they want to test for in Part 2.  They will be running tests from each of the seven sections in the "CIS Docker Community Edition Benchmark v1.0" document.  Specifically, these seven categories include -
 
@@ -22,9 +22,11 @@ While the team has been focusing on completing Part 1, they have also determined
 * Docker Security Operations
 * Docker Swarm Configuration
 
+Other tests will include utilizing OpenVas to enumerate any existing vulnerabilities, and nmap to enumerate open ports and service versions.
+
 ### Outcomes
 
-The progress outcomes referneced above are summarized by the bullets below.
+The progress outcomes referenced above are summarized by the bullets below.
 * Established three VMs on two different ESXI Hypervisors
 * Created four Docker containers
 * Created a Bash script to satisfy each of the four NSA scenarios
@@ -32,11 +34,11 @@ The progress outcomes referneced above are summarized by the bullets below.
 
 ### Hinderances
 
-Thus far, we have had a total of 2.5 project changes.  Unfortuantley, this set us back a bit at the beginning.  The only other hinderance we ran into was miscommunication with our project sponsor about Part 2 of our project.
+Thus far, we have had a total of 2.5 project changes.  Unfortunately, this set us back a bit at the beginning.  The only other hinderance we ran into was miscommunication with our project sponsor about Part 2 of our project.
 
 ### Ongoing Risks
 
-Most of our risks have remained the same throughout the semseter.  The only change we have seen is removing the possibility of being unable to replicate the CAVES model.  You can see this change in the table below.
+Most of our risks have remained the same throughout the semester.  The only change we have seen is removing the possibility of being unable to replicate the CAVES model.  You can see this change in the table below.
 
 | Risk       | Description of Risk | Likelihood | Impact Factor |
 | ---------- | ------------------- | ---------- | ------------- |
@@ -48,22 +50,20 @@ Most of our risks have remained the same throughout the semseter.  The only chan
 
 # Technical Implementation
 
-The team has broked down the technical portion in two parts: the setup of the containers then testing.
-
 ### Setup
-The setup process started with hosting a Linux virutal machine at UNO from which Docker was installed along with four containers. The four containers were setup to have a secure communication channel amongst them.  That VM was then cloned to another one on the same hypervisor then again to another hypervisor.
+The setup process started with hosting a Ubuntu 16.04 virtual machine at UNO. Docker was installed using:
+``` apt-get install docker.io
+```
 
-Below are detailed steps to how Docker was setup along installing the containers:
-1. SSH to 137.48.251.97 with username Capstone and authenticate with the public key
-2. Run: apt-get install docker.io
-3. cd /home/capstone/ and create containers directories
-4. Below is a sample of the Dockerfile (necessary to generate containers) that was created for the first senario container 1.![sampleDockerfile](/Diagrams/sampleDockerfile.png "sampleDockerfile")
+Dockerfiles are what are utilized to actually build and create containers with docker. All of the Dockerfiles for each scenario and container are  extremely similar. When built, they all create Ubuntu 16.04 containers, with ssh installed and listening on port 22. The root password for each container is "password". There are some slight modifications of some Dockerfiles to add certain configurations and files when need.
 
-  1. Please note, the Dockerfile initiates port 22 to create a secure channel amongst the containers.
+ ![sampleDockerfile](/Diagrams/sampleDockerfile.png "sampleDockerfile")
 
-Below are the senarios that were needed to be designed and implementated secure communication amongst them all.
+Additionally, to make things easy, Makefiles were created for each containers. This makes building, stoping, and removing containers easy.
 
--- need to discuss more about the different senarios and hypervisors
+
+Below are the scenarios that were needed to be designed and implemented secure communication amongst them all.
+
 ### Scenario 1
 For details on how to setup scenario one and two, please refer to the [documentation](/scenario_one_and_two/docs.md).
 ![vmorginal](/Diagrams/vmorginal.png "vm on architecture")
@@ -86,17 +86,7 @@ For details on how to setup scenario four, please refer to the [documentation](/
 
 ### Next Milestone Planning
 
-The team will stand up another container that will be utilized for testing other containers. To do so the team will further research potential tools to include in the container that will run on the containter that will be tested.
-
-Potential Tools:
- 1. OpenVas vulnerability scanning
-    - Utilzies the current CVE for Ubuntu to test against all known vulnerabilties
- 2. nmap
- 3. CIS Benchmark (Ubuntu 16.04, Docker)
-
-The plan is to implement those tools and run them against a potential container for finding potential vulnerabilities. In which those findings would be benefial for our project partenter. As they could take this container and test any container they have for potential vulnerabilities.
-
-The team would utilzie the test container to test one of the containers in the initial scenariors that were setup.
+The team will create a container that will be utilized for testing other containers. This container will be able to scan either local or remote containers. Some features may be lost if not scanning locally. For example, the CIS Docker benchmark does not actually scan individual containers, but rather insures the host operating system is set up to securely host docker containers. Additionally, the team will further research potential tools to include in the container that will run on the container that will be tested. As an example, the testing container we create will be used to test one of the containers in the initial scenarios.
 
 The updated Kanban board can be viewed below:
 ![kanban](/assets/kanban2.0.PNG "Updated Kanban")
