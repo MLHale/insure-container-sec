@@ -94,3 +94,6 @@ Potential Tools:
 The plan is to implement those tools and run them against a potential container for finding potential vulnerabilities. In which those findings would be benefial for our project partenter. As they could take this container and test any container they have for potential vulnerabilities.
 
 The team would utilzie the test container to test one of the containers in the initial scenariors that were setup.
+
+The updated Kanban board can be viewed below:
+![Updated Kanban](/assets/kanban.png "Updated Kanban")
