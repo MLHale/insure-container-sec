@@ -87,6 +87,7 @@ The team will stand up another container that will be utilized for testing other
 
 Potential Tools:
  1. OpenVas vulnerability scanning
+    - Utilzies the current CVE for Ubuntu to test against all known vulnerabilties
  2. nmap
  3. CIS Benchmark
 
