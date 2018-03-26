@@ -92,7 +92,7 @@ Potential Tools:
  1. OpenVas vulnerability scanning
     - Utilzies the current CVE for Ubuntu to test against all known vulnerabilties
  2. nmap
- 3. CIS Benchmark
+ 3. CIS Benchmark (Ubuntu 16.04, Docker)
 
 The plan is to implement those tools and run them against a potential container for finding potential vulnerabilities. In which those findings would be benefial for our project partenter. As they could take this container and test any container they have for potential vulnerabilities.
 
