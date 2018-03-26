@@ -28,8 +28,7 @@ Other tests will include utilizing OpenVas to enumerate any existing vulnerabili
 
 The progress outcomes referenced above are summarized by the bullets below.
 * Established three VMs on two different ESXI Hypervisors
-* Created four Docker containers
-* Created a Bash script to satisfy each of the four NSA scenarios
+* Implemented the four outlined scenarios utilizing Docker
 * Determined a baseline to begin Part 2 of the project
 
 ### Hinderances
@@ -52,7 +51,8 @@ Most of our risks have remained the same throughout the semester.  The only chan
 
 ### Setup
 The setup process started with hosting a Ubuntu 16.04 virtual machine at UNO. Docker was installed using:
-``` apt-get install docker.io
+```
+apt-get install docker.io
 ```
 
 Dockerfiles are what are utilized to actually build and create containers with docker. All of the Dockerfiles for each scenario and container are  extremely similar. When built, they all create Ubuntu 16.04 containers, with ssh installed and listening on port 22. The root password for each container is "password". There are some slight modifications of some Dockerfiles to add certain configurations and files when need.
