@@ -70,12 +70,15 @@ For details on how to setup scenario one and two, please refer to the [documenta
 
 
 ### Scenario 2
+For details on how to setup scenario one and two, please refer to the [documentation](/scenario_one_and_two/docs.md).
 ![vm1](/Diagrams/vm1.png "1vm on hypervisor")
 
 ### Scenario 3
+For details on how to setup scenario three, please refer to the [documentation](/scenario_three/docs.md).
 ![2vms](/Diagrams/2vms.png "2vms on same hypervisor")
 
 ### Scenario 4
+For details on how to setup scenario four, please refer to the [documentation](/scenario_four/docs.md).
 ![3vms](/Diagrams/3vms.png "3vms on different hypervisors")
 
 ### CCVAS
