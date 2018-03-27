@@ -2,7 +2,7 @@
 
 # Project Realization - Overview
 
-Thus far, the team has been working towards completing both part one and part two of the project.  
+Thus far, the team has been working towards completing both part one and part two of the project.
 
 To recap the two parts of the project -
 - Part 1 (Secure Communication Amongst Containers): Using NSA scenarios, verify SSH capabilities between containers located on different VMs.
@@ -66,12 +66,12 @@ Below are the scenarios that were needed to be designed and implemented secure c
 
 ### Scenario 1
 For details on how to setup scenario one and two, please refer to the [documentation](/scenario_one_and_two/docs.md).
-![vmorginal](/Diagrams/vmorginal.png "vm on architecture")
+![vmorginal](/assets/scenario.png "vm on architecture")
 
 
 ### Scenario 2
 For details on how to setup scenario one and two, please refer to the [documentation](/scenario_one_and_two/docs.md).
-![vm1](/Diagrams/vm1.png "1vm on hypervisor")
+![vm1](/assets/VM1.png "1vm on hypervisor")
 
 ### Scenario 3
 For details on how to setup scenario three, please refer to the [documentation](/scenario_three/docs.md).
