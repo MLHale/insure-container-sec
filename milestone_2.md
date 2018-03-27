@@ -12,15 +12,19 @@ To recap the two parts of the project -
 
 The team has nearly finished part one of the project in its entirety.  Over the past weeks, they created four Docker containers with SSH capabilities and have establishes three Ubuntu 16.04 virtual machines.  These virtual machines are running on two different ESXI hypervisors as requested by the project sponsor.  To simplify the transfer of the data file between multiple containers, the SSH ProxyCommand configuration option has been utilized.  A bash script has been written for each specific scenario.
 
-While the team has been focusing on completing Part 1, they have also determined a baseline of what they want to test for in Part 2.  They will be running tests from each of the seven sections in the "CIS Docker Community Edition Benchmark v1.0" document.  Specifically, these seven categories include -
+While the team has been focusing on completing Part 1, they have also determined a baseline of what they want to test for in Part 2.  They will be running tests from each of the seven sections in the "CIS Ubuntu Linux 16.04 LTS Benchmark" document.  Specifically, these 6 categories -
 
-* Host Configuration
-* Docker Daemon Configuration
-* Docker Daemon Configuration Files
-* Container Images and Build File
-* Container Runtime
-* Docker Security Operations
-* Docker Swarm Configuration
+* Filesystem Configuration
+* Services
+* Network Configuration
+* Logging and Auditing
+* Access, Authentication and Authorization
+* System Maintenance
+
+These will be split into two seperate catagories -
+
+* Server
+* Workstation
 
 Other tests will include utilizing OpenVas to enumerate any existing vulnerabilities, and nmap to enumerate open ports and service versions.
 
