@@ -35,7 +35,7 @@ The progress outcomes referenced above are summarized by the bullets below.
 * Implemented the four outlined scenarios utilizing Docker
 * Determined a baseline to begin Part 2 of the project
 
-### Hinderances
+### Hindrances
 
 Thus far, we have had a total of 2.5 project changes.  Unfortunately, this set us back a bit at the beginning.  The only other hinderance we ran into was miscommunication with our project sponsor about Part 2 of our project.
 
