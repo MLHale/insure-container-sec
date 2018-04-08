@@ -60,7 +60,7 @@ clean:
 
 	a. Docker ps --to list containers that are currently running
 
-7.Run:
+7. Run:
 
   a. sudo docker run \
   --volume=/:/rootfs:ro \
