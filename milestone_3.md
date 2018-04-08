@@ -55,8 +55,10 @@ clean:
 
 
 5. Now Run 'make Run'
+
 6. To ensure the container is running run:
-  1. Docker ps --to list containers that are currently running
+
+	a. Docker ps --to list containers that are currently running
 
 7.Run:
 
