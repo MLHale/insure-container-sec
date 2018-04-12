@@ -1,15 +1,15 @@
 # Milestone 3
+
+Container Configuration Verification as a Container (CCVAC)
 Due May 4, 2018
 
 # Project Overview
 
-Over the course of this semester, the team has worked intensively with Docker to fulfill the goals associated with the project.  The project was composed of two parts, namley verifying SSH capabilities given NSA scenarios and establishing a series of test containers against a specified baseline. 
-
+Over the course of this semester, the team has worked intensively with Docker to fulfill the goals associated with the CCVAC project.  The project was composed of two parts, namley Secure Communication Amongst Containers and Container Verification as a Container.  Specifically, Secure Communication Amongst Containers verified SSH capabilites by utilizing four predetermined scenarios obtained from the team sponsor.  The Container Verification as a Container aspect of the project was established with purpose of leveraging a series of containers running test scripts against other Docker containers to locate security issues.  Results of these efforts can be seen below. 
 
 # Project Realization
 
-The team has focused primarly on architecting a test platform to be able to test various containers, whether they are local or remote. The team took into condersation some various features that could be lost based on the tool that is being implemented.
-
+Part one of the project, Secure Communication Amongst Containers, was completed during the first milestone. Thus, the past few weeks, the team has focused primarly on architecting a test platform to test various containers, whether they are local or remote. The "CIS Ubuntu Linux 16.04 LTS Benchmark" document was used to establish a baseline for the test containers.  The team has created X AMOUTN OF CONTAINERS.  X of the containers are relevant to nearly all systems, and the remaining containers run tests more specific to Ubuntu systems.  It was the goal of the team to create containers that would detect some of the most basic security issues that could be encountered when working with Docker containers.  Upon creating the test containers, a "master container" was established to run the test containers and produce an output document that displays test results.
 
 ### Test platform Architecture
 
