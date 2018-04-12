@@ -1,8 +1,14 @@
 # Milestone 3
+Due May 4, 2018
+
+# Project Overview
+
+Over the course of this semester, the team has worked intensively with Docker to fulfill the goals associated with the project.  The project was composed of two parts, namley verifying SSH capabilities given NSA scenarios and establishing a series of test containers against a specified baseline. 
+
 
 # Project Realization
 
-The team has focused primarly on architecting a test platform to be able to test various containers whether they are local or remote. The team took into condersation some various features that could be lost based on the tool that is being implemented.
+The team has focused primarly on architecting a test platform to be able to test various containers, whether they are local or remote. The team took into condersation some various features that could be lost based on the tool that is being implemented.
 
 
 ### Test platform Architecture
