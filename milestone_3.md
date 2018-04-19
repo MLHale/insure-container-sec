@@ -29,6 +29,19 @@ Part one of the project, Secure Communication Amongst Containers, was completed 
 
 The team has thoughtout the basic architecture of the test platform. Each tool that will be implemented in its own container that is then forwarded to a master container that will contain test results from each tool. Below is a break down of how each tool was implemented.
 
+### Getting Started 
+
+The setup process started with hosting a Ubuntu 16.04 virtual machine at UNO. Docker was installed using:
+```
+apt-get install docker.io
+```
+
+Dockerfiles are what are utilized to actually build and create containers with docker. All of the Dockerfiles for each scenario and container are  extremely similar. When built, they all create Ubuntu 16.04 containers, with ssh installed and listening on port 22. The root password for each container is "password". There are some slight modifications of some Dockerfiles to add certain configurations and files when need.
+
+ ![sampleDockerfile](/Diagrams/sampleDockerfile.png "sampleDockerfile")
+
+Additionally, to make things easy, Makefiles were created for each containers. This makes building, stoping, and removing containers easy.
+
 ### Nmap
 
 ### Container Advisor (cAdvisor)
