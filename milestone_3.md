@@ -11,10 +11,11 @@ In today’s world, the use of virtual machines in daily business operations has
 As organizations move operations to virtual environments, they need tools to ensure that they are being properly utilized. The completion of “Container Configuration Verification as a Container” (CCVAS) will provide a method to evaluate systems that use a virtualization technology known as containers. In particular, CCVAS will try to solve the security problems faced when establishing and utilizing Docker. The end project deliverable will be a container that evaluates the security of other containers. This provides a simplified solution that can help reduce organizations’ risk when operating in virtual environments.
 
 The completion of CCVAS will look to achieve the following list of goals:
-- Determine a list of common Docker configurations that leave virtual environments vulnerable to attack.
+* Establish and leverage VMs and containers to test SSH against sponsor provided scenarios.
+* Determine efficiency of SSH in each scenario.
 * Develop a set of scripts and commands that will test for vulnerabilities.
-* Test created scripts and selected commands against a container that implements CAVES.
-* Generate a PDF report documenting findings of tested containers.
+* Run test scripts against target containers.
+* Create an HTTP server hosting test results.
 
 # Project Overview
 
