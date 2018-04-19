@@ -1,6 +1,6 @@
-# Milestone 3
+# Container Configuration Verification as a Container (CCVAC)
 
-Container Configuration Verification as a Container (CCVAC)
+Milestone 3
 
 Due May 4, 2018
 
