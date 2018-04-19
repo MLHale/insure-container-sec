@@ -4,6 +4,18 @@ Milestone 3
 
 Due May 4, 2018
 
+# Executive Summary
+
+In today’s world, the use of virtual machines in daily business operations has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduces costs associated with purchases of physical machines, energy consumption and cooling. Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  As organizations dependence on virtual infrastructure, continues to grow, so do security attacks against these systems. A single security breach due to poor configurations can end up costing organizations much more than they saved by switching to virtual infrastructure.
+
+As organizations move operations to virtual environments, they need tools to ensure that they are being properly utilized. The completion of “Container Configuration Verification as a Container” (CCVAS) will provide a method to evaluate systems that use a virtualization technology known as containers. In particular, CCVAS will try to solve the security problems faced when establishing and utilizing Docker. The end project deliverable will be a container that evaluates the security of other containers. This provides a simplified solution that can help reduce organizations’ risk when operating in virtual environments.
+
+The completion of CCVAS will look to achieve the following list of goals:
+- Determine a list of common Docker configurations that leave virtual environments vulnerable to attack.
+* Develop a set of scripts and commands that will test for vulnerabilities.
+* Test created scripts and selected commands against a container that implements CAVES.
+* Generate a PDF report documenting findings of tested containers.
+
 # Project Overview
 
 Over the course of this semester, the team has worked intensively with Docker to fulfill the goals associated with the CCVAC project.  The project was composed of two parts, namley Secure Communication Amongst Containers and Container Verification as a Container.  Specifically, Secure Communication Amongst Containers verified SSH capabilites by utilizing four predetermined scenarios obtained from the team sponsor.  The Container Verification as a Container aspect of the project was established with purpose of leveraging a series of containers to run test scripts against other Docker containers.  These test scripts would locate security issues found in the configurations of the host containers.  Results of these efforts can be seen below. 
