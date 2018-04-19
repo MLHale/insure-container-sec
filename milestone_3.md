@@ -24,13 +24,13 @@ Over the course of this semester, the team has worked intensively with Docker to
 
 Part one of the project, Secure Communication Amongst Containers, was completed during the first milestone. Thus, the past few weeks, the team has focused primarly on architecting a cummulative testing platform to scan various containers, whether they are local or remote. The "CIS Ubuntu Linux 16.04 LTS Benchmark" document was used to establish a baseline for the test containers.  The team has created X AMOUTN OF CONTAINERS.  X of the containers are relevant to nearly all systems, and the remaining containers run tests more specific to Ubuntu systems.  It was the goal of the team to create containers that would detect some of the most basic security issues that could be encountered when working with Docker containers.  Upon creating the test containers, a "master container" was established to run the test containers and produce an output document that displays test results.
 
-### Test platform Architecture
+## Test platform Architecture
 
 The team has thoughtout the basic architecture of the test platform. Each tool that will be implemented in its own container that is then forwarded to a master container that will contain test results from each tool. Below is a break down of how each tool was implemented.
 
-# Nmap
+### Nmap
 
-# Container Advisor (cAdvisor)
+### Container Advisor (cAdvisor)
 
 cAdvisor it provides an in-depth understanding of performance characteristics and resource usage of containers. In which, this data would be beneficial for a Security expert to analyze the data and spot abnormalities in containers that could be an indicator of compromise.
 
@@ -98,4 +98,6 @@ clean:
 
 
 
-# OpenVas
+### OpenVas
+
+### Ubuntu
