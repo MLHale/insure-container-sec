@@ -25,6 +25,25 @@ Over the course of this semester, the team has worked intensively with Docker to
 
 Part one of the project, Secure Communication Amongst Containers, was completed during the first milestone. Thus, the past few weeks, the team has focused primarly on architecting a cummulative testing platform to scan various containers, whether they are local or remote. The "CIS Ubuntu Linux 16.04 LTS Benchmark" document was used to establish a baseline for the test containers.  The team has created X AMOUTN OF CONTAINERS.  X of the containers are relevant to nearly all systems, and the remaining containers run tests more specific to Ubuntu systems.  It was the goal of the team to create containers that would detect some of the most basic security issues that could be encountered when working with Docker containers.  Upon creating the test containers, a "master container" was established to run the test containers and produce an output document that displays test results.
 
+# Project Methodology
+
+**User Stories**<br>
+In order to determine the best path for the project, some important user stories were identified. Those were:
+
+```As a security professional, I want to confirm my organization's containers are secure, so there is no unauthorized information disclosure.```
+
+
+```As a security professional, I want a automated tool to confirm the security of containers, so I can improve my efficiency and focus efforts elsewhere.```
+
+**Literature Review**<br>
+Relevant research papers have been identified. These are listed in the "Relevant Literature" section below. These each somehow touch the scope of our project, and will be utilized and referenced when possible for the duration of our project.
+
+**Technical Plan**<br>
+Our general plan is to create a Docker container, composed of other Docker containers and components. Each component will complete a dedicated security related task. Components will use existing scripts and tools when possible to evaluate targets.  Currently, we plan to run tests such as nmap and OWASP Top 10 to discover any possible configuration vulnerabilities. Docker files will be checked for configuration issues and threats. Scripts to use these tools will be written in bash and python. Any important output will be sent up to the component caller, where it will be added to a report. This report will be a consolidation of all the important data and output in a PDF file.
+
+To scan a target, a configuration file will be specified and ingested by the scanning container.
+
+
 ## Getting Started 
 
 The setup process started with hosting a Ubuntu 16.04 virtual machine at UNO. Docker was installed using:
