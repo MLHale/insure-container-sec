@@ -59,7 +59,16 @@ Dockerfiles are what are utilized to actually build and create containers with d
 
 Additionally, to make things easy, Makefiles were created for each containers. This makes building, stoping, and removing containers easy.
 
-## Test platform Architecture
+## Secure Communication Amongst Containers - Platform Architecture
+
+### Secure Communication Amongst Containers - Results
+
+By use of the previous architecture, the team was able to fulfill each of the four scenarios described above.  In addition to proving SSH capabilites for each scenario, the team also determined the efficiency of each scenario.  For each scenario, the same text file was sent via SCP.  Specific findings are discussed below.
+
+Scenario One and Two - The file was transferred in 0.1 seconds.  The file was sent at a speed of 24,205.0 bytes per second and was received at a speed of 32,123.9 bytes per second.
+
+
+## Test Platform Architecture
 
 The team has thoughtout the basic architecture of the test platform. Each tool that will be implemented in its own container that is then forwarded to a master container that will contain test results from each tool. Below is a break down of how each tool was implemented.
 
@@ -136,6 +145,10 @@ clean:
 ### OpenVas
 
 ### Ubuntu
+
+### Docker
+
+Docker benchmark stuff
 
 ## Qualifications
 
