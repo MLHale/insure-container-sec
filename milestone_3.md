@@ -59,14 +59,25 @@ Dockerfiles are what are utilized to actually build and create containers with d
 
 Additionally, to make things easy, Makefiles were created for each containers. This makes building, stoping, and removing containers easy.
 
-## Secure Communication Amongst Containers - Platform Architecture
+## Secure Communication Amongst Containers Architecture
 
-### Secure Communication Amongst Containers - Results
+Specific documentation, including setup and how to run each scenario, can be found in the docs.md files in each scenario directory.
+
+**Scenario One and Two -** The first two scenarios simply require SSH communication between three containers that are all running on the same operating system/machine.  Container 1 must only directly communicate with container 2 with and container3 and only communicate directly with container 2.
+
+**Scenario Three -** Similar to scenarios one and two, scenario three requires secure communication between three containers.  However, one container is on one machine, while the other two are on another.  Both machines are run on the same hypervisor.   Container 1 must only directly communicate with container 2. Container 3 must only directly communicate with container 2.
+
+**Scenario Four -** Scenario four requires secure communication channels to be created between four containers. There must be one container (Container 1) on one virtual machine, two containers on another virtual machine (containers 2 & 3). Both of these virtual machines are required to be on the same hypervisor. A third virtual machine with one container (Container 4) running on another hypervisor must also be used. Container 1 must only directly communicate with Container 2. Container 2 must only directly communicate with Container 1 and Container 3. Container 3 must only directly communicate with Container 2 and Container 4. Container 4 must only directly communicate with Container 3.
+
+### Secure Communication Amongst Containers Results
 
 By use of the previous architecture, the team was able to fulfill each of the four scenarios described above.  In addition to proving SSH capabilites for each scenario, the team also determined the efficiency of each scenario.  For each scenario, the same text file was sent via SCP.  Specific findings are discussed below.
 
-Scenario One and Two - The file was transferred in 0.1 seconds.  The file was sent at a speed of 24,205.0 bytes per second and was received at a speed of 32,123.9 bytes per second.
+**Scenario One and Two -** The file was transferred in 0.1 seconds.  The file was sent at a speed of 24,205.0 bytes per second and was received at a speed of 32,123.9 bytes per second.
 
+**Scenario Three -**
+
+**Scenario Four-**
 
 ## Test Platform Architecture
 
