@@ -45,6 +45,12 @@ Our general plan is to create a Docker container, composed of other Docker conta
 
 To scan a target, a configuration file will be specified and ingested by the scanning container.
 
+# Results
+
+Summary of results here
+
+**Outcomes**
+
 
 ## Getting Started 
 
