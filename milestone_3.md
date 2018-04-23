@@ -81,7 +81,7 @@ By use of the previous architecture, the team was able to fulfill each of the fo
 
 ## Test Platform Architecture
 
-The team has thoughtout the basic architecture of the test platform. Each tool that will be implemented in its own container that is then forwarded to a master container that will contain test results from each tool. Below is a break down of how each tool was implemented.
+The team greatly considered the basic architecture of the test platform. Each tool that will be implemented in its own container that is then run from to a master container that will contain test results from each tool. Below is a break down of how each tool was implemented.
 
 ### Nmap
 
@@ -156,6 +156,8 @@ clean:
 ### OpenVas
 
 ### Ubuntu
+
+The Ubuntu container will only be called upon by the master container if the target machines run a Ubuntu operating system.  Users running the master container will have the option to enter "yes" or "no" when prompted whether or not the target machine is running Ubuntu.  If the users enter "no", the master container will skip over this script.  Thus, the Ubuntu script will not be impletmented as a script, but will be copied into the master container when necessary.  The Ubuntu script can be found in the X CONTAINER under benchmark.sh file.
 
 ### Docker
 
