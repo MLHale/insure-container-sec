@@ -75,7 +75,7 @@ Specific documentation, including setup and how to run each scenario, can be fou
 
 ![vmorginal](/assets/scenario.png "vm on architecture")
 
-**Scenarion two**
+**Scenario two**
 
 ![vm1](/assets/VM1.png "1vm on hypervisor")
 
