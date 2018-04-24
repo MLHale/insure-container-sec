@@ -13,7 +13,7 @@ As organizations move operations to virtual environments, they need tools to ens
 The completion of CCVAS will look to achieve the following list of goals:
 * Establish and leverage VMs and containers to test SSH against sponsor provided scenarios.
 * Determine efficiency of SSH in each scenario.
-* Develop a containerized set of scripts and commands that will test for vulnerabilities.
+* Develop a set of scripts and commands that will test for vulnerabilities.
 * Run test scripts against target containers.
 * Create an HTTP server hosting test results.
 
@@ -47,9 +47,6 @@ To scan a target, a configuration file will be specified and ingested by the sca
 
 # Results
 
-Upon culmination of the semester, the team has fully completed CCVAC.  The completion of the project included fulfilling all of the goals listed above.  Specifically, the team successfully implemented all four SSH scenarios.  By implementing these scenarios, the team proved that SSH capabilities between both Docker containers and virtual machines is possible, regardless of placement of containers in the VMs and VMs on the hypervisor.
-
-
 Summary of results here
 
 **Outcomes**
@@ -74,9 +71,19 @@ Specific documentation, including setup and how to run each scenario, can be fou
 
 **Scenario One and Two -** The first two scenarios simply require SSH communication between three containers that are all running on the same operating system/machine.  Container 1 must only directly communicate with container 2 with and container3 and only communicate directly with container 2.
 
+**Scenario One **
+![vmorginal](/assets/scenario.png "vm on architecture")
+
+**Scenarion two**
+
+![vm1](/assets/VM1.png "1vm on hypervisor")
+
 **Scenario Three -** Similar to scenarios one and two, scenario three requires secure communication between three containers.  However, one container is on one machine, while the other two are on another.  Both machines are run on the same hypervisor.   Container 1 must only directly communicate with container 2. Container 3 must only directly communicate with container 2.
+![2vms](/Diagrams/2vms.png "2vms on same hypervisor")
+
 
 **Scenario Four -** Scenario four requires secure communication channels to be created between four containers. There must be one container (Container 1) on one virtual machine, two containers on another virtual machine (containers 2 & 3). Both of these virtual machines are required to be on the same hypervisor. A third virtual machine with one container (Container 4) running on another hypervisor must also be used. Container 1 must only directly communicate with Container 2. Container 2 must only directly communicate with Container 1 and Container 3. Container 3 must only directly communicate with Container 2 and Container 4. Container 4 must only directly communicate with Container 3.
+![3vms](/Diagrams/3vms.png "3vms on different hypervisors")
 
 ### Secure Communication Amongst Containers Results
 
