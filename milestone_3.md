@@ -13,7 +13,7 @@ As organizations move operations to virtual environments, they need tools to ens
 The completion of CCVAS will look to achieve the following list of goals:
 * Establish and leverage VMs and containers to test SSH against sponsor provided scenarios.
 * Determine efficiency of SSH in each scenario.
-* Develop a set of scripts and commands that will test for vulnerabilities.
+* Develop a containerized set of scripts and commands that will test for vulnerabilities.
 * Run test scripts against target containers.
 * Create an HTTP server hosting test results.
 
@@ -46,6 +46,9 @@ Our general plan is to create a Docker container, composed of other Docker conta
 To scan a target, a configuration file will be specified and ingested by the scanning container.
 
 # Results
+
+Upon culmination of the semester, the team has fully completed CCVAC.  The completion of the project included fulfilling all of the goals listed above.  Specifically, the team successfully implemented all four SSH scenarios.  By implementing these scenarios, the team proved that SSH capabilities between both Docker containers and virtual machines is possible, regardless of placement of containers in the VMs and VMs on the hypervisor.
+
 
 Summary of results here
 
