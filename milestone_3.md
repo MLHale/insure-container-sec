@@ -47,6 +47,8 @@ To scan a target, a configuration file will be specified and ingested by the sca
 
 # Results
 
+Upon culmination of this semester, the team fully completed CCVAC.  The conclusion of the project saw the achievement of all goals listed above.  Specifically, the team successfully implemented all four SSH scenarios requested by the team sponsor.  Upon
+
 Summary of results here
 
 **Outcomes**
@@ -178,7 +180,7 @@ The Ubuntu container will only be called upon by the master container if the tar
 
 ### Docker
 
-Docker benchmark stuff
+Docker benchmark stuff  --> just a script
 
 ## Qualifications
 
