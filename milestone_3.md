@@ -71,7 +71,8 @@ Specific documentation, including setup and how to run each scenario, can be fou
 
 **Scenario One and Two -** The first two scenarios simply require SSH communication between three containers that are all running on the same operating system/machine.  Container 1 must only directly communicate with container 2 with and container3 and only communicate directly with container 2.
 
-**Scenario One **
+**Scenario One**
+
 ![vmorginal](/assets/scenario.png "vm on architecture")
 
 **Scenarion two**
