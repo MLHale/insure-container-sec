@@ -176,6 +176,7 @@ clean:
 OpenVAS is an open source vulnerability scanning tool. This will be utilized to perform a vulnerabiliity assessment provided an ip address that will be scanned. The team will utilize OpenVAS command line option through omp commands through the following structure. 
 
 '''
+
 1. Create Target
     omp --xml=“<create_target><name>test123</name><hosts>127.0.0.1</hosts></create_target>” -u admin -w new_password
 
@@ -204,6 +205,7 @@ omp -u admin -w new_password -C --target=dd9f92b7-68d9-4a68-a140-f43c74ed2665 -c
   b. omp -F -u admin
         Pick your output format
     c. omp -u admin -w new_password -R e5968aa7-1ef1-46fa-8fb0-1a0479201c22 -f 6c248850-1f62-11e1-b082-406186ea4fc5
+    
 '''
 
 ### Ubuntu
