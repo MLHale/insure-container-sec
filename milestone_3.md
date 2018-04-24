@@ -175,39 +175,6 @@ clean:
 ### OpenVAS
 OpenVAS is an open source vulnerability scanning tool. This will be utilized to perform a vulnerabiliity assessment provided an ip address that will be scanned. The team will utilize OpenVAS command line option through omp commands through the following structure. 
 
-'''
-
-1. Create Target
-    omp --xml=“<create_target><name>test123</name><hosts>127.0.0.1</hosts></create_target>” -u admin -w new_password
-
-2. Create task
-omp -u admin -w new_password -g 
-    to get configs (-c)
-omp -u admin -w new_password -T 
-    to get target (--target)
-
-omp -u admin -w new_password -C --target=dd9f92b7-68d9-4a68-a140-f43c74ed2665 -c daba56c8-73ec-11df-a475-002264764cea 
-    to create task
-
-
-
-3. Start task
-    omp -u admin -w new_password -G 
-        to get tasks
-
-    omp -S 9b7a70eb-eb55-4b71-9193-5c8ac680918a -u admin -w new_password
-
-
-
-4. Get output
-    a.  omp --get-tasks --details -u admin
-        The second line is the id you need to use for output
-  b. omp -F -u admin
-        Pick your output format
-    c. omp -u admin -w new_password -R e5968aa7-1ef1-46fa-8fb0-1a0479201c22 -f 6c248850-1f62-11e1-b082-406186ea4fc5
-    
-'''
-
 ### Ubuntu
 
 The Ubuntu container will only be called upon by the master container if the target machines run a Ubuntu operating system.  Users running the master container will have the option to enter "yes" or "no" when prompted whether or not the target machine is running Ubuntu.  If the users enter "no", the master container will skip over this script.  Thus, the Ubuntu script will not be impletmented as a script, but will be copied into the master container when necessary.  The Ubuntu script can be found in the X CONTAINER under benchmark.sh file.
