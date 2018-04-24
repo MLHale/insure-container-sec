@@ -92,7 +92,7 @@ Specific documentation, including setup and how to run each scenario, can be fou
 
 By use of the previous architecture, the team was able to fulfill each of the four scenarios described above.  In addition to proving SSH capabilites for each scenario, the team also determined the efficiency of each scenario.  For each scenario, the same text file was sent via SCP.  Specific findings are discussed below.
 
-**Scenario One and Two -** The file was transferred in 0.1 seconds.  The file was sent at a speed of 24,205.0 bytes per second and was received at a speed of 32,123.9 bytes per second.
+**Scenario One and Two -** transferred a 1GB file, The file was transferred in 0.1 seconds.  The file was sent at a speed of 17259.09 byes per second and was received at a speed of 22673.3 bytes per second.
 
 **Scenario Three -**
 
