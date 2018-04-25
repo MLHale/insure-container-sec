@@ -98,7 +98,7 @@ By use of the previous architecture, the team was able to fulfill each of the fo
 
 **Scenario Four-** Transferred a 1GB file, The file was transferred in 32.9 seconds.  The file was sent at a speed of 30402188.4 bytes per second and was received at a speed of 5130.4 bytes per second.
 
-The results of file transfer speed are surprising. As noted above, the file was transferred in nearly same amount of time in scenarios one and two and three. However, unlike scenarios one and two, scenario three required the file to be transferred to another VM.  Thus, the fact it took approximately 32.8 more seconds to transfer between three VMs in scenario four is an anomaly.
+The results of file transfer speed are surprising. As noted above, the file was transferred in nearly the same amount of time in scenarios one and two and three. However, unlike scenarios one and two, scenario three required the file to be transferred to another VM.  Thus, the fact it took approximately 32.8 more seconds to transfer between an additional VM in scenario four is an anomaly. When comparing the three scenarios, we see that transferring between different containers on a single VM and transferring between two VMs proves to be a fairly quick action.  However, transferring between three different VMs, on two different hypervisors, was significantly more expensive.
 
 ## Test Platform Architecture
 
