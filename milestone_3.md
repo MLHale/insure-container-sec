@@ -41,17 +41,29 @@ In order to determine the best path for the project, some important user stories
 Relevant research papers have been identified. These are listed in the "Relevant Literature" section below. These each somehow touch the scope of our project, and will be utilized and referenced when possible for the duration of our project.
 
 **Technical Plan**<br>
-Our general plan is to create a Docker container, composed of other Docker containers and components. Each component will complete a dedicated security related task. Components will use existing scripts and tools when possible to evaluate targets.  Currently, we plan to run tests such as nmap and OWASP Top 10 to discover any possible configuration vulnerabilities. Docker files will be checked for configuration issues and threats. Scripts to use these tools will be written in bash and python. Any important output will be sent up to the component caller, where it will be added to a report. This report will be a consolidation of all the important data and output in a PDF file.
 
-To scan a target, a configuration file will be specified and ingested by the scanning container.
+The following displays the team's original technical plan.  This can be used to compare the changes and outcomes of the project with the inital project intentions.
+
+>Our general plan is to create a Docker container, composed of other Docker containers and components. Each component will >complete a dedicated security related task. Components will use existing scripts and tools, when possible, to evaluate >targets.  Currently, we plan to run tests such as nmap and OWASP Top 10 to discover any possible configuration >vulnerabilities. Docker files will be checked for configuration issues and threats. Scripts to use these tools will be >written in bash and python. Any important output will be sent up to the component caller, where it will be added to a report. >This report will be a consolidation of all the important data and output in a PDF file.
+
+>To scan a target, a configuration file will be specified and ingested by the scanning container.
+
+Although the team changed some of the tests performed on the test containers, the finalized tests are more comprehensive and relevant to all systems.  Additionally, hosting the results on a HTTP server enhances readability of the results.
 
 # Results
 
-Upon culmination of this semester, the team fully completed CCVAC.  The conclusion of the project saw the achievement of all goals listed above.  Specifically, the team successfully implemented all four SSH scenarios requested by the team sponsor.  Upon
+Upon culmination of this semester, the team fully completed CCVAC.  The conclusion of the project saw the achievement of all goals listed above.  Specifically, the team successfully implemented all four SSH scenarios requested by the team sponsor.  Upon completing all scenarios, the times of file tranfers were compared.  The first three scenarios proved to quickly transfer the one gigabyte file in less than a second.  However, when transferring the file across hypervisors, the transfer of the file took extensively longer. Thus, while transferring the file between containers and VMs did not make much of a difference, but transferring the file to a VM on a different hypervisor was very inefficient.  These findings can be made useful when considering a virtual architecture in the future.  Additionally, the team created a series of testing containers that are used to test the configurations of other Docker containers.  The goal of these test is to find security vulnerabilities, so organizations can correct them before they are exploited.  The team created a series of three testing containers and two test scripts.  All five tools are ran by a "master" container.  The master container 
 
-Summary of results here
+
 
 **Outcomes**
+A summarized, bulleted list of the team's outcomes can be referenced below.
+
+
+
+**Hindrances**
+
+Early on, we had a total of 2.5 project changes. Unfortunately, this set us back a bit at the beginning. The only other hinderance we ran into was miscommunication with our project sponsor about Part 2 of our project.
 
 
 ## Getting Started 
@@ -61,7 +73,7 @@ The setup process started with hosting a Ubuntu 16.04 virtual machine at UNO. Do
 apt-get install docker.io
 ```
 
-Dockerfiles are what are utilized to actually build and create containers with docker. All of the Dockerfiles for each scenario and container are  extremely similar. When built, they all create Ubuntu 16.04 containers, with ssh installed and listening on port 22. The root password for each container is "password". There are some slight modifications of some Dockerfiles to add certain configurations and files when need.
+Dockerfiles are utilized to build and create containers with docker. All of the Dockerfiles for each scenario and container are  extremely similar. When built, they all create Ubuntu 16.04 containers, with ssh installed and listening on port 22. The root password for each container is "password". There are some slight modifications of some Dockerfiles to add certain configurations and files when need.
 
  ![sampleDockerfile](/Diagrams/sampleDockerfile.png "sampleDockerfile")
 
