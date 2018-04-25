@@ -52,18 +52,21 @@ Although the team changed some of the tests performed on the test containers, th
 
 # Results
 
-Upon culmination of this semester, the team fully completed CCVAC.  The conclusion of the project saw the achievement of all goals listed above.  Specifically, the team successfully implemented all four SSH scenarios requested by the team sponsor.  Upon completing all scenarios, the times of file tranfers were compared.  The first three scenarios proved to quickly transfer the one gigabyte file in less than a second.  However, when transferring the file across hypervisors, the transfer of the file took extensively longer. Thus, while transferring the file between containers and VMs did not make much of a difference, but transferring the file to a VM on a different hypervisor was very inefficient.  These findings can be made useful when considering a virtual architecture in the future.  Additionally, the team created a series of testing containers that are used to test the configurations of other Docker containers.  The goal of these test is to find security vulnerabilities, so organizations can correct them before they are exploited.  The team created a series of three testing containers and two test scripts.  All five tools are ran by a "master" container.  The master container 
+Upon culmination of this semester, the team fully completed CCVAC.  The conclusion of the project saw the achievement of all goals listed above.  Specifically, the team successfully implemented all four SSH scenarios requested by the team sponsor.  Upon completing all scenarios, the times of file tranfers were compared.  The first three scenarios proved to quickly transfer the one gigabyte file in less than a second.  However, when transferring the file across hypervisors, the transfer of the file took extensively longer. Thus, transferring the file to a VM on a different hypervisor was very inefficient.  These findings can be made useful when considering a virtual architecture in the future.  
 
-
+Additionally, the team created a series of testing containers that are used to test the configurations of other Docker containers.  The goal of these tests is to find security vulnerabilities, so organizations can correct them before they are exploited.  The team created a series of three testing containers and two test scripts.  All five tools are ran by a "master" container.  The master container may prompt users to run the two scripts, depending on their system needs.  Results of these tests are written to a HTTP server for review.  
 
 **Outcomes**
 A summarized, bulleted list of the team's outcomes can be referenced below.
 
-
+* The team successfully enacted the four SSH scenarios given by team sponsor.
+* The team compared results of the SSH scenarios to determine relative efficiency.
+* The team created a series of containers, ran by a master Docker container, to test the configurations of other containers.
+* The team created a HTTP server to host results of the tests.
 
 **Hindrances**
 
-Early on, we had a total of 2.5 project changes. Unfortunately, this set us back a bit at the beginning. The only other hinderance we ran into was miscommunication with our project sponsor about Part 2 of our project.
+Early on, the team had a total of 2.5 project changes.  However, the team was able to recover from this setback quickly. The team's only other hinderance was miscommunication with the project sponsor about the goals for Part 2 of the project.
 
 
 ## Getting Started 
