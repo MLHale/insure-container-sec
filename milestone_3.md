@@ -187,16 +187,16 @@ clean:
 
     a. 137.48.191.120:8080 in our scenario.
 
-
-
 ### OpenVAS
 OpenVAS is an open source vulnerability scanning tool. This will be utilized to perform a vulnerabiliity assessment provided an ip address that will be scanned. The team will utilize OpenVAS command line option through omp commands through the following structure. 
 
 ### Ubuntu
 
-The Ubuntu container will only be called upon by the master container if the target machines run a Ubuntu operating system.  Users running the master container will have the option to enter "yes" or "no" when prompted whether or not the target machine is running Ubuntu.  If the users enter "no", the master container will skip over this script.  Thus, the Ubuntu script will not be impletmented as a script, but will be copied into the master container when necessary.  The Ubuntu script can be found in the X CONTAINER under benchmark.sh file.
+The Ubuntu container will only be called upon by the master container if the target machines run a Ubuntu operating system.  Users running the master container will have the option to enter "yes" or "no" when prompted whether or not the target machine is running Ubuntu.  If the users enter "no", the master container will skip over this script.  Thus, the Ubuntu script will only be copied into the container being tested by the master container when necessary.  The Ubuntu script can be found in the X CONTAINER under benchmark.sh file.
 
 ### Docker
+
+Similar to the Ubuntu script, the Docker script will also only be enacted on an as needed basis.
 
 Docker benchmark stuff  --> just a script
 
