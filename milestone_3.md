@@ -23,9 +23,7 @@ Over the course of this semester, the team has worked intensively with Docker to
 
 # Project Realization
 
-UPDATE ONCE PROJECT IS FINALIZED
-
-Part one of the project, Secure Communication Amongst Containers, was completed during the first milestone. Thus, the past few weeks, the team has focused primarly on architecting a cummulative testing platform to scan various containers, whether they are local or remote. The "CIS Ubuntu Linux 16.04 LTS Benchmark" document was used to establish a baseline for the test containers.  The team has created X AMOUTN OF CONTAINERS.  X of the containers are relevant to nearly all systems, and the remaining containers run tests more specific to Ubuntu systems.  It was the goal of the team to create containers that would detect some of the most basic security issues that could be encountered when working with Docker containers.  Upon creating the test containers, a "master container" was established to run the test containers and produce an output document that displays test results.
+Part one of the project, Secure Communication Amongst Containers, was completed during the first milestone. Thus, the past few weeks, the team has focused primarly on architecting a cummulative testing platform to scan various containers, whether they are local or remote.  A total of three "test containers" were created and are relevant to nearly all systems.  Additionally, the team has two scripts that will be leveraged to test local containers.  These scripts were written based upon relevant CIS Benchmark documents.  Specifically, the team chose the "CIS Ubuntu Linux 16.04 LTS Benchmark" and the "CIS Docker Community Benchmark" documents.  It was the goal of the team to create test containers that would detect some of the most basic security issues that could be encountered when working with Docker containers.  Upon creating the test containers, a "master container" was established to run the test containers, call upon the Docker and Ubuntu scripts when necessay, and write test resutls up to a HTTP server.
 
 # Project Methodology
 
