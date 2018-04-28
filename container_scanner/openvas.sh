@@ -16,7 +16,6 @@ TASKID=$(omp -u admin -w new_password -G | grep "new_scan" | cut -d ' ' -f1)
 T=$(omp -u admin -w new_password -S $TASKID)
 
 T2=$(omp -u admin -w new_password --get-tasks --details | sed -n 2p | cut -d ' ' -f3)
-echo $T2
 
 #get HTML UUID
 RUUID=$(omp -F -u admin -w new_password | grep HTML | cut -d ' ' -f1)
