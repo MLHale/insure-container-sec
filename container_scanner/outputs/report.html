@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+body {
+  background-color: #FFFFFF;
+  margin: 0px;
+  font: small Verdana, sans-serif;
+  font-size: 12px;
+  color: #1A1A1A;
+}
+
+div.content {
+  width: 98%;
+  align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+tr.table_head {
+  background-color: #d5d5d5;
+}
+
+.diff {
+  white-space: pre;
+  font-family: monospace;
+}
+
+.diff.at {
+  color: #9932CC;
+}
+
+.diff.plus {
+  color: #006400;
+}
+
+.diff.minus {
+  color: #B22222;
+}
+
+div.footer {
+  text-align: center;
+}
+
+div.note, div.override {
+  padding:4px;
+  margin:3px;
+  margin-bottom:0px;
+  margin-top:0px;
+  border: 1px solid #CCCCCC;
+  border-top: 0px;
+  background-color: #ffff90;
+}
+
+.result_head {
+  padding:4px;
+  margin:3px;
+  margin-bottom:0px;
+  color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-bottom: 0px;
+  background:#d5d5d5;
+}
+
+.result_head.low {
+  background:#539dcb
+}
+
+.result_head.medium {
+  background:#f99f31
+}
+
+.result_head.high {
+  background:#cb1d17
+}
+
+.result_section {
+  padding:4px;
+  margin:3px;
+  margin-bottom:0px;
+  margin-top:0px;
+  border: 1px solid #CCCCCC;
+  border-top: 0px;
+}
+
+.location_float {
+  float: right;
+  text-align:right;
+}
+
+.delta_float {
+  float: left;
+  font-size: 24px;
+  border: 2px;
+  padding-left: 2px;
+  padding-right: 8px;
+  margin:0px;
+}
+
+.full_width {
+  width: 100%;
+}
+
+pre {
+ white-space: pre-wrap;
+ word-wrap: break-word;
+}
+        </style>
+<title>Scan Report</title>
+</head>
+<body><div class="content">
+<h1>Summary</h1>
+<p>
+          This document reports on the results of an automatic security scan.
+          The report first summarises the results found.  Then, for each host,
+          the report describes every issue found.  Please consider the
+          advice given in each description, in order to rectify the issue.
+        </p>
+<p>
+              Vendor security updates are not trusted.
+            </p>
+<p>
+              Overrides are off.  Even when a result has an override, this report uses the actual threat of the result.
+            </p>
+<p>
+              Information on overrides is included in the report.
+            </p>
+<p>
+              Notes are included in the report.
+            </p>
+<p>
+      This report might not show details of all issues that were found.
+      
+        Issues with the threat level "High" are not shown.
+      
+        Issues with the threat level "Medium" are not shown.
+      
+        Issues with the threat level "Low" are not shown.
+      
+        Issues with the threat level "Log" are not shown.
+      
+        Issues with the threat level "Debug" are not shown.
+      
+        Issues with the threat level "False Positive" are not shown.
+      Only results with a minimum QoD of 70 are shown. </p>
+<p>This report contains all 10 results selected by the filtering described above.  Before filtering there were 14 results.</p>
+<p>All dates are displayed using the timezone "Coordinated Universal Time", which is abbreviated "UTC".</p>
+<table>
+<tr>
+<td>Scan started:</td>
+<td><b>Mon Apr 30 20:08:54 2018 UTC</b></td>
+</tr>
+<tr>
+<td>Scan ended:</td>
+<td>Mon Apr 30 20:17:59 2018 UTC</td>
+</tr>
+<tr>
+<td>Task:</td>
+<td>container_scan</td>
+</tr>
+</table>
+<h2>Host Summary</h2>
+<table width="100%">
+<tr class="table_head">
+<td>Host</td>
+<td>Start</td>
+<td>End</td>
+<td>High</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Log</td>
+<td>False Positive</td>
+</tr>
+<tr>
+<td><a href="#172.20.0.6">172.20.0.6 (container1.cont)</a></td>
+<td>Apr 30, 20:09:30</td>
+<td>Apr 30, 20:17:59</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>8</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Total: 1</td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>8</td>
+<td>0</td>
+</tr>
+</table>
+<h1>Results per Host</h1>
+<h2 id="172.20.0.6">Host 172.20.0.6</h2>
+<table>
+<tr>
+<td>Scanning of this host started at:</td>
+<td>Mon Apr 30 20:09:30 2018 UTC</td>
+</tr>
+<tr>
+<td>Number of results:</td>
+<td>10</td>
+</tr>
+</table>
+<h3>Port Summary for Host 172.20.0.6</h3>
+<table width="100%">
+<tr class="table_head">
+<td>Service (Port)</td>
+<td>Threat Level</td>
+</tr>
+<tr>
+<td>general/icmp</td>
+<td>Log</td>
+</tr>
+<tr>
+<td>general/tcp</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>general/CPE-T</td>
+<td>Log</td>
+</tr>
+<tr>
+<td>22/tcp</td>
+<td>High</td>
+</tr>
+</table>
+<h3>Security Issues for Host 172.20.0.6</h3>
+<div class="result_head ">
+<div class="location_float">general/CPE-T</div>
+<b>Log</b>
+                 (CVSS: 0.0)
+              <div class="full_width">
+            NVT:
+            CPE Inventory
+            (OID: 1.3.6.1.4.1.25623.1.0.810002)
+          </div>
+</div>
+<div class="result_section">
+<b>Summary</b><p>This routine uses information collected by other routines about
+  CPE identities (http://cpe.mitre.org/) of operating systems, services and
+  applications detected during the scan.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Result</b><pre>172.20.0.6|cpe:/a:openbsd:openssh:7.2p2
+172.20.0.6|cpe:/o:canonical:ubuntu_linux:16.04</pre>
+</div>
+<div class="result_section">
+<b>Log Method</b><p>
+            Details:
+            CPE Inventory
+                (OID: 1.3.6.1.4.1.25623.1.0.810002)
+              </p>
+<p>
+                  Version used: $Revision: 8140 $</p>
+</div>
+<div class="result_head ">
+<div class="location_float">general/icmp</div>
+<b>Log</b>
+                 (CVSS: 0.0)
+              <div class="full_width">
+            NVT:
+            ICMP Timestamp Detection
+            (OID: 1.3.6.1.4.1.25623.1.0.103190)
+          </div>
+</div>
+<div class="result_section">
+<b>Summary</b><p>The remote host responded to an ICMP timestamp request.
+  The Timestamp Reply is an ICMP message which replies to a Timestamp message. It consists
+  of the originating timestamp sent by the sender of the Timestamp as well as a receive
+  timestamp and a transmit timestamp. This information could theoretically be used to
+  exploit weak time-based random number generators in other services.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Result</b><p>
+                    Vulnerability was detected according to the Vulnerability Detection Method.
+                  </p>
+</div>
+<div class="result_section">
+<b>Log Method</b><p>
+            Details:
+            ICMP Timestamp Detection
+                (OID: 1.3.6.1.4.1.25623.1.0.103190)
+              </p>
+<p>
+                  Version used: $Revision: 7559 $</p>
+</div>
+<div class="result_section">
+<b>References</b><br><p><table>
+<tr valign="top">
+<td>CVE:</td>
+<td>CVE-1999-0524</td>
+</tr>
+<tr valign="top">
+<td>CERT:</td>
+<td>CB-K15/1514, CB-K14/0632, DFN-CERT-2014-0658</td>
+</tr>
+<tr valign="top">
+<td>Other:</td>
+<td>http://www.ietf.org/rfc/rfc0792.txt</td>
+</tr>
+</table></p>
+</div>
+<div class="result_head ">
+<div class="location_float">general/tcp</div>
+<b>Log</b>
+                 (CVSS: 0.0)
+              <div class="full_width">
+            NVT:
+            OS Detection Consolidation and Reporting
+            (OID: 1.3.6.1.4.1.25623.1.0.105937)
+          </div>
+</div>
+<div class="result_section">
+<b>Summary</b><p>This script consolidates the OS information detected by several NVTs and tries to find the best matching OS.</p>
+<p>  Furthermore it reports all previously collected information leading to this best matching OS. It also reports possible additional informations
+  which might help to improve the OS detection.</p>
+<p>  If any of this information is wrong or could be improved please consider to report these to openvas-plugins@wald.intevation.org.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Result</b><pre>Best matching OS:
+
+OS: Ubuntu 16.04
+Version: 16.04
+CPE: cpe:/o:canonical:ubuntu_linux:16.04
+Found by NVT: 1.3.6.1.4.1.25623.1.0.105586 (SSH OS Identification)
+Concluded from SSH banner on port 22/tcp: SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.4
+Setting key "Host/runs_unixoide" based on this information</pre>
+</div>
+<div class="result_section">
+<b>Log Method</b><p>
+            Details:
+            OS Detection Consolidation and Reporting
+                (OID: 1.3.6.1.4.1.25623.1.0.105937)
+              </p>
+<p>
+                  Version used: $Revision: 8968 $</p>
+</div>
+<div class="result_head ">
+<div class="location_float">22/tcp</div>
+<b>Log</b>
+                 (CVSS: 0.0)
+              <div class="full_width">
+            NVT:
+            Services
+            (OID: 1.3.6.1.4.1.25623.1.0.10330)
+          </div>
+</div>
+<div class="result_section">
+<b>Summary</b><p>This routine attempts to guess which service is running on the
+  remote ports. For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Result</b><pre>An ssh server is running on this port</pre>
+</div>
+<div class="result_section">
+<b>Log Method</b><p>
+            Details:
+            Services
+                (OID: 1.3.6.1.4.1.25623.1.0.10330)
+              </p>
+<p>
+                  Version used: $Revision: 8188 $</p>
+</div>
+<div class="result_head high">
+<div class="location_float">22/tcp</div>
+<b>High</b>
+                 (CVSS: 7.5)
+              <div class="full_width">
+            NVT:
+            SSH Brute Force Logins With Default Credentials Reporting
+            (OID: 1.3.6.1.4.1.25623.1.0.103239)
+          </div>
+</div>
+<div class="result_section">
+<b>Summary</b><p>It was possible to login into the remote SSH server using default credentials.</p>
+<p>  As the NVT 'SSH Brute Force Logins with default Credentials' (OID: 1.3.6.1.4.1.25623.1.0.108013) might run into a
+  timeout the actual reporting of this vulnerability takes place in this NVT instead. The script preference 'Report timeout'
+  allows you to configure if such an timeout is reported.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Result</b><pre>It was possible to login with the following credentials &lt;User&gt;:&lt;Password&gt;
+
+root:password</pre>
+</div>
+<div class="result_section">
+<b>Solution</b><p><b>Solution type: </b>Mitigation</p>
+<p>Change the password as soon as possible.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Method</b><p>Try to login with a number of known default credentials via the SSH protocol.</p>
+<p>
+            Details:
+            SSH Brute Force Logins With Default Credentials Reporting
+                (OID: 1.3.6.1.4.1.25623.1.0.103239)
+              </p>
+<p>
+                  Version used: $Revision: 8628 $</p>
+</div>
+<div class="result_head ">
+<div class="location_float">22/tcp</div>
+<b>Log</b>
+                 (CVSS: 0.0)
+              <div class="full_width">
+            NVT:
+            SSH Protocol Algorithms Supported
+            (OID: 1.3.6.1.4.1.25623.1.0.105565)
+          </div>
+</div>
+<div class="result_section">
+<b>Summary</b><p>This script detects which algorithms and languages are supported by the remote SSH Service</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Result</b><pre>The following options are supported by the remote ssh service:
+
+kex_algorithms:
+curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1
+
+server_host_key_algorithms:
+ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519
+
+encryption_algorithms_client_to_server:
+chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+
+encryption_algorithms_server_to_client:
+chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+
+mac_algorithms_client_to_server:
+umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+
+mac_algorithms_server_to_client:
+umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+
+compression_algorithms_client_to_server:
+none,zlib@openssh.com
+
+compression_algorithms_server_to_client:
+none,zlib@openssh.com</pre>
+</div>
+<div class="result_section">
+<b>Log Method</b><p>
+            Details:
+            SSH Protocol Algorithms Supported
+                (OID: 1.3.6.1.4.1.25623.1.0.105565)
+              </p>
+<p>
+                  Version used: $Revision: 7000 $</p>
+</div>
+<div class="result_head ">
+<div class="location_float">22/tcp</div>
+<b>Log</b>
+                 (CVSS: 0.0)
+              <div class="full_width">
+            NVT:
+            SSH Protocol Versions Supported
+            (OID: 1.3.6.1.4.1.25623.1.0.100259)
+          </div>
+</div>
+<div class="result_section">
+<b>Summary</b><p>Identification of SSH protocol versions supported by the remote
+  SSH Server. Also reads the corresponding fingerprints from the service.</p>
+<p>  The following versions are tried: 1.33, 1.5, 1.99 and 2.0</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Result</b><pre>The remote SSH Server supports the following SSH Protocol Versions:
+1.99
+2.0
+
+SSHv2 Fingerprint:
+ecdsa-sha2-nistp256: e6:78:7b:56:6a:1e:0a:dc:a5:ff:20:a9:3b:51:4d:b1
+ssh-rsa: 61:d4:cb:56:58:c7:d7:63:27:ef:ee:f5:7e:e1:b7:b2</pre>
+</div>
+<div class="result_section">
+<b>Log Method</b><p>
+            Details:
+            SSH Protocol Versions Supported
+                (OID: 1.3.6.1.4.1.25623.1.0.100259)
+              </p>
+<p>
+                  Version used: $Revision: 4484 $</p>
+</div>
+<div class="result_head ">
+<div class="location_float">22/tcp</div>
+<b>Log</b>
+                 (CVSS: 0.0)
+              <div class="full_width">
+            NVT:
+            SSH Server type and version
+            (OID: 1.3.6.1.4.1.25623.1.0.10267)
+          </div>
+</div>
+<div class="result_section">
+<b>Summary</b><p>This detects the SSH Server's type and version by connecting to the server
+  and processing the buffer received.</p>
+<p>  This information gives potential attackers additional information about the system they are attacking.
+  Versions and Types should be omitted where possible.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Result</b><pre>Remote SSH server version: SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.4
+Remote SSH supported authentication: password,publickey
+Remote SSH banner: (not available)
+
+CPE: cpe:/a:openbsd:openssh:7.2p2
+
+Concluded from remote connection attempt with credentials:
+  Login: VulnScan
+  Password: VulnScan</pre>
+</div>
+<div class="result_section">
+<b>Log Method</b><p>
+            Details:
+            SSH Server type and version
+                (OID: 1.3.6.1.4.1.25623.1.0.10267)
+              </p>
+<p>
+                  Version used: $Revision: 7902 $</p>
+</div>
+<div class="result_head low">
+<div class="location_float">general/tcp</div>
+<b>Low</b>
+                 (CVSS: 2.6)
+              <div class="full_width">
+            NVT:
+            TCP timestamps
+            (OID: 1.3.6.1.4.1.25623.1.0.80091)
+          </div>
+</div>
+<div class="result_section">
+<b>Summary</b><p>The remote host implements TCP timestamps and therefore allows to compute
+  the uptime.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Result</b><pre>It was detected that the host implements RFC1323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 1206577493
+Packet 2: 1206577765</pre>
+</div>
+<div class="result_section">
+<b>Impact</b><p>A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.</p>
+</div>
+<div class="result_section">
+<b>Solution</b><p><b>Solution type: </b>Mitigation</p>
+<p>To disable TCP timestamps on linux add the line 'net.ipv4.tcp_timestamps = 0' to
+  /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at runtime.</p>
+<p>  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'</p>
+<p>  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.</p>
+<p>  The default behavior of the TCP/IP stack on this Systems is to not use the
+  Timestamp options when initiating TCP connections, but use them if the TCP peer
+  that is initiating communication includes them in their synchronize (SYN) segment.</p>
+<p>  See also: http://www.microsoft.com/en-us/download/details.aspx?id=9152</p>
+</div>
+<div class="result_section">
+<b>Affected Software/OS</b><p>TCP/IPv4 implementations that implement RFC1323.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Insight</b><p>The remote host implements TCP timestamps, as defined by RFC1323.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Method</b><p>Special IP packets are forged and sent with a little delay in between to the
+  target IP. The responses are searched for a timestamps. If found, the timestamps are reported.</p>
+<p>
+            Details:
+            TCP timestamps
+                (OID: 1.3.6.1.4.1.25623.1.0.80091)
+              </p>
+<p>
+                  Version used: $Revision: 9035 $</p>
+</div>
+<div class="result_section">
+<b>References</b><br><p><table><tr valign="top">
+<td>Other:</td>
+<td>http://www.ietf.org/rfc/rfc1323.txt</td>
+</tr></table></p>
+</div>
+<div class="result_head ">
+<div class="location_float">general/tcp</div>
+<b>Log</b>
+                 (CVSS: 0.0)
+              <div class="full_width">
+            NVT:
+            Traceroute
+            (OID: 1.3.6.1.4.1.25623.1.0.51662)
+          </div>
+</div>
+<div class="result_section">
+<b>Summary</b><p>A traceroute from the scanning server to the target system was
+  conducted. This traceroute is provided primarily for informational
+  value only. In the vast majority of cases, it does not represent a
+  vulnerability. However, if the displayed traceroute contains any
+  private addresses that should not have been publicly visible, then you
+  have an issue you need to correct.</p>
+</div>
+<div class="result_section">
+<b>Vulnerability Detection Result</b><pre>Here is the route from 172.20.0.4 to 172.20.0.6:
+
+172.20.0.4
+172.20.0.6</pre>
+</div>
+<div class="result_section">
+<b>Solution</b><p>Block unwanted packets from escaping your network.</p>
+</div>
+<div class="result_section">
+<b>Log Method</b><p>
+            Details:
+            Traceroute
+                (OID: 1.3.6.1.4.1.25623.1.0.51662)
+              </p>
+<p>
+                  Version used: $Revision: 8528 $</p>
+</div>
+<div class="footer">
+                  This file was automatically generated.
+                </div>
+</div></body>
+</html>

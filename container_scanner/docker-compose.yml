@@ -2,17 +2,17 @@ version: '3'
 services:
   simple_http:
     build: .
-    volumes: ["/home/capstone/docker-volumes:/outputs"]
+    volumes: ["./outputs:/outputs"]
     depends_on: ["nmap", "openvas"]
     ports: ["8000:8000"]
   
   nmap:
     build: ./nmap
-    volumes: ["/home/capstone/docker-volumes/nmap:/outputs"]
+    volumes: ["./outputs:/outputs"]
   
   openvas:
      image: mikesplain/openvas:9
-     volumes: ["/home/capstone/docker-volumes/nmap:/outputs"]
+     volumes: ["./outputs:/outputs"]
   
   cadvisor:
     image: google/cadvisor:latest

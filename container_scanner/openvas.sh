@@ -1,5 +1,5 @@
 #!/bin/bash
-
+  
 #Ensure all tasks are deleted before running
 #Target, user, and password have already been established
 
@@ -9,7 +9,7 @@ openvasmd --user=admin --new-password=new_password
 sleep 5
 
 echo "Creating target"
-omp --xml="<create_target><name>container</name><hosts>127.0.0.1</hosts></create_target>" -u admin -w new_password
+omp --xml="<create_target><name>container</name><hosts>$1</hosts></create_target>" -u admin -w new_password
 sleep 5
 
 #Get Target UUID
@@ -39,9 +39,9 @@ sleep 5
 
 COMPLETE=$(omp -u admin -w new_password --get-tasks | grep container_scan | cut -d' ' -f3)
 while  [ "$COMPLETE" != "Done" ]; do
-        echo "Scan not complete. Sleeping."
-        sleep 30
-        COMPLETE=$(omp -u admin -w new_password --get-tasks | grep container_scan | cut -d' ' -f3)
+	echo "Scan not complete. Sleeping."
+	sleep 30
+	COMPLETE=$(omp -u admin -w new_password --get-tasks | grep container_scan | cut -d' ' -f3)
 done
 
 

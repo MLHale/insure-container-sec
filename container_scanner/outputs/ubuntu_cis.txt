@@ -1,0 +1,3401 @@
+[92m== 1. Initial Setup ==
+[92m== 1.1 Filesystem Configuration ==
+[92m== 1.1.1 Disable unused filesystems ==
+[92m== 1.1.1.1 Ensure mounting of cramfs filesystems is disabled ==
+
+[31mFailed![0m : 
+Verify output of 'modprobe -n -v cramfs' command.  Should show this output: 
+
+		# modprobe -n -v cramfs
+		install /bin/true
+
+		Resolve by using this command:
+
+		echo 'install cramfs /bin/true' >> /etc/modprobe.d/CIS.conf
+
+[92m== 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled ==
+
+[31mFailed![0m : 
+Verify output of 'modprobe -n -v freevxfs' command.  Should show this output: 
+
+                # modprobe -n -v freevxfs
+                install /bin/true
+
+                Resolve by using this command:
+
+                echo 'install freevxfs /bin/true' >> /etc/modprobe.d/CIS.conf
+
+[92m== 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled ==
+
+[31mFailed![0m : 
+Verify output of 'modprobe -n -v jffs2' command.  Should show this output: 
+
+                # modprobe -n -v jffs2
+                install /bin/true
+
+                Resolve by using this command:
+
+                echo 'install jffs2 /bin/true' >> /etc/modprobe.d/CIS.conf
+
+[92m== 1.1.1.4 Ensure mounting of hfs filesystems is disabled ==
+
+[31mFailed![0m : 
+Verify output of 'modprobe -n -v hfs' command.  Should show this output: 
+
+                # modprobe -n -v hfs
+                install /bin/true
+
+                Resolve by using this command:
+
+                echo 'install hfs /bin/true' >> /etc/modprobe.d/CIS.conf
+
+
+[92m== 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled ==
+
+[31mFailed![0m : 
+Verify output of 'modprobe -n -v hfsplus' command.  Should show this output: 
+
+                # modprobe -n -v hfsplus
+                install /bin/true
+
+                Resolve by using this command:
+
+                echo 'install hfsplus /bin/true' >> /etc/modprobe.d/CIS.conf
+
+[92m== 1.1.1.6 Ensure mounting of squashfs filesystems is disabled ==
+
+[31mFailed![0m : 
+Verify output of 'modprobe -n -v squashfs' command.  Should show this output: 
+
+                # modprobe -n -v squashfs
+                install /bin/true
+
+                Resolve by using this command:
+
+                echo 'install squashfs /bin/true' >> /etc/modprobe.d/CIS.conf
+
+[92m== 1.1.1.7 Ensure mounting of udf filesystems is disabled ==
+
+[31mFailed![0m : 
+Verify output of 'modprobe -n -v udf' command.  Should show this output: 
+
+                # modprobe -n -v udf
+                install /bin/true
+
+                Resolve by using this command:
+
+                echo 'install udf /bin/true' >> /etc/modprobe.d/CIS.conf
+
+[92m== 1.1.1.8 Ensure mounting of fat filesystems is disabled ==
+
+[31mFailed![0m : 
+Verify output of 'modprobe -n -v vfat' command.  Should show this output: 
+
+                # modprobe -n -v vfat
+                install /bin/true
+
+                Resolve by using this command:
+
+                echo 'install vfat /bin/true' >> /etc/modprobe.d/CIS.conf
+
+[92m== 1.1.2 Ensure separate partition exists for /tmp  ==
+
+[31mFailed![0m : 
+		Audit: Run the following command and verify output shows /tmp is mounted: 
+
+		# mount | grep /tmp
+		tmpfs on /tmp type tmpfs (rw,nosuid,nodev,noexec,relatime)
+
+		Remediation:
+		For new installations, during installation create a custom partition setup and specify a separate partition for /tmp.
+		For systems that were previously installed, create a new partition and configure /etc/fstab as appropriate.
+
+		Notes:
+		systemd includes the tmp.mount service which should be used instead of configuring /etc/fstab.
+
+[92m== 1.1.3 Ensure nodev option set on /tmp partition ==
+
+[31mFailed![0m : 
+		Audit: If a /tmp partition exists run the following command and verify that the nodev option is set on /tmp:
+
+		# mount | grep /tmp
+		tmpfs on /tmp type tmpfs (rw,nosuid,nodev,noexec,relatime)
+
+		Remediation:
+		Edit the /etc/fstab file and add nodev to the fourth field (mounting options) for the /tmp partition. See the fstab(5) manual page for more information.
+		Run the following command to remount /tmp: # mount -o remount,nodev /tmp
+
+		Notes:
+		systemd includes the tmp.mount service which should be used instead of configuring /etc/fstab. Mounting options are configured in the Options setting in /etc/systemd/system/tmp.mount.
+
+[92m== 1.1.4 Ensure nosuid option set on /tmp partition ==
+
+[31mFailed![0m : 
+		Audit:
+		If a /tmp partition exists run the following command and verify that the nosuid option is set on /tmp:
+
+		# mount | grep /tmp
+		tmpfs on /tmp type tmpfs (rw,nosuid,nodev,noexec,relatime)
+
+		Remediation:
+		Edit the /etc/fstab file and add nosuid to the fourth field (mounting options) for the /tmp partition. See the fstab(5) manual page for more information.
+
+		Run the following command to remount /tmp: # mount -o remount,nosuid /tmp
+
+		Notes:
+		systemd includes the tmp.mount service which should be used instead of configuring /etc/fstab. Mounting options are configured in the Options setting in /etc/systemd/system/tmp.mount.
+
+[92m== 1.1.5 Ensure separate partition exists for /var  ==
+
+[31mFailed![0m : 
+                Audit: Run the following command and verify output shows /var is mounted: 
+
+		# mount | grep /var
+		/dev/xvdg1 on /var type ext4 (rw,relatime,data=ordered)
+
+                Remediation:
+                For new installations, during installation create a custom partition setup and specify a separate partition for /var.
+		For systems that were previously installed, create a new partition and configure /etc/fstab as appropriate.
+
+[92m== 1.1.6 Ensure separate partition exists for /var/tmp  ==
+
+[31mFailed![0m : 
+                Audit: Run the following command and verify output shows /var/tmp is mounted: 
+
+                # mount | grep /var/tmp
+		tmpfs on /var/tmp type ext4 (rw,nosuid,nodev,noexec,relatime)
+
+                Remediation:
+	        For new installations, during installation create a custom partition setup and specify a separate partition for /var/tmp.
+		For systems that were previously installed, create a new partition and configure /etc/fstab as appropriate.
+
+[92m== 1.1.7 Ensure nodev option set on /var/tmp partition ==
+
+[31mFailed![0m : 
+                Audit: If a /var/tmp partition exists run the following command and verify that the nodev option is set on /var/tmp:
+
+		# mount | grep /var/tmp
+		tmpfs on /var/tmp type tmpfs (rw,nosuid,nodev,noexec,relatime)
+
+		Remediation:
+                Edit the /etc/fstab file and add nodev to the fourth field (mounting options) for the /var/tmp partition. See the fstab(5) manual page for more information.
+                Run the following command to remount /var/tmp: # mount -o remount,nodev /var/tmp
+
+[92m== 1.1.8 Ensure nosuid option set on /var/tmp partition ==
+
+[31mFailed![0m : 
+                Audit:
+                If a /var/tmp partition exists run the following command and verify that the nosuid option is set on /var/tmp:
+
+                # mount | grep /var/tmp
+                tmpfs on /var/tmp type tmpfs (rw,nosuid,nodev,noexec,relatime)
+
+                Remediation:
+                Edit the /etc/fstab file and add nosuid to the fourth field (mounting options) for the /var/tmp partition. See the fstab(5) manual page for more information.
+
+                Run the following command to remount /var/tmp: # mount -o remount,nosuid /var/tmp
+
+[92m== 1.1.9 Ensure noexec option set on /var/tmp partition ==
+
+[31mFailed![0m : 
+                Audit:
+                If a /var/tmp partition exists run the following command and verify that the noexec option is set on /var/tmp:
+
+                # mount | grep /var/tmp
+                tmpfs on /var/tmp type tmpfs (rw,nosuid,nodev,noexec,relatime)
+
+                Remediation:
+                Edit the /etc/fstab file and add noexec to the fourth field (mounting options) for the /var/tmp partition. See the fstab(5) manual page for more information.
+
+                Run the following command to remount /var/tmp: # mount -o remount,noexec /var/tmp
+
+[92m== 1.1.10 Ensure separate partition exists for /var/log  ==
+
+[31mFailed![0m : 
+                Audit: Run the following command and verify output shows /var/log is mounted: 
+
+                # mount | grep /var/log
+                /dev/xvdg1 on /var/log type ext4 (rw,relatime,data=ordered)
+
+                Remediation:
+                For new installations, during installation create a custom partition setup and specify a separate partition for /var/log.
+                For systems that were previously installed, create a new partition and configure /etc/fstab as appropriate.
+
+[92m== 1.1.11 Ensure separate partition exists for /var/log/audit  ==
+
+[31mFailed![0m : 
+                Audit: Run the following command and verify output shows /var/log/audit is mounted: 
+
+                # mount | grep /var/log/audit
+                /dev/xvdg1 on /var/log/audit type ext4 (rw,relatime,data=ordered)
+
+                Remediation:
+                For new installations, during installation create a custom partition setup and specify a separate partition for /var/log/audit.
+                For systems that were previously installed, create a new partition and configure /etc/fstab as appropriate.
+
+[92m== 1.1.12 Ensure separate partition exists for /home  ==
+
+[31mFailed![0m : 
+                Audit: Run the following command and verify output shows /home is mounted: 
+
+                # mount | grep /home
+                /dev/xvdg1 on /home type ext4 (rw,relatime,data=ordered)
+
+                Remediation:
+                For new installations, during installation create a custom partition setup and specify a separate partition for /home.
+                For systems that were previously installed, create a new partition and configure /etc/fstab as appropriate.
+
+[92m== 1.1.13 Ensure nodev option set on /home partition ==
+
+[31mFailed![0m : 
+                Audit: If a /home partition exists run the following command and verify that the nodev option is set on /home:
+
+                # mount | grep /home
+                /dev/xvdf1  on /home type tmpfs (rw,nosuid,nodev,noexec,relatime)
+
+                Remediation:
+                Edit the /etc/fstab file and add nodev to the fourth field (mounting options) for the /home partition. See the fstab(5) manual page for more information.
+                Run the following command to remount /home: # mount -o remount,nodev /home
+
+[92m== 1.1.14 Ensure nodev option set on /dev/shm partition ==
+
+[31mFailed![0m : 
+                Audit: If a /dev/shm partition exists run the following command and verify that the nodev option is set on /dev/shm:
+
+                # mount | grep /dev/shm
+                tmpfs  on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,relatime)
+
+                Remediation:
+                Edit the /etc/fstab file and add nodev to the fourth field (mounting options) for the /dev/shm partition. See the fstab(5) manual page for more information.
+                Run the following command to remount /dev/shm: # mount -o remount,nodev /dev/shm
+
+[92m== 1.1.15 Ensure nosuid option set on /dev/shm partition ==
+
+[31mFailed![0m : 
+                Audit:
+                If a /dev/shm partition exists run the following command and verify that the nosuid option is set on /dev/shm:
+
+                # mount | grep /dev/shm
+                tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,relatime)
+
+                Remediation:
+                Edit the /etc/fstab file and add nosuid to the fourth field (mounting options) for the /dev/shm partition. See the fstab(5) manual page for more information.
+
+                Run the following command to remount /dev/shm: # mount -o remount,nosuid /dev/shm
+
+[92m== 1.1.16 Ensure noexec option set on /dev/shm partition ==
+
+[31mFailed![0m : 
+                Audit:
+                If a /dev/shm partition exists run the following command and verify that the noexec option is set on /dev/shm:
+
+                # mount | grep /dev/shm
+                tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,relatime)
+
+                Remediation:
+                Edit the /etc/fstab file and add noexec to the fourth field (mounting options) for the /dev/shm partition. See the fstab(5) manual page for more information.
+
+                Run the following command to remount /dev/shm: # mount -o remount,noexec /dev/shm
+
+[92m== 1.1.18 Ensure nosuid option set on removable media partitions (Not Scored) ==
+
+[31mCHECK THIS MANUALLY USING THE 'mount' COMMAND.  REMOVABLE MEDIA CAN HAVE DIFFERING MOUNT POINTS
+
+[92m== 1.1.19 Ensure noexec option set on removable media partitions (Not Scored) ==
+
+[31mCHECK THIS MANUALLY USING THE 'mount' COMMAND.  REMOVABLE MEDIA CAN HAVE DIFFERING MOUNT POINTS
+
+[92m== 1.1.20 Ensure sticky bit is set on all world-writable directories ==
+
+Passed!
+
+[92m== 1.1.21 Disable Automounting ==
+
+Passed!
+
+
+[92m== 1.2 Configure Software Updates ==
+
+[92m== 1.2.1 Ensure package manager repositories are configured (Not Scored) ==
+
+[31mVerify that the package repositories are configured correctly from the following output:
+
+Package files:
+ 100 /var/lib/dpkg/status
+     release a=now
+ 500 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-security,n=xenial,l=Ubuntu,c=multiverse,b=amd64
+     origin security.ubuntu.com
+ 500 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-security,n=xenial,l=Ubuntu,c=universe,b=amd64
+     origin security.ubuntu.com
+ 500 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-security,n=xenial,l=Ubuntu,c=restricted,b=amd64
+     origin security.ubuntu.com
+ 500 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-security,n=xenial,l=Ubuntu,c=main,b=amd64
+     origin security.ubuntu.com
+ 100 http://archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-backports,n=xenial,l=Ubuntu,c=universe,b=amd64
+     origin archive.ubuntu.com
+ 100 http://archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-backports,n=xenial,l=Ubuntu,c=main,b=amd64
+     origin archive.ubuntu.com
+ 500 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-updates,n=xenial,l=Ubuntu,c=multiverse,b=amd64
+     origin archive.ubuntu.com
+ 500 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-updates,n=xenial,l=Ubuntu,c=universe,b=amd64
+     origin archive.ubuntu.com
+ 500 http://archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-updates,n=xenial,l=Ubuntu,c=restricted,b=amd64
+     origin archive.ubuntu.com
+ 500 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-updates,n=xenial,l=Ubuntu,c=main,b=amd64
+     origin archive.ubuntu.com
+ 500 http://archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial,n=xenial,l=Ubuntu,c=multiverse,b=amd64
+     origin archive.ubuntu.com
+ 500 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial,n=xenial,l=Ubuntu,c=universe,b=amd64
+     origin archive.ubuntu.com
+ 500 http://archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial,n=xenial,l=Ubuntu,c=restricted,b=amd64
+     origin archive.ubuntu.com
+ 500 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial,n=xenial,l=Ubuntu,c=main,b=amd64
+     origin archive.ubuntu.com
+Pinned packages:
+
+[92mRemediation:
+
+Configure your package manager repositories according to site policy.
+
+[92m== 1.2.2 Ensure Ensure GPG keys are configured (Not Scored) ==
+
+[31mVerify that GPG keys are configured correctly for your pacakge manager from the output below:
+
+/etc/apt/trusted.gpg
+--------------------
+pub   1024D/437D05B5 2004-09-12
+uid                  Ubuntu Archive Automatic Signing Key <ftpmaster@ubuntu.com>
+sub   2048g/79164387 2004-09-12
+
+pub   4096R/C0B21F32 2012-05-11
+uid                  Ubuntu Archive Automatic Signing Key (2012) <ftpmaster@ubuntu.com>
+
+pub   4096R/EFE21092 2012-05-11
+uid                  Ubuntu CD Image Automatic Signing Key (2012) <cdimage@ubuntu.com>
+
+pub   1024D/FBB75451 2004-12-30
+uid                  Ubuntu CD Image Automatic Signing Key <cdimage@ubuntu.com>
+
+
+[92mRemediation:
+
+Update your package manager GPG keys in accordance with site policy.
+
+
+[92m== 1.3 Filesystem Integrity Checking ==
+
+[92m== 1.3.1 Ensure AIDE is installed ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify AIDE is installed:
+
+		# dpkg -s aide
+
+		Remediation:
+
+		Run the following command to install AIDE:
+
+		# apt-get install aide
+
+		Configure AIDE as appropriate for your environment. Consult the AIDE documentation for options.
+
+		Initialize AIDE:
+
+		# aide --init
+
+		Notes:
+
+		The prelinking feature can interfere with AIDE because it alters binaries to speed up their start up times. Run prelink -ua to restore the binaries to their prelinked state, thus avoiding false positives from AIDE.
+
+[92m== 1.3.2 Ensure filesystem integrity is regularly checked ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands to determine if there is a cron job scheduled to run the aide check.
+
+		# crontab -u root -l | grep aide
+
+		# grep -r aide /etc/cron.* /etc/crontab
+
+		Ensure a cron job in compliance with site policy is returned.
+
+		Remediation:
+		Run the following command:
+
+		# crontab -u root -e
+		Add the following line to the crontab:
+		0 5 * * * /usr/bin/aide --check
+
+[92m== 1.4 Secure Boot Settings ==
+[92m== 1.4.1 Ensure permissions on bootloader config are configured == 
+
+[31mFailed![0m : 
+                Audit:
+	Run the following command and verify Uid and Gid are both 0/root and Access does not grant permissions to group or other:
+
+	# stat /boot/grub/grub.cfg
+	Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+
+	Remediation:
+	Run the following commands to set permissions on your grub configuration:
+	# chown root:root /boot/grub/grub.cfg
+	# chmod og-rwx /boot/grub/grub.cfg
+[92m== 1.4.2 Ensure bootloader password is set == 
+
+[31mFailed![0m : 
+                Audit:
+	Run the following commands and verify output matches:
+	# grep '^set superusers' /boot/grub/grub.cfg
+	set superusers='<username>'
+	# grep '^password' /boot/grub/grub.cfg
+	password_pbkdf2 <username> <encrypted-password>
+
+
+	Remediation:
+	Create an encrypted password with grub-mkpasswd-pbkdf2:
+	# grub-mkpasswd-pbkdf2
+	Enter password: <password>
+	Reenter password: <password>
+	Your PBKDF2 is <encrypted-password>
+
+
+	Add the following into /etc/grub.d/00_header or a custom /etc/grub.d configuration file:
+	cat <<EOF
+	set superusers='<username>'
+	password_pbkdf2 <username> <encrypted-password> EOF
+
+
+	Run the following command to update the grub2 configuration:
+	# update-grub
+
+
+	Notes:
+	This recommendation is designed around the grub bootloader, if LILO or another bootloader is in use in your environment enact equivalent settings.
+
+[92m== 1.4.3 Ensure authentication required for single user mode ==
+
+Passed!
+
+[92m== 1.5 Additional Process Hardening ==
+
+[92m== 1.5.1 Ensure core dumps are restricted ==
+
+[31mFailed![0m : 
+                Audit:
+	Run the following commands and verify output matches:
+	# grep 'hard core' /etc/security/limits.conf /etc/security/limits.d/*
+	* hard core 0
+
+	# sysctl fs.suid_dumpable
+	fs.suid_dumpable = 0
+
+
+	Remediation:
+	Add the following line to the /etc/security/limits.conf file or a /etc/security/limits.d/* file:
+	* hard core 0
+
+	Set the following parameter in the /etc/sysctl.conf file:
+	fs.suid_dumpable = 0
+
+	Run the following command to set the active kernel parameter:
+	# sysctl -w fs.suid_dumpable=0
+
+[92m== 1.5.2 Ensure XD/NX support is enabled (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify your kernel has identified and activated NX/XD protection.
+		# dmesg | grep NX
+		NX (Execute Disable) protection: active
+
+
+		Remediation:
+		On 32 bit systems install a kernel with PAE support, no installation is required on 64 bit systems:
+		If necessary configure your bootloader to load the new kernel and reboot the system. You may need to enable NX or XD support in your bios.
+
+
+		Notes:
+		Ensure your system supports the XD or NX bit and has PAE support before implementing this recommendation as this may prevent it from booting if these are not supported by your hardware.
+
+[92m== 1.5.3 Ensure address space layout randomization (ASLR) is enabled ==
+
+Passed!
+
+[92m== 1.5.4 Ensure prelink is disabled ==
+
+Passed!
+
+[92m== 1.6  Mandatory Access Control ==
+
+[92m== 1.6.1 Configure SELinux ==
+
+[92m== 1.6.1.1 Ensure SELinux is not disabled in bootloader configuration ==
+
+Passed!
+
+[92m== 1.6.1.2 Ensure the SELinux state is enforcing ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and ensure output matches:
+		# grep SELINUX=enforcing /etc/selinux/config
+		SELINUX=enforcing
+		# sestatus
+		SELinux status: enabled
+		Current mode: enforcing
+		Mode from config file: enforcing
+
+
+		Remediation:
+		Edit the /etc/selinux/config file to set the SELINUX parameter:
+		SELINUX=enforcing
+
+[92m== 1.6.1.3 Ensure SELinux policy is configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and ensure output matches ubuntu, default or mls:
+		# grep SELINUXTYPE= /etc/selinux/config
+		SELINUXTYPE=ubuntu
+		# sestatus
+		Policy from config file: ubuntu
+
+
+
+		Remediation:
+		Edit the /etc/selinux/config file to set the SELINUXTYPE parameter:
+		SELINUXTYPE=ubuntu
+
+
+		Notes:
+		If your organization requires stricter policies, ensure that they are set in the/etc/selinux/config file.
+
+[92m== 1.6.1.4 Ensure no unconfined daemons exist ==
+
+Passed!
+
+[92m== 1.6.2 Configure AppArmor ==
+
+[92m== 1.6.2.1 Ensure AppArmor is not disabled in bootloader configuration ==
+
+Passed!
+
+[92m== 1.6.2.2 Ensure all AppArmor Profiles are enforcing ==
+
+[31m Verify that profiles are loaded, no profiles are in complain mode, and no processes are unconfined from the output below:[0m
+
+
+==
+
+No output was found
+
+==
+
+
+		Remediation:
+		Run the following command to set all profiles to enforce mode:
+		# aa-enforce /etc/apparmor.d/*
+
+
+		Any unconfined processes may need to have a profile created or activated for them and then be restarted.
+
+[92m== 1.6.3 Ensure SELinux or AppArmor are installed (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify either SELinux or AppArmor is installed:
+		# dpkg -s selinux
+		# dpkg -s apparmor
+
+
+		Remediation:
+		Run one of the following commands to install SELinux or apparmor:
+		# apt-get install selinux
+		# apt-get install apparmor
+
+[92m== 1.7 Warning Banners ==
+
+[92m== 1.7.1 Command Line Warning Banners ==
+
+[92m== 1.7.1.1 Ensure message of the day is configured properly ==
+
+[31mVerify that the following output from /etc/motd matches site policy:
+
+==
+
+/etc/motd file is empty
+
+==
+
+[92mPassed![0m
+
+[92m== 1.7.1.2 Ensure local login warning banner is configured properly (Not Scored) ==
+
+[31mVerify that the following output from /etc/issue matches site policy:
+
+==
+
+Ubuntu 16.04.3 LTS \n \l
+
+
+==
+
+
+[92mPassed![0m
+
+[92m== 1.7.1.3 Ensure remote login warning banner is configured properly (Not Scored) ==
+
+[31mVerify that the following output from /etc/issue.net matches site policy:
+
+==
+
+Ubuntu 16.04.3 LTS
+
+==
+
+
+[92mPassed![0m
+
+[92m== 1.7.1.4 Ensure permissions on /etc/motd are configured (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify Uid and Gid are both 0/root and Access is 644:
+		# stat /etc/motd
+		Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+
+
+		Remediation:
+		Run the following commands to set permissions on /etc/motd:
+		# chown root:root /etc/motd
+		# chmod 644 /etc/motd
+
+[92m== 1.7.1.5 Ensure permissions on /etc/issue are configured (Not Scored) ==
+
+Passed!
+
+[92m== 1.7.1.6 Ensure permissions on /etc/issue.net are configured (Not Scored) ==
+
+Passed!
+
+[92m== 1.7.2 Ensure GDM login banner is configured ==
+
+Passed!
+
+[92m== 1.8 Ensure updates, patches, and additional security software are installed (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify there are no updates or patches to install:
+		# apt-get -s upgrade
+
+
+		Remediation:
+		Use your package manager to update all packages on the system according to site policy.
+
+		Notes:
+		Site policy may mandate a testing period before install onto production systems for available updates.
+
+[92m== 2 Services ==
+
+[92m== 2.1.1 Ensure chargen services are not enabled ==
+
+Passed!
+
+[92m== 2.1.2 Ensure daytime services are not enabled ==
+
+Passed!
+
+[92m== 2.1.3 Ensure discard services are not enabled ==
+
+Passed!
+
+[92m== 2.1.4 Ensure echo services are not enabled ==
+
+Passed!
+
+[92m== 2.1.5 Ensure time services are not enabled ==
+
+Passed!
+
+[92m== 2.1.6 Ensure rsh server is not enabled ==
+
+Passed!
+
+[92m== 2.1.7 Ensure talk server is not enabled ==
+
+Passed!
+
+[92m== 2.1.8 Ensure telnet server is not enabled ==
+
+Passed!
+
+[92m== 2.1.9 Ensure tftp server is not enabled ==
+
+Passed!
+
+[92m== 2.1.10 Ensure xinetd is not enabled ==
+
+Passed!
+
+[92m== 2.2 Special Purpose Services ==
+
+[92m== 2.2.1 Time Synchronization ==
+
+[92m== 2.2.1.1 Ensure time synchronization is in use (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+
+		On physical systems or virtual systems where host based time synchronization is not available run the following commands and verify either NTP or chrony is installed:
+		# dpkg -s ntp
+		# dpkg -s chrony
+
+
+		On virtual systems where host based time synchronization is available consult your virtualization software documentation and verify that host based synchronization is in use.
+
+
+		Remediation:
+		On physical systems or virtual systems where host based time synchronization is not available install NTP or chrony using one of the following commands:
+		# apt-get install ntp
+		# apt-get install chrony
+
+
+		On virtual systems where host based time synchronization is available consult your virtualization software documentation and setup host based synchronization.
+
+[92m== 2.2.1.2 Ensure ntp is configured ==
+
+NTP is not installed.  No action necessary
+
+[92m== 2.2.1.3 Ensure chrony is configured ==
+
+Chrony is not installed.  No action necessary
+
+[92m== 2.2.2 Ensure X Window System is not installed ==
+
+Passed!
+
+[92m== 2.2.3 Ensure Avahi Server is not enabled ==
+
+Passed!
+
+[92m== 2.2.4 Ensure CUPS is not enabled ==
+
+Passed!
+
+[92m== 2.2.5 Ensure DHCP Server is not enabled ==
+
+Passed!
+
+[92m== 2.2.6 Ensure LDAP Server is not enabled ==
+
+Passed!
+
+[92m== 2.2.7 Ensure NFS and RPC are not enabled ==
+
+Passed!
+
+[92m== 2.2.8 Ensure DNS Server is not enabled ==
+
+Passed!
+
+[92m== 2.2.9 Ensure FTP Server is not enabled ==
+
+Passed!
+
+		Notes:
+		Check is for vsftpd.  Additional FTP servers also exist and should be audited.
+
+[92m== 2.2.10 Ensure HTTP Server is not enabled ==
+
+Passed!
+
+[92m== 2.2.11 Ensure IMAP and POP3 Server is not enabled ==
+
+Passed!
+
+[92m== 2.2.12 Ensure Samba is not enabled ==
+
+Passed!
+
+[92m== 2.2.13 Ensure HTTP Proxy Server is not enabled ==
+
+Passed!
+
+[92m== 2.2.14 Ensure SNMP Server is not enabled ==
+
+Passed!
+
+[92m== 2.2.15 Ensure mail transfer agent is configured for local-only mode ==
+
+Passed!
+
+[92m== 2.2.16 Ensure rsync service is not enabled ==
+
+Passed!
+
+[92m== 2.2.17 Ensure NIS server is not enabled ==
+
+Passed!
+
+[92m== 2.3 Service Clients ==
+
+[92m== 2.3.1 Ensure NIS Client is not installed ==
+
+Passed!
+
+[92m== 2.3.2 Ensure rsh client is not installed ==
+
+Passed!
+
+[92m== 2.3.3 Ensure talk client is not installed ==
+
+Passed!
+
+[92m== 2.3.4 Ensure telnet client is not installed ==
+
+Passed!
+
+[92m== 2.3.5 Ensure ldap-utils client is not installed ==
+
+Passed!
+
+[92m== 3 Network Configuration ==
+
+[92m== 3.1 Network Parameters \(Host Only\) ==
+
+[92m== 3.1.1 Ensure IP forwarding is disabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify output matches:
+		# sysctl net.ipv4.ip_forward
+		net.ipv4.ip_forward = 0
+
+
+		Remediation:
+		Set the following parameter in the /etc/sysctl.conf file:
+		net.ipv4.ip_forward = 0
+
+
+		Run the following commands to set the active kernel parameters:
+		# sysctl -w net.ipv4.ip_forward=0
+		# sysctl -w net.ipv4.route.flush=1
+
+[92m== 3.1.2 Ensure packet redirect sending is disabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify output matches:
+		# sysctl net.ipv4.conf.all.send_redirects
+		net.ipv4.conf.all.send_redirects = 0
+		# sysctl net.ipv4.conf.default.send_redirects
+		net.ipv4.conf.default.send_redirects = 0
+
+
+		Remediation:
+		Set the following parameters in the /etc/sysctl.conf file:
+		net.ipv4.conf.all.send_redirects = 0
+		net.ipv4.conf.default.send_redirects = 0
+
+
+		Run the following commands to set the active kernel parameters:
+		# sysctl -w net.ipv4.conf.all.send_redirects=0
+		# sysctl -w net.ipv4.conf.default.send_redirects=0
+		# sysctl -w net.ipv4.route.flush=1
+
+[92m== 3.2 Network Parameters \(Host and Router\) ==
+
+[92m== 3.2.1 Ensure source routed packets are not accepted ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify output matches:
+		# sysctl net.ipv4.conf.all.accept_source_route
+		net.ipv4.conf.all.accept_source_route = 0
+		# sysctl net.ipv4.conf.default.accept_source_route
+		net.ipv4.conf.default.accept_source_route = 0
+
+
+		Remediation:
+		Set the following parameters in the /etc/sysctl.conf file:
+		net.ipv4.conf.all.accept_source_route = 0
+		net.ipv4.conf.default.accept_source_route = 0
+
+
+		Run the following commands to set the active kernel parameters:
+		# sysctl -w net.ipv4.conf.all.accept_source_route=0
+		# sysctl -w net.ipv4.conf.default.accept_source_route=0
+		# sysctl -w net.ipv4.route.flush=1
+
+[92m== 3.2.2 Ensure ICMP redirects are not accepted ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify output matches:
+		# sysctl net.ipv4.conf.all.accept_redirects
+		net.ipv4.conf.all.accept_redirects = 0
+		# sysctl net.ipv4.conf.default.accept_redirects
+		net.ipv4.conf.default.accept_redirects = 0
+
+
+		Remediation:
+		Set the following parameters in the /etc/sysctl.conf file:
+		net.ipv4.conf.all.accept_redirects = 0
+		net.ipv4.conf.default.accept_redirects = 0
+
+
+		Run the following commands to set the active kernel parameters:
+		# sysctl -w net.ipv4.conf.all.accept_redirects=0
+		# sysctl -w net.ipv4.conf.default.accept_redirects=0
+		# sysctl -w net.ipv4.route.flush=1
+
+[92m== 3.2.3 Ensure secure ICMP redirects are not accepted ==
+
+[31mFailed![0m : 
+                Audit:
+
+		Run the following commands and verify output matches:
+		# sysctl net.ipv4.conf.all.secure_redirects
+		net.ipv4.conf.all.secure_redirects = 0
+		# sysctl net.ipv4.conf.default.secure_redirects
+		net.ipv4.conf.default.secure_redirects = 0
+
+
+		Remediation:
+		Set the following parameters in the /etc/sysctl.conf file:
+		net.ipv4.conf.all.secure_redirects = 0
+		net.ipv4.conf.default.secure_redirects = 0
+
+
+		Run the following commands to set the active kernel parameters:
+		# sysctl -w net.ipv4.conf.all.secure_redirects=0
+		# sysctl -w net.ipv4.conf.default.secure_redirects=0
+		# sysctl -w net.ipv4.route.flush=1
+
+[92m== 3.2.4 Ensure suspicious packets are logged ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify output matches:
+		# sysctl net.ipv4.conf.all.log_martians
+		net.ipv4.conf.all.log_martians = 1
+		# sysctl net.ipv4.conf.default.log_martians
+		net.ipv4.conf.default.log_martians = 1
+
+
+		Remediation:
+		Set the following parameters in the /etc/sysctl.conf file:
+		net.ipv4.conf.all.log_martians = 1
+		net.ipv4.conf.default.log_martians = 1
+
+
+		Run the following commands to set the active kernel parameters:
+		# sysctl -w net.ipv4.conf.all.log_martians=1
+		# sysctl -w net.ipv4.conf.default.log_martians=1
+		# sysctl -w net.ipv4.route.flush=1
+
+[92m== 3.2.5 Ensure broadcast ICMP requests are ignored ==
+
+Passed!
+
+[92m== 3.2.6 Ensure bogus ICMP responses are ignored ==
+
+Passed!
+
+[92m== 3.2.7 Ensure Reverse Path Filtering is enabled ==
+
+Passed!
+
+[92m== 3.2.8 Ensure TCP SYN Cookies is enabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify output matches:
+		# sysctl net.ipv4.tcp_syncookies
+		net.ipv4.tcp_syncookies = 1
+
+
+		Remediation:
+		Set the following parameter in the /etc/sysctl.conf file:
+		net.ipv4.tcp_syncookies = 1
+
+
+		Run the following commands to set the active kernel parameters:
+		# sysctl -w net.ipv4.tcp_syncookies=1
+		# sysctl -w net.ipv4.route.flush=1
+
+[92m== 3.3 IPv6 ==
+
+[92m== 3.3.1 Ensure IPv6 router advertisements are not accepted (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify output matches:
+		# sysctl net.ipv6.conf.all.accept_ra
+		net.ipv6.conf.all.accept_ra = 0
+		# sysctl net.ipv6.conf.default.accept_ra
+		net.ipv6.conf.default.accept_ra = 0
+
+
+		Remediation:
+		Set the following parameters in the /etc/sysctl.conf file:
+		net.ipv6.conf.all.accept_ra = 0
+		net.ipv6.conf.default.accept_ra = 0
+
+
+		Run the following commands to set the active kernel parameters:
+		# sysctl -w net.ipv6.conf.all.accept_ra=0
+		# sysctl -w net.ipv6.conf.default.accept_ra=0
+		# sysctl -w net.ipv6.route.flush=1
+
+[92m== 3.3.2 Ensure IPv6 redirects are not accepted ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify output matches:
+		# sysctl net.ipv6.conf.all.accept_redirects
+		net.ipv6.conf.all.accept_redirect = 0
+		# sysctl net.ipv6.conf.default.accept_redirects
+		net.ipv6.conf.default.accept_redirect = 0
+
+
+		Remediation:
+		Set the following parameters in the /etc/sysctl.conf file:
+		net.ipv6.conf.all.accept_redirect = 0
+		net.ipv6.conf.default.accept_redirect = 0
+
+
+		Run the following commands to set the active kernel parameters:
+		# sysctl -w net.ipv6.conf.all.accept_redirects=0
+		# sysctl -w net.ipv6.conf.default.accept_redirects=0
+		# sysctl -w net.ipv6.route.flush=1
+
+[92m== 3.3.3 Ensure IPv6 is disabled (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify that each linux line has the 'ipv6.disable=1' parameter set:
+		# grep ^s*linux /boot/grub/grub.cfg
+
+
+		Remediation:
+		Edit /etc/default/grub and add 'ipv6.disable=1' to GRUB_CMDLINE_LINUX:
+		GRUB_CMDLINE_LINUX="ipv6.disable=1"
+
+
+		Run the following command to update the grub2 configuration:
+		# update-grub
+
+[92m== 3.4 TCP Wrappers ==
+
+[92m== 3.4.1 Ensure TCP Wrappers is installed ==
+
+Passed!
+
+[92m== 3.4.2 Ensure /etc/hosts.allow is configured ==
+
+Verify the following output from the /etc/hosts.allow file and ensure that the correct IPs are permitted to access the system:
+
+==
+
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+#                   See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+
+==
+
+[31m		Audit:
+
+		Run the following command and verify the contents of the /etc/hosts.allow file:
+		# cat /etc/hosts.allow
+
+
+		Remediation:
+		Run the following command to create /etc/hosts.allow:
+		# echo "ALL: <net>/<mask>, <net>/<mask>, ..." >/etc/hosts.allow
+		where each <net>/<mask> combination (for example, "192.168.1.0/255.255.255.0") represents one network block in use by your organization that requires access to this system.
+		Notes:
+		Contents of the /etc/hosts.allow file will vary depending on your network configuration.
+
+[92m== 3.4.3 Ensure /etc/hosts.deny is configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify the contents of the /etc/hosts.deny file:
+		# cat /etc/hosts.deny
+		ALL: ALL
+
+
+		Remediation:
+		Run the following command to create /etc/hosts.deny:
+		# echo ALL: ALL >> /etc/hosts.deny
+
+
+		Notes:
+		Contents of the /etc/hosts.deny file may include additional options depending on your network configuration.
+
+[92m== 3.4.4 Ensure permissions on /etc/hosts.allow are configured ==
+
+Passed!
+
+[92m== 3.4.5 Ensure permissions on /etc/hosts.deny are 644 ==
+
+Passed!
+
+[92m== 3.5 Uncommon Network Protocols ==
+
+[92m== 3.5.1 Ensure DCCP is disabled (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify the output is as indicated:
+		# modprobe -n -v dccp
+		install /bin/true
+		# lsmod | grep dccp
+		<No output>
+
+
+		Remediation:
+		Edit or create the file /etc/modprobe.d/CIS.conf and add the following line:
+		install dccp /bin/true
+
+[92m== 3.5.2 Ensure SCTP is disabled (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify the output is as indicated:
+		# modprobe -n -v sctp
+		install /bin/true
+		# lsmod | grep sctp
+		<No output>
+
+
+		Remediation:
+		Edit or create the file /etc/modprobe.d/CIS.conf and add the following line:
+		install sctp /bin/true
+
+[92m== 3.5.3 Ensure RDS is disabled (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+                Run the following commands and verify the output is as indicated:
+                # modprobe -n -v rds
+                install /bin/true
+                # lsmod | grep rds
+                <No output>
+
+
+                Remediation:
+                Edit or create the file /etc/modprobe.d/CIS.conf and add the following line:
+                install rds /bin/true
+
+[92m== 3.5.4 Ensure TIPC is disabled (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+                Run the following commands and verify the output is as indicated:
+                # modprobe -n -v tipc
+                install /bin/true
+                # lsmod | grep tipc
+                <No output>
+
+
+                Remediation:
+                Edit or create the file /etc/modprobe.d/CIS.conf and add the following line:
+                install tipc /bin/true
+
+[92m== 3.6 Firewall Configuration ==
+
+[92m== 3.6.1 Ensure iptables is installed ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify iptables is installed:
+		# dpkg -s iptables
+
+
+		Remediation:
+		Run the following command to install iptables: # apt-get install iptables
+
+[92m== 3.6.2 Ensure default deny firewall policy ==
+
+[92m== 3.6.3 Ensure loopback traffic is configured ==
+
+[31m==
+
+==
+
+Verify the output above matches this:
+
+
+		# iptables -L INPUT -v -n
+		Chain INPUT (policy DROP 0 packets, 0 bytes)
+		pkts bytes target	prot opt in     out	source		destination
+		   0    0  ACCEPT	all  --  lo	*	0.0.0.0/0	0.0.0.0/0
+		   0	0  DROP		all  --  *      *	127.0.0.0/8	0.0.0.0/0
+==
+
+==
+
+Verify the output above matches this:
+
+
+		# iptables -L OUTPUT -v -n
+		Chain OUTPUT (policy DROP 0 packets, 0 bytes)
+                pkts bytes target       prot opt in     out     source          destination
+		   0	0  ACCEPT	all  --  *	*	0.0.0.0/0	0.0.0.0/0
+
+
+		Remediation:
+		Run the following commands to implement the loopback rules:
+		# iptables -A INPUT -i lo -j ACCEPT
+		# iptables -A OUTPUT -o lo -j ACCEPT
+		# iptables -A INPUT -s 127.0.0.0/8 -j DROP
+
+
+		Notes:
+		Changing firewall settings while connected over network can result in being locked out of the system.
+		Remediation will only affect the active system firewall, be sure to configure the default policy in your firewall management to apply on boot as well.
+
+[92m== 3.6.4 Ensure outbound and established connections are configured (Not Scored) ==
+
+[31mVerify that all rules for new outbound, and established connections match site policy from the output below:
+
+==
+
+==
+
+Remediation:
+		Configure iptables in accordance with site policy. The following commands will implement a policy to allow all outbound connections and all established connections:
+		# iptables -A OUTPUT -p tcp -m state --state NEW,ESTABLISHED -j ACCEPT
+		# iptables -A OUTPUT -p udp -m state --state NEW,ESTABLISHED -j ACCEPT
+		# iptables -A OUTPUT -p icmp -m state --state NEW,ESTABLISHED -j ACCEPT
+		# iptables -A INPUT -p tcp -m state --state ESTABLISHED -j ACCEPT
+		# iptables -A INPUT -p udp -m state --state ESTABLISHED -j ACCEPT
+		# iptables -A INPUT -p icmp -m state --state ESTABLISHED -j ACCEPT
+
+		Notes:
+		Changing firewall settings while connected over network can result in being locked out of the system.
+		Remediation will only affect the active system firewall, be sure to configure the default policy in your firewall management to apply on boot as well.
+
+[92m== 3.6.5 Ensure firewall rules exist for all open ports ==
+
+[31mThe following shows the open ports on the server:
+
+==
+
+
+
+==
+
+The following shows the current firewall rules:
+
+==
+
+
+
+==
+
+		Verify all open ports listening on non-localhost addresses have at least one firewall rule.
+		The last line identified by the tcp dpt:22 state NEW identifies it as a firewall rule for new connections on tcp port 22.
+
+
+		Remediation:
+		For each port identified in the audit which does not have a firewall rule establish a proper rule for accepting inbound connections:
+		iptables -A INPUT -p <protocol> --dport <port> -m state --state NEW -j ACCEPT
+
+
+		Notes:
+		Changing firewall settings while connected over network can result in being locked out of the system.
+		Remediation will only affect the active system firewall, be sure to configure the default policy in your firewall management to apply on boot as well.
+		The remediation command opens up the port to traffic from all sources. Consult iptables documentation and set any restrictions in compliance with site policy.
+
+[92m== 3.7 Ensure wireless interfaces are disabled (Not Scored) ==
+
+Passed!
+
+[92m== 4 Logging and Auditing ==
+
+[92m== 4.1 Configure System Accounting \(auditd\) ==
+
+Note: Once all configuration changes have been made to /etc/audit/audit.rules, the auditd configuration must be reloaded:
+# service auditd reload
+
+[92m== 4.1.1 Configure Data Retention ==
+
+[92m== 4.1.1.1 Configure Data Retention ==
+
+[31mEnsure that that following output for the max auditd log file size is configured in the output below from /etc/audit/auditd.conf:
+===
+
+/etc/audit/auditd.conf does not exist or does not contain a max_log_file directive
+
+===
+[0m
+		Audit:
+		Run the following command and ensure output is in compliance with site policy:
+		# grep max_log_file /etc/audit/auditd.conf
+		max_log_file = <MB>
+
+
+		Remediation:
+		Set the following parameter in /etc/audit/auditd.conf in accordance with site policy:
+		max_log_file = <MB>
+
+
+		Notes:
+		The max_log_file parameter is measured in megabytes.
+
+[92m== 4.1.1.2 Ensure system is disabled when audit logs are full ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify output matches:
+		# grep space_left_action /etc/audit/auditd.conf
+		space_left_action = email
+		# grep action_mail_acct /etc/audit/auditd.conf
+		action_mail_acct = root
+		# grep admin_space_left_action /etc/audit/auditd.conf
+		admin_space_left_action = halt
+
+
+		Remediation:
+		Set the following parameters in /etc/audit/auditd.conf:]
+		space_left_action = email
+		action_mail_acct = root
+		admin_space_left_action = halt
+
+[92m== 4.1.1.3 Ensure audit logs are not automatically deleted ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify output matches:
+		# grep max_log_file_action /etc/audit/auditd.conf
+		max_log_file_action = keep_logs
+
+
+		Remediation:
+		Set the following parameter in /etc/audit/auditd.conf:
+		max_log_file_action = keep_logs
+
+[92m== 4.1.2 Ensure auditd service is enabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command to verify auditd is enabled:
+		# systemctl is-enabled auditd
+		enabled
+
+
+		Verify result is "enabled".
+
+		Remediation:
+		Run the following command to enable auditd:
+		# systemctl enable auditd
+
+[92m== 4.1.3 Ensure auditing for processes that start prior to auditd is enabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify that each linux line has the audit=1 parameter set:
+		# grep ^s*linux /boot/grub/grub.cfg
+
+
+		Remediation:
+		Edit /etc/default/grub and add audit=1 to GRUB_CMDLINE_LINUX:
+		GRUB_CMDLINE_LINUX="audit=1"
+
+
+		Run the following command to update the grub2 configuration:
+		# update-grub
+
+		Notes:
+		This recommendation is designed around the grub bootloader, if LILO or another bootloader is in use in your environment enact equivalent settings.
+
+[92m== 4.1.4 Ensure events that modify date and time information are collected ==
+
+[31m===
+
+/etc/audit/audit.rules does not exist or does not contain the time-change directive
+
+===[0m
+
+		Audit:
+		On a 32 bit system run the following command and verify the output matches:
+		# grep time-change /etc/audit/audit.rules
+		-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change
+		-a always,exit -F arch=b32 -S clock_settime -k time-change
+		-w /etc/localtime -p wa -k time-change
+
+
+		On a 64 bit system run the following command and verify the output matches:
+		# grep time-change /etc/audit/audit.rules
+		-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change
+		-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change
+		-a always,exit -F arch=b64 -S clock_settime -k time-change
+		-a always,exit -F arch=b32 -S clock_settime -k time-change
+		-w /etc/localtime -p wa -k time-change
+
+
+		Remediation:
+		For 32 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change
+		-a always,exit -F arch=b32 -S clock_settime -k time-change
+		-w /etc/localtime -p wa -k time-change
+
+		For 64 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change
+		-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change
+		-a always,exit -F arch=b64 -S clock_settime -k time-change
+		-a always,exit -F arch=b32 -S clock_settime -k time-change
+		-w /etc/localtime -p wa -k time-change
+
+[92m== 4.1.5 Ensure events that modify user/group information are collected ==
+
+[31m===
+
+/etc/audit/audit.rules does not exist or does not contain the identity directive
+
+===[0m
+
+               Audit:
+		Run the following command and verify output matches:
+		# grep identity /etc/audit/audit.rules
+		-w /etc/group -p wa -k identity
+		-w /etc/passwd -p wa -k identity
+		-w /etc/gshadow -p wa -k identity
+		-w /etc/shadow -p wa -k identity
+		-w /etc/security/opasswd -p wa -k identity
+
+
+		Remediation:
+		Add the following lines to the /etc/audit/audit.rules file:
+		-w /etc/group -p wa -k identity
+		-w /etc/passwd -p wa -k identity
+		-w /etc/gshadow -p wa -k identity
+		-w /etc/shadow -p wa -k identity
+		-w /etc/security/opasswd -p wa -k identity
+
+[92m== 4.1.6 Ensure events that modify the system's network environment are collected ==
+
+[31m===
+
+/etc/audit/audit.rules does not exist or does not contain the system-locale directive
+
+===[0m
+
+               Audit:
+		On a 32 bit system run the following command and verify the output matches:
+		# grep system-locale /etc/audit/audit.rules
+		-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale
+		-w /etc/issue -p wa -k system-locale
+		-w /etc/issue.net -p wa -k system-locale
+		-w /etc/hosts -p wa -k system-locale
+		-w /etc/network -p wa -k system-locale
+		-w /etc/networks -p wa -k system-locale
+
+
+		On a 64 bit system run the following command and verify the output matches:
+		# grep system-locale /etc/audit/audit.rules
+		-a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale
+		-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale
+		-w /etc/issue -p wa -k system-locale
+		-w /etc/issue.net -p wa -k system-locale
+		-w /etc/hosts -p wa -k system-locale
+		-w /etc/network -p wa -k system-locale
+		-w /etc/networks -p wa -k system-locale
+
+
+		Remediation:
+		For 32 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale
+		-w /etc/issue -p wa -k system-locale
+		-w /etc/issue.net -p wa -k system-locale
+		-w /etc/hosts -p wa -k system-locale
+		-w /etc/network -p wa -k system-locale
+		-w /etc/networks -p wa -k system-locale
+
+
+		For 64 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale
+		-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale
+		-w /etc/issue -p wa -k system-locale
+		-w /etc/issue.net -p wa -k system-locale
+		-w /etc/hosts -p wa -k system-locale
+		-w /etc/network -p wa -k system-locale
+		-w /etc/networks -p wa -k system-locale
+
+[92m== 4.1.7 Ensure events that modify the system's Mandatory Access Controls are collected ==
+
+[31m===
+
+/etc/audit/audit.rules does not exist or does not contain the MAC-policy directive
+
+===[0m
+
+               Audit:
+		On systems using SELinux run the following command and verify output matches:
+		# grep MAC-policy /etc/audit/audit.rules
+		-w /etc/selinux/ -p wa -k MAC-policy
+
+
+		On systems using AppArmor run the following command and verify output matches:
+		# grep MAC-policy /etc/audit/audit.rules
+		-w /etc/apparmor/ -p wa -k MAC-policy
+		-w /etc/apparmor.d/ -p wa -k MAC-policy
+
+		Remediation:
+		On systems using SELinux add the following line to the /etc/audit/audit.rules file:
+		-w /etc/selinux/ -p wa -k MAC-policy
+
+
+		On systems using AppArmor add the following line to the /etc/audit/audit.rules file:
+		-w /etc/apparmor/ -p wa -k MAC-policy
+		-w /etc/apparmor.d/ -p wa -k MAC-policy
+
+[92m== 4.1.8 Ensure login and logout events are collected ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify output matches:
+		# grep logins /etc/audit/audit.rules
+		-w /var/log/faillog -p wa -k logins
+		-w /var/log/lastlog -p wa -k logins
+		-w /var/log/tallylog -p wa -k logins
+
+
+		Remediation:
+		Add the following lines to the /etc/audit/audit.rules file:
+		-w /var/log/faillog -p wa -k logins
+		-w /var/log/lastlog -p wa -k logins
+		-w /var/log/tallylog -p wa -k logins
+
+[92m== 4.1.9 Ensure session initiation information is collected ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify output matches:
+		# grep session /etc/audit/audit.rules
+		-w /var/run/utmp -p wa -k session
+		-w /var/log/wtmp -p wa -k session
+		-w /var/log/btmp -p wa -k session
+
+
+		Remediation:
+		Add the following lines to the /etc/audit/audit.rules file:
+		-w /var/run/utmp -p wa -k session
+		-w /var/log/wtmp -p wa -k session
+		-w /var/log/btmp -p wa -k session
+
+
+		Notes:
+		The last command can be used to read /var/log/wtmp (last with no parameters) and /var/run/utmp (last -f /var/run/utmp)
+
+[92m== 4.1.10 Ensure discretionary access control permission modification events are collected ==
+
+[31mFailed![0m : 
+                Audit:
+		On a 32 bit system run the following command and verify the output matches:
+		# grep perm_mod /etc/audit/audit.rules
+		-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod
+
+
+		On a 64 bit system run the following command and verify the output matches:
+		# grep perm_mod /etc/audit/audit.rules
+		-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod
+
+
+		Remediation:
+		For 32 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod
+
+
+		For 64 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod
+		-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod
+
+[92m== 4.1.11 Ensure unsuccessful unauthorized file access attempts are collected ==
+
+[31mFailed![0m : 
+                Audit:
+		On a 32 bit system run the following command and verify the output matches:
+		# grep access /etc/audit/audit.rules
+		-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access
+		-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access
+
+
+		On a 64 bit system run the following command and verify the output matches:
+		# grep access /etc/audit/audit.rules
+		-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access
+		-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access
+		-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access
+		-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access
+
+
+		Remediation:
+		For 32 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access
+		-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access
+
+
+		For 64 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access
+		-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access
+		-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access
+		-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access
+
+[92m== 4.1.12 Ensure use of privileged commands is collected ==
+
+Verify that the lines from the output below are in the /etc/audit/audit.rules file:
+
+[31m===
+
+-a always,exit -F path=/bin/su -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/bin/mount -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/bin/umount -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/usr/bin/ssh-agent -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/usr/bin/passwd -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/usr/bin/chsh -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/usr/bin/wall -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/usr/bin/newgrp -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/usr/bin/expiry -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/usr/bin/chage -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/usr/bin/gpasswd -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/usr/bin/chfn -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/usr/lib/openssh/ssh-keysign -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/sbin/pam_extrausers_chkpwd -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+-a always,exit -F path=/sbin/unix_chkpwd -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+
+===[0m
+
+Contents of the /etc/audit/audit.rules file:
+
+[31m===
+
+
+===[0m
+
+
+		Remediation:
+		To remediate this issue, the system administrator will have to execute a find command to locate all the privileged programs and then add an audit line for each one of them. The audit parameters associated with this are as follows:
+		-F path="  " - will populate each file name found through the find command and processed by awk.
+		-F perm=x - will write an audit record if the file is executed.
+		-F auid>=1000 - will write a record if the user executing the command is not a privileged user.
+		-F auid!= 4294967295 - will ignore Daemon events
+		All audit records should be tagged with the identifier "privileged".
+
+
+		Run the following command replacing <partition> with a list of partitions where programs can be executed from on your system:
+		# find <partition> -xdev \( -perm -4000 -o -perm -2000 \) -type f | awk '{print "-a always,exit -F path="  " -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged" }'
+
+		Add all resulting lines to the /etc/audit/audit.rules file.
+
+[92m== 4.1.13 Ensure successful file system mounts are collected ==
+
+[31mFailed![0m : 
+                Audit:
+		On a 32 bit system run the following command and verify the output matches:
+		# grep mounts /etc/audit/audit.rules
+		-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts
+
+		On a 64 bit system run the following command and verify the output matches:
+		# grep mounts /etc/audit/audit.rules
+		-a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts
+		-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts
+
+		Remediation:
+		For 32 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts
+
+		For 64 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts
+		-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts
+
+		Notes:
+		This tracks successful and unsuccessful mount commands. File system mounts do not have to come from external media and this action still does not verify write (e.g. CD ROMS).
+
+[92m== 4.1.14 Ensure file deletion events by users are collected ==
+
+[31mFailed![0m : 
+                Audit:
+		On a 32 bit system run the following command and verify the output matches:
+		# grep delete /etc/audit/audit.rules
+		-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete
+
+
+		On a 64 bit system run the following command and verify the output matches:
+		# grep delete /etc/audit/audit.rules
+		-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete
+		-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete
+
+
+		Remediation:
+		For 32 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete
+
+		For 64 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete
+		-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete
+
+
+		Notes:
+		At a minimum, configure the audit system to collect file deletion events for all users and root.
+
+[92m== 4.1.15 Ensure changes to system administration scope (sudoers) is collected ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify output matches:
+		# grep scope /etc/audit/audit.rules
+		-w /etc/sudoers -p wa -k scope
+		-w /etc/sudoers.d -p wa -k scope
+
+
+		Remediation:
+		Add the following line to the /etc/audit/audit.rules file:
+		-w /etc/sudoers -p wa -k scope
+		-w /etc/sudoers.d -p wa -k scope
+
+[92m== 4.1.16 Ensure system administrator actions (sudolog) are collected ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify output matches:
+		# grep actions /etc/audit/audit.rules
+		-w /var/log/sudo.log -p wa -k actions
+
+
+		Remediation:
+		Add the following lines to the /etc/audit/audit.rules file: 
+
+		-w /var/log/sudo.log -p wa -k actions
+
+
+		Notes:
+		The system must be configured with su disabled (See Item 5.6 Ensure access to the su command is restricted) to force all command execution through sudo. This will not be effective on the console, as administrators can log in as root.
+
+[92m== 4.1.17 Ensure kernel module loading and unloading is collected ==
+
+[31mFailed![0m : 
+                Audit:
+		On a 32 bit system run the following command and verify the output matches:
+		# grep modules /etc/audit/audit.rules
+		-w /sbin/insmod -p x -k modules
+		-w /sbin/rmmod -p x -k modules
+		-w /sbin/modprobe -p x -k modules
+		-a always,exit arch=b32 -S init_module -S delete_module -k modules
+
+
+		On a 64 bit system run the following command and verify the output matches:
+		# grep modules /etc/audit/audit.rules
+		-w /sbin/insmod -p x -k modules
+		-w /sbin/rmmod -p x -k modules
+		-w /sbin/modprobe -p x -k modules
+		-a always,exit arch=b64 -S init_module -S delete_module -k modules
+
+
+		For 32 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-w /sbin/insmod -p x -k modules
+		-w /sbin/rmmod -p x -k modules
+		-w /sbin/modprobe -p x -k modules
+		-a always,exit arch=b32 -S init_module -S delete_module -k modules
+
+
+		For 64 bit systems add the following lines to the /etc/audit/audit.rules file:
+		-w /sbin/insmod -p x -k modules
+		-w /sbin/rmmod -p x -k modules
+		-w /sbin/modprobe -p x -k modules
+		-a always,exit arch=b64 -S init_module -S delete_module -k modules
+
+[92m== 4.1.18 Ensure the audit configuration is immutable ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify output matches:
+		# grep ^s*[^#] /etc/audit/audit.rules | tail -1
+		-e 2
+
+
+		Remediation:
+		Add the following line to the end of the/etc/audit/audit.rules file.
+		-e 2
+
+[92m== 4.2 Configure Logging ==
+
+[92m== 4.2.1 Configure rsyslog ==
+
+[92m== 4.2.1.1 Ensure rsyslog Service is enabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command to verify rsyslog is enabled:
+		# systemctl is-enabled rsyslog
+		enabled
+
+
+		Verify result is "enabled".
+
+
+		Remediation:
+		Run the following command to enable rsyslog:
+		systemctl enable rsyslog
+
+[92m== 4.2.1.2 Ensure logging is configured (Not Scored) ==
+
+Review the contents of /var/log below and verify that log files are logging information and they are not empty:
+
+[31m===
+
+total 256
+-rw-r--r-- 1 root root   7904 Mar 29 18:55 alternatives.log
+drwxr-xr-x 2 root root   4096 Mar 29 18:55 apt
+-rw-r--r-- 1 root root  42621 Jan 23 22:49 bootstrap.log
+-rw-rw---- 1 root utmp      0 Jan 23 22:49 btmp
+-rw-r----- 1 root adm      31 Jan 23 22:49 dmesg
+-rw-r--r-- 1 root root 157798 Mar 29 18:55 dpkg.log
+-rw-r--r-- 1 root root   3392 Mar 29 18:55 faillog
+drwxr-xr-x 2 root root   4096 Jan 23 22:49 fsck
+-rw-rw-r-- 1 root utmp  30952 Mar 29 18:55 lastlog
+-rw-rw-r-- 1 root utmp      0 Jan 23 22:49 wtmp
+
+===
+[0m
+
+		Audit:
+		Review the contents of the /etc/rsyslog.conf file to ensure appropriate logging is set. In addition, run the following command and verify that the log files are logging information:
+		# ls -l /var/log/
+
+
+		Remediation:
+		Edit the following lines in the /etc/rsyslog.conf file as appropriate for your environment:
+		*.emerg
+		mail.*
+		mail.info
+		mail.warning
+		mail.err
+		news.crit
+		news.err
+		news.notice
+		*.=warning;*.=err
+		*.crit
+		*.*;mail.none;news.none
+		local0,local1.*
+		local2,local3.*
+		local4,local5.*
+		local6,local7.*
+		 :omusrmsg:*
+		 -/var/log/mail
+		 -/var/log/mail.info
+		 -/var/log/mail.warn
+		 /var/log/mail.err
+		 -/var/log/news/news.crit
+		 -/var/log/news/news.err
+		 -/var/log/news/news.notice
+		 -/var/log/warn
+		 /var/log/warn
+		 -/var/log/messages
+		 -/var/log/localmessages
+		 -/var/log/localmessages
+		 -/var/log/localmessages
+		 -/var/log/localmessages
+
+
+		 Run the following command to restart rsyslogd:
+		 # pkill -HUP rsyslogd
+
+[92m== 4.2.1.3 Ensure rsyslog default file permissions configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify that  is 0640 or more restrictive:
+		# grep ^$FileCreateMode /etc/rsyslog.conf
+
+
+		Remediation:
+		Edit the /etc/rsyslog.conf and set  to 0640 or more restrictive:  0640
+
+[92m== 4.2.1.4 Ensure rsyslog is configured to send logs to a remote log host ==
+
+[31mFailed![0m : 
+                Audit:
+		Review the /etc/rsyslog.conf file and verify that logs are sent to a central host (where loghost.example.com is the name of your central log host):
+		# grep ^*.*[^I][^I]*@ /etc/rsyslog.conf
+		*.* @@loghost.example.com
+
+
+		Remediation:
+		Edit the /etc/rsyslog.conf file and add the following line (where loghost.example.com is the name of your central log host).
+		*.* @@loghost.example.com
+		Run the following command to restart rsyslog: # pkill -HUP rsyslogd
+
+[92m== 4.2.1.5 Ensure remote rsyslog messages are only accepted on designated log hosts ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify the resulting lines are uncommented on designated log hosts and commented or removed on all others:
+		# grep ' imtcp.so' /etc/rsyslog.conf
+		 imtcp.so
+		# grep '' /etc/rsyslog.conf
+		 514
+
+
+		Remediation:
+		For hosts that are designated as log hosts, edit the /etc/rsyslog.conf file and un- comment or add the following lines:
+		 imtcp.so
+		 514
+
+
+		For hosts that are not designated as log hosts, edit the /etc/rsyslog.conf file and comment or remove the following lines:
+		#  imtcp.so
+		#  514
+
+
+		Run the following command to restart rsyslogd:
+		# pkill -HUP rsyslogd
+
+[92m== 4.2.2 Configure syslog-ng ==
+
+[92m== 4.2.2.1 Ensure syslog-ng service is enabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command to verify syslog-ng is enabled:
+		# systemctl is-enabled syslog-ng
+		enabled
+
+
+		Verify result is "enabled".
+
+
+		Remediation:
+		Run the following command to enable syslog-ng:
+		# update-rc.d syslog-ng enable
+
+[92m== 4.2.2.2 Ensure logging is configured (Not Scored) ==
+
+Review the contents of the /etc/syslog-ng/syslog-ng.conf file below to ensure appropriate logging is set. In addition, also verify that information is being logged to /var/log from the output below and ensure that the log files are logging information:
+
+[31m=== cat /etc/syslog-ng/syslog-ng.conf ===
+
+
+===
+
+
+
+=== ls -l /var/log ===
+
+total 256
+-rw-r--r-- 1 root root   7904 Mar 29 18:55 alternatives.log
+drwxr-xr-x 2 root root   4096 Mar 29 18:55 apt
+-rw-r--r-- 1 root root  42621 Jan 23 22:49 bootstrap.log
+-rw-rw---- 1 root utmp      0 Jan 23 22:49 btmp
+-rw-r----- 1 root adm      31 Jan 23 22:49 dmesg
+-rw-r--r-- 1 root root 157798 Mar 29 18:55 dpkg.log
+-rw-r--r-- 1 root root   3392 Mar 29 18:55 faillog
+drwxr-xr-x 2 root root   4096 Jan 23 22:49 fsck
+-rw-rw-r-- 1 root utmp  30952 Mar 29 18:55 lastlog
+-rw-rw-r-- 1 root utmp      0 Jan 23 22:49 wtmp
+
+===
+
+[0m		Audit:
+		Review the contents of the /etc/syslog-ng/syslog-ng.conf file to ensure appropriate logging is set. In addition, run the following command and ensure that the log files are logging information:
+		# ls -l /var/log/
+
+
+		Remediation:
+		Edit the log lines in the /etc/syslog-ng/syslog-ng.conf file as appropriate for your environment:
+		log { source(src); source(chroots); filter(f_console); destination(console); };
+		log { source(src); source(chroots); filter(f_console); destination(xconsole); };
+		log { source(src); source(chroots); filter(f_newscrit); destination(newscrit); };
+		log { source(src); source(chroots); filter(f_newserr); destination(newserr); };
+		log { source(src); source(chroots); filter(f_newsnotice); destination(newsnotice); };
+		log { source(src); source(chroots); filter(f_mailinfo); destination(mailinfo); };
+		log { source(src); source(chroots); filter(f_mailwarn); destination(mailwarn); };
+		log { source(src); source(chroots); filter(f_mailerr);  destination(mailerr); };
+		log { source(src); source(chroots); filter(f_mail); destination(mail); };
+		log { source(src); source(chroots); filter(f_acpid); destination(acpid); flags(final);
+		};
+		log { source(src); source(chroots); filter(f_acpid_full); destination(devnull);
+		flags(final); };
+		log { source(src); source(chroots); filter(f_acpid_old); destination(acpid);
+		flags(final); };
+		log { source(src); source(chroots); filter(f_netmgm); destination(netmgm);
+		flags(final); };
+		log { source(src); source(chroots); filter(f_local); destination(localmessages); };
+		log { source(src); source(chroots); filter(f_messages); destination(messages); };
+		log { source(src); source(chroots); filter(f_iptables); destination(firewall); };
+		log { source(src); source(chroots); filter(f_warn); destination(warn); };
+
+
+		Run the following command to restart syslog-ng:
+		# pkill -HUP syslog-ng
+
+[92m== 4.2.2.3 Ensure syslog-ng default file permissions configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify the perm option is 0640 or more restrictive:
+		# grep ^options /etc/syslog-ng/syslog-ng.conf
+		options { chain_hostnames(off); flush_lines(0); perm(0640); stats_freq(3600); threaded(yes); };
+
+
+		Remediation:
+		Edit the /etc/syslog-ng/syslog-ng.conf and set perm option to 0640 or more restrictive:
+		options { chain_hostnames(off); flush_lines(0); perm(0640); stats_freq(3600); threaded(yes); };
+
+[92m== 4.2.2.4 Ensure syslog-ng is configured to send logs to a remote log host ==
+
+[31mFailed![0m : 
+                Audit:
+		Review the /etc/syslog-ng/syslog-ng.conf file and verify that logs are sent to a central host (where logfile.example.com is the name of your central log host):
+		destination logserver { tcp("logfile.example.com" port(514)); }; log { source(src); destination(logserver); };
+
+
+		Remediation:
+		Edit the /etc/syslog-ng/syslog-ng.conf file and add the following lines (where logfile.example.com is the name of your central log host).
+		destination logserver { tcp("logfile.example.com" port(514)); }; log { source(src); destination(logserver); };
+
+
+		Run the following command to restart syslog-ng:
+		# pkill -HUP syslog-ng
+
+[92m== 4.2.2.5 Ensure remote syslog-ng messages are only accepted on designated log hosts (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+		Review the /etc/syslog-ng/syslog-ng.conf file and verify the following lines are configured appropriately on designated log hosts:
+		source net{ tcp(); };
+		destination remote { file("/var/log/remote/${FULLHOST}-log"); };
+		log { source(net); destination(remote); };
+
+
+		Remediation:
+		On designated log hosts edit the /etc/syslog-ng/syslog-ng.conf file and configure the following lines are appropriately:
+		source net{ tcp(); };
+		destination remote { file("/var/log/remote/${FULLHOST}-log"); };
+		log { source(net); destination(remote); };
+
+
+		On non designated log hosts edit the /etc/syslog-ng/syslog-ng.conf file and remove or edit any sources that accept network sourced log messages.
+		Run the following command to restart syslog-ng:
+		# pkill -HUP syslog-ng
+
+[92m== 4.2.3 Ensure rsyslog or syslog-ng is installed ==
+
+[31mFailed![0m : 
+                Audit:
+		Verify either rsyslog or syslog-ng is installed. Depending on the package management in use one of the following command groups may provide the needed information:
+		# dpkg -s rsyslog
+	   	# dpkg -s syslog-ng
+
+
+		Remediation:
+		Install rsyslog or syslog-ng using one of the following commands:
+		# apt-get install rsyslog
+		# apt-get install syslog-ng
+
+[92m== 4.2.4 Ensure permissions on all logfiles are configured ==
+
+Passed!
+
+[92m== 4.3 Ensure logrotate is configured (Not Scored) ==
+
+Review the output below from /etc/logrotate.d/* and /etc/logrotate.conf to verify that logs are rotated according to site policy
+
+[31m===
+
+/var/log/apt/term.log {
+  rotate 12
+  monthly
+  compress
+  missingok
+  notifempty
+}
+
+/var/log/apt/history.log {
+  rotate 12
+  monthly
+  compress
+  missingok
+  notifempty
+}
+
+/var/log/dpkg.log {
+	monthly
+	rotate 12
+	compress
+	delaycompress
+	missingok
+	notifempty
+	create 644 root root
+}
+/var/log/alternatives.log {
+	monthly
+	rotate 12
+	compress
+	delaycompress
+	missingok
+	notifempty
+	create 644 root root
+}
+
+===
+[0m
+		Audit:
+		Review /etc/logrotate.conf and /etc/logrotate.d/* and verify logs are rotated according to site policy.
+
+
+		Remediation:
+		Edit /etc/logrotate.conf and /etc/logrotate.d/* to ensure logs are rotated according to site policy.
+
+[92m== 5 Access, Authentication and Authorization ==
+
+[92m== 5.1 Configure cron ==
+
+[92m== 5.1.1 Ensure cron daemon is enabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command to verify cron is enabled:
+		# systemctl is-enabled crond
+		enabled
+
+
+		Verify result is enabled.
+
+
+		Remediation:
+		Run the following command to enable cron:
+		# systemctl enable crond
+
+[92m== 5.1.2 Ensure permissions on /etc/crontab are configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify Uid and Gid are both 0/root and Access does not grant permissions to group or other:
+		# stat /etc/crontab
+		Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+
+
+		Remediation:
+		Run the following commands to set ownership and permissions on /etc/crontab:
+		# chown root:root /etc/crontab
+		# chmod og-rwx /etc/crontab
+
+[92m== 5.1.3 Ensure permissions on /etc/cron.hourly are configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify Uid and Gid are both 0/root and Access does not grant permissions to group or other:
+		# stat /etc/cron.hourly
+		Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+
+
+		Remediation:
+		Run the following commands to set ownership and permissions on /etc/cron.hourly:
+		# chown root:root /etc/cron.hourly
+		# chmod og-rwx /etc/cron.hourly
+
+[92m== 5.1.4 Ensure permissions on /etc/cron.daily are configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify Uid and Gid are both 0/root and Access does not grant permissions to group or other:
+		# stat /etc/cron.daily
+		Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+
+
+		Remediation:
+		Run the following commands to set ownership and permissions on /etc/cron.daily:
+		# chown root:root /etc/cron.daily
+		# chmod og-rwx /etc/cron.daily
+
+[92m== 5.1.5 Ensure permissions on /etc/cron.weekly are configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify Uid and Gid are both 0/root and Access does not grant permissions to group or other:
+		# stat /etc/cron.weekly
+		Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+
+
+		Remediation:
+		Run the following commands to set ownership and permissions on /etc/cron.weekly:
+		# chown root:root /etc/cron.weekly
+		# chmod og-rwx /etc/cron.weekly
+
+[92m== 5.1.6 Ensure permissions on /etc/cron.monthly are configured ==
+
+[31mFailed![0m : 
+                Audit:
+                Run the following command and verify Uid and Gid are both 0/root and Access does not grant permissions to group or other:
+                # stat /etc/cron.monthly
+                Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+
+
+                Remediation:
+                Run the following commands to set ownership and permissions on /etc/cron.monthly:
+                # chown root:root /etc/cron.monthly
+                # chmod og-rwx /etc/cron.monthly
+
+[92m== 5.1.7 Ensure permissions on /etc/cron.d are configured ==
+
+[31mFailed![0m : 
+                Audit:
+                Run the following command and verify Uid and Gid are both 0/root and Access does not grant permissions to group or other:
+                # stat /etc/cron.d
+                Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+
+
+                Remediation:
+                Run the following commands to set ownership and permissions on /etc/cron.d:
+                # chown root:root /etc/cron.d
+                # chmod og-rwx /etc/cron.d
+
+[92m== 5.1.8 Ensure at/cron is restricted to authorized users  ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and ensure /etc/cron.deny and /etc/at.deny do not exist:
+		# stat /etc/cron.deny
+		stat: cannot stat /etc/cron.deny': No such file or directory
+		# stat /etc/at.deny
+		stat: cannot stat '/etc/at.deny': No such file or directory
+
+
+		Run the following command and verify Uid and Gid are both 0/root and Access does not grant permissions to group or other for both /etc/cron.allow and /etc/at.allow:
+		# stat /etc/cron.allow
+		Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+		# stat /etc/at.allow
+		Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+
+		Remediation:
+		Run the following commands to remove /etc/cron.deny and /etc/at.deny and create and set permissions and ownership for /etc/cron.allow and /etc/at.allow:
+		# rm /etc/cron.deny
+		# rm /etc/at.deny
+		# touch /etc/cron.allow
+		# touch /etc/at.allow
+		# chmod og-rwx /etc/cron.allow
+		# chmod og-rwx /etc/at.allow
+		# chown root:root /etc/cron.allow
+		# chown root:root /etc/at.allow
+
+[92m== 5.2 SSH Server Configuration ==
+
+[92m== 5.2 Ensure permissions on /etc/ssh/sshd_config are configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify Uid and Gid are both 0/root and Access does not grant permissions to group or other:
+		# stat /etc/ssh/sshd_config
+		Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+
+
+		Remediation:
+		Run the following commands to set ownership and permissions on /etc/ssh/sshd_config:
+		# chown root:root /etc/ssh/sshd_config
+		# chmod og-rwx /etc/ssh/sshd_config
+
+[92m== 5.2.2 Ensure SSH Protocol is set to 2 ==
+
+Passed!
+
+[92m== 5.2.3 Ensure SSH LogLevel is set to INFO ==
+
+Passed!
+
+[92m== 5.2.4 Ensure SSH X11 forwarding is disabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify that output matches:
+		# grep ^X11Forwarding /etc/ssh/sshd_config
+		X11Forwarding no
+
+
+		Edit the /etc/ssh/sshd_config file to set the parameter as follows:
+		X11Forwarding no
+
+[92m== 5.2.5 Ensure SSH MaxAuthTries is set to 4 or less  ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify that output MaxAuthTries is 4 or less:
+		# grep "^MaxAuthTries" /etc/ssh/sshd_config
+		MaxAuthTries 4
+
+
+		Remediation:
+		Edit the /etc/ssh/sshd_config file to set the parameter as follows:
+		MaxAuthTries 4
+
+[92m== 5.2.6 Ensure SSH IgnoreRhosts is enabled ==
+
+Passed!
+
+[92m== 5.2.7 Ensure SSH HostbasedAuthentication is disabled ==
+
+Passed!
+
+[92m== 5.2.8 Ensure SSH root login is disabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify that output matches:
+		# grep "^PermitRootLogin" /etc/ssh/sshd_config
+		PermitRootLogin no
+
+
+		Remediation:
+		Edit the /etc/ssh/sshd_config file to set the parameter as follows:
+		PermitRootLogin no
+
+[92m== 5.2.9 Ensure SSH PermitEmptyPasswords is disabled ==
+
+Passed!
+
+[92m== 5.2.10 Ensure SSH PermitUserEnvironment is disabled ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify that output matches:
+		# grep PermitUserEnvironment /etc/ssh/sshd_config
+		PermitUserEnvironment no
+
+
+		Remediation:
+		Edit the /etc/ssh/sshd_config file to set the parameter as follows:
+		PermitUserEnvironment no
+
+[92m== 5.2.11 Ensure only approved MAC algorithms are used ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify that output does not contain any unlisted MAC algorithms:
+		# grep "MACs" /etc/ssh/sshd_config
+		MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com,curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+
+
+		Remediation:
+		Edit the /etc/ssh/sshd_config file to set the parameter as follows:
+		MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
+
+[92m== 5.2.12 Ensure SSH Idle Timeout Interval is configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify ClientAliveInterval is 300 or less and ClientAliveCountMax is 3 or less:
+		# grep "^ClientAliveInterval" /etc/ssh/sshd_config
+		ClientAliveInterval 300
+		# grep "^ClientAliveCountMax" /etc/ssh/sshd_config
+		ClientAliveCountMax 0
+
+
+		Remediation:
+		Edit the /etc/ssh/sshd_config file to set the parameters as follows:
+		ClientAliveInterval 300
+		ClientAliveCountMax 0
+
+[92m== 5.2.13 Ensure SSH LoginGraceTime is set to one minute or less ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify that output LoginGraceTime is 60 or less:
+		# grep "^LoginGraceTime" /etc/ssh/sshd_config
+		LoginGraceTime 60
+
+
+		Remediation:
+		Edit the /etc/ssh/sshd_config file to set the parameter as follows:
+		LoginGraceTime 60
+
+[92m== 5.2.14 Ensure SSH access is limited ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify that output matches for at least one:
+		# grep "^AllowUsers" /etc/ssh/sshd_config AllowUsers <userlist>
+		# grep "^AllowGroups" /etc/ssh/sshd_config AllowGroups <grouplist>
+		# grep "^DenyUsers" /etc/ssh/sshd_config DenyUsers <userlist>
+		# grep "^DenyGroups" /etc/ssh/sshd_config DenyGroups <grouplist>
+
+
+		Remediation:
+		Edit the /etc/ssh/sshd_config file to set one or more of the parameter as follows:
+		AllowUsers <userlist>
+		AllowGroups <grouplist>
+		DenyUsers <userlist>
+		DenyGroups <grouplist>
+
+[92m== 5.2.15 Ensure SSH warning banner is configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify that output matches:
+		# grep "^Banner" /etc/ssh/sshd_config
+		Banner /etc/issue.net
+
+
+		Remediation:
+		Edit the /etc/ssh/sshd_config file to set the parameter as follows:
+		Banner /etc/issue.net
+
+[92m== 5.3 Configure PAM ==
+
+[92m== 5.3.1 Ensure password creation requirements are configured ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify all password requirements are as listed or stricter:
+		# grep pam_pwquality.so /etc/pam.d/common-password
+		password requisite pam_pwquality.so try_first_pass retry=3
+		# grep ^minlen /etc/security/pwquality.conf
+		minlen=14
+		# grep ^dcredit /etc/security/pwquality.conf
+		dcredit=-1
+		# grep ^lcredit /etc/security/pwquality.conf
+		lcredit=-1
+		# grep ^ocredit /etc/security/pwquality.conf
+		ocredit=-1
+		# grep ^ucredit /etc/security/pwquality.conf
+		ucredit=-1
+
+
+
+		Remediation:
+		Run the following command to install the pam_pwquality module:
+		apt-get install libpam-pwquality
+		Edit the /etc/pam.d/common-passwd file to include the appropriate options for pam_pwquality.so and to conform to site policy:
+		password requisite pam_pwquality.so try_first_pass retry=3
+		Edit /etc/security/pwquality.conf to add or update the following settings to conform to site policy:
+		minlen=14
+		dcredit=-1
+		ucredit=-1
+		ocredit=-1
+		lcredit=-1
+
+
+		Notes:
+		Additional module options may be set, recommendation only covers those listed here. 
+
+[92m== 5.3.2 Ensure lockout for failed password attempts is configured (Not Scored) ==
+
+[31mFailed![0m : 
+                Audit:
+		Perform the following to determine the current settings for user lockout.
+		# grep "pam_tally2" /etc/pam.d/common-auth
+		auth required pam_tally2.so onerr=fail audit silent deny=5 unlock_time=900
+
+
+		Remediation:
+		Edit the /etc/pam.d/common-auth file and add the auth line below:
+		auth required pam_tally2.so onerr=fail audit silent deny=5 unlock_time=900
+
+
+		Note: If a user has been locked out because they have reached the maximum consecutive failure count defined by deny= in the pam_tally2.so module, the user can be unlocked by issuing the command /sbin/pam_tally2 -u <username> --reset. This command sets the failed count to 0, effectively unlocking the user.
+
+[92m== 5.3.3 Ensure password reuse is limited ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and ensure the remember option is '5' or more and included in all results:
+		# egrep '^password\s+sufficient\s+pam_unix.so' /etc/pam.d/common-password
+		password sufficient pam_unix.so remember=5
+
+
+		Remediation:
+		Edit the /etc/pam.d/common-password file to include the remember option and conform to site policy as shown:
+		password sufficient pam_unix.so remember=5
+
+
+		Notes:
+		Additional module options may be set, recommendation only covers those listed here.
+
+[92m== 5.3.4 Ensure password hashing algorithm is SHA-512 ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and ensure the sha512 option is included in all results:
+		# egrep '^password\s+\S+\s+pam_unix.so' /etc/pam.d/common-password
+		password sufficient pam_unix.so sha512
+
+
+		Audit:
+		Run the following commands and ensure the sha512 option is included in all results:
+		# egrep '^password\s+\S+\s+pam_unix.so' /etc/pam.d/common-password
+		password sufficient pam_unix.so sha512
+
+
+		Remediation:
+		Edit the /etc/pam.d/common-password file to include the sha512 option for pam_unix.so as shown:
+		password [success=1 default=ignore] pam_unix.so sha512
+
+
+		Notes:
+		Additional module options may be set, recommendation only covers those listed here.
+		If it is determined that the password algorithm being used is not SHA-512, once it is changed, it is recommended that all user ID's be immediately expired and forced to change their passwords on next login. To accomplish that, the following commands can be used. Any system accounts that need to be expired should be carefully done separately by the system administrator to prevent any potential problems.
+		# cat /etc/passwd | awk -F: '( $3 >= 1000 && $1 != "nfsnobody" ) { print $1 }' | xargs
+		-n 1 chage -d 0
+
+[92m== 5.4 User Accounts and Environment ==
+
+[92m== 5.4.1 Set Shadow Password Suite Parameters ==
+
+[92m== 5.4.1.1 Ensure password expiration is 90 days or less ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify PASS_MAX_DAYS is 90 or less:
+		grep PASS_MAX_DAYS /etc/login.defs
+		PASS_MAX_DAYS 90
+
+
+		Verify all users with a password have their maximum days between password change set
+		to 90 or less:
+		# egrep ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1
+		<list of users>
+		# chage --list <user>
+		Maximum number of days between password change : 90
+
+
+		Remediation:
+		Set the PASS_MAX_DAYS parameter to 90 in /etc/login.defs:
+		PASS_MAX_DAYS 90
+
+
+		Modify user parameters for all users with a password set to match:
+		# chage --maxdays 90 <user>
+
+
+		Notes:
+		You can also check this setting in /etc/shadow directly. The 5th field should be 90 or less for all users with a password.
+
+
+		Also, ensure that the 'Maximum number of days between password change' is set to 90 or less for these users:
+
+		root :  99999
+[92m== 5.4.1.2 Ensure minimum days between password changes is 7 or more ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify PASS_MIN_DAYS is 7 or more:
+		# grep PASS_MIN_DAYS /etc/login.defs
+		PASS_MIN_DAYS 7
+
+
+		Verify all users with a password have their minimum days between password change set to
+		7 or more:
+		# egrep ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1
+		<list of users>
+		# chage --list <user>
+		Minimum number of days between password change : 7
+
+
+		Remediation:
+		Set the PASS_MIN_DAYS parameter to 7 in /etc/login.defs: PASS_MIN_DAYS 7
+		Modify user parameters for all users with a password set to match:
+		# chage --mindays 7 <user>
+
+
+		Notes:
+		You can also check this setting in /etc/shadow directly. The 5th field should be 7 or more for all users with a password.
+
+The PASS_MIN_DAYS parameter needs to be set for these users:
+
+          root :  0
+
+
+[92m== 5.4.1.3 Ensure password expiration warning days is 7 or more ==
+
+Passed!
+
+The PASS_WARN_AGE parameter needs to be set for these users:
+
+
+
+
+[92m== 5.4.1.4 Ensure inactive password lock is 30 days or less ==
+
+Passed!
+
+The following users need to have their password lock set to 30 days or less:
+
+
+
+
+[92m== 5.4.2 Ensure system accounts are non-login ==
+
+Passed!
+
+[92m== 5.4.3 Ensure default group for the root account is GID 0 ==
+
+Passed!
+
+[92m== 5.4.4 Ensure default user umask is 027 or more restrictive ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following commands and verify all umask lines returned are 027 or more restrictive.
+		# grep "^umask" /etc/bash.bashrc
+		umask 027
+		# grep "^umask" /etc/profile
+		umask 027
+
+
+		Remediation:
+		Edit the /etc/bash.bashrc and /etc/profile files (and the appropriate files for any other shell supported on your system) and add or edit any umask parameters as follows:
+		umask 027
+
+
+		Notes:
+		The audit and remediation in this recommendation apply to bash and shell. If other shells are supported on the system, it is recommended that their configuration files also are checked.
+		Other methods of setting a default user umask exist however the shell configuration files are the last run and will override other settings if they exist therefore our recommendation is to configure in the shell configuration files. If other methods are in use in your environment they should be audited and the shell configs should be verified to not override.
+
+[92m== 5.5 Ensure root login is restricted to system console (Not Scored) ==
+
+[0mVerify that the terminals listed below from the /etc/securetty terminal are in physically secure locations.  Remove any that are not.
+
+[31m=== cat /etc/securetty ===
+
+# /etc/securetty: list of terminals on which root is allowed to login.
+# See securetty(5) and login(1).
+
+console
+
+# Local X displays (allows empty passwords with pam_unix's nullok_secure)
+:0
+:0.0
+:0.1
+:1
+:1.0
+:1.1
+:2
+:2.0
+:2.1
+:3
+:3.0
+:3.1
+#...
+
+
+# ==========================================================
+#
+# TTYs sorted by major number according to Documentation/devices.txt
+#
+# ==========================================================
+
+# Virtual consoles
+tty1
+tty2
+tty3
+tty4
+tty5
+tty6
+tty7
+tty8
+tty9
+tty10
+tty11
+tty12
+tty13
+tty14
+tty15
+tty16
+tty17
+tty18
+tty19
+tty20
+tty21
+tty22
+tty23
+tty24
+tty25
+tty26
+tty27
+tty28
+tty29
+tty30
+tty31
+tty32
+tty33
+tty34
+tty35
+tty36
+tty37
+tty38
+tty39
+tty40
+tty41
+tty42
+tty43
+tty44
+tty45
+tty46
+tty47
+tty48
+tty49
+tty50
+tty51
+tty52
+tty53
+tty54
+tty55
+tty56
+tty57
+tty58
+tty59
+tty60
+tty61
+tty62
+tty63
+
+# UART serial ports
+ttyS0
+ttyS1
+ttyS2
+ttyS3
+ttyS4
+ttyS5
+#...ttyS191
+
+# Serial Mux devices	(Linux/PA-RISC only)
+ttyB0
+ttyB1
+#...
+
+# Chase serial card
+ttyH0
+ttyH1
+#...
+
+# Cyclades serial cards
+ttyC0
+ttyC1
+#...ttyC31
+
+# Digiboard serial cards
+ttyD0
+ttyD1
+#...
+
+# Stallion serial cards
+ttyE0
+ttyE1
+#...ttyE255
+
+# Specialix serial cards
+ttyX0
+ttyX1
+#...
+
+# Comtrol Rocketport serial cards
+ttyR0
+ttyR1
+#...
+
+# SDL RISCom serial cards
+ttyL0
+ttyL1
+#...
+
+# Hayes ESP serial card
+ttyP0
+ttyP1
+#...
+
+# Computone IntelliPort II serial card
+ttyF0
+ttyF1
+#...ttyF255
+
+# Specialix IO8+ serial card
+ttyW0
+ttyW1
+#...
+
+# Comtrol VS-1000 serial controller
+ttyV0
+ttyV1
+#...
+
+# ISI serial card
+ttyM0
+ttyM1
+#...
+
+# Technology Concepts serial card
+ttyT0
+ttyT1
+#...
+
+# Specialix RIO serial card
+ttySR0
+ttySR1
+#...ttySR511
+
+# Chase Research AT/PCI-Fast serial card
+ttyCH0
+ttyCH1
+#...ttyCH63
+
+# Moxa Intellio serial card
+ttyMX0
+ttyMX1
+#...ttyMX127
+
+# SmartIO serial card
+ttySI0
+ttySI1
+#...
+
+# USB dongles
+ttyUSB0
+ttyUSB1
+ttyUSB2
+#...
+
+# LinkUp Systems L72xx UARTs
+ttyLU0
+ttyLU1
+ttyLU2
+ttyLU3
+
+# StrongARM builtin serial ports
+ttySA0
+ttySA1
+ttySA2
+
+# SCI serial port (SuperH) ports and SC26xx serial ports
+ttySC0
+ttySC1
+ttySC2
+ttySC3
+
+# ARM "AMBA" serial ports
+ttyAM0
+ttyAM1
+ttyAM2
+ttyAM3
+ttyAM4
+ttyAM5
+ttyAM6
+ttyAM7
+ttyAM8
+ttyAM9
+ttyAM10
+ttyAM11
+ttyAM12
+ttyAM13
+ttyAM14
+ttyAM15
+
+# Embedded ARM AMBA PL011 ports (e.g. emulated by QEMU)
+ttyAMA0
+ttyAMA1
+ttyAMA2
+ttyAMA3
+
+# DataBooster serial ports
+ttyDB0
+ttyDB1
+ttyDB2
+ttyDB3
+ttyDB4
+ttyDB5
+ttyDB6
+ttyDB7
+
+# SGI Altix console ports
+ttySG0
+
+# Motorola i.MX ports
+ttySMX0
+ttySMX1
+ttySMX2
+
+# Marvell MPSC ports
+ttyMM0
+ttyMM1
+
+# PPC CPM (SCC or SMC) ports
+ttyCPM0
+ttyCPM1
+ttyCPM2
+ttyCPM3
+ttyCPM4
+ttyCPM5
+
+# Altix serial cards
+ttyIOC0
+ttyIOC1
+#...ttyIOC31
+
+# NEC VR4100 series SIU
+ttyVR0
+
+# NEC VR4100 series SSIU
+ttyVR1
+
+# Altix ioc4 serial cards
+ttyIOC84
+ttyIOC85
+#...ttyIOC115
+
+# Altix ioc3 serial cards
+ttySIOC0
+ttySIOC1
+#...ttySIOC31
+
+# PPC PSC ports
+ttyPSC0
+ttyPSC1
+ttyPSC2
+ttyPSC3
+ttyPSC4
+ttyPSC5
+
+# ATMEL serial ports
+ttyAT0
+ttyAT1
+#...ttyAT15
+
+# Hilscher netX serial port
+ttyNX0
+ttyNX1
+#...ttyNX15
+
+# Xilinx uartlite - port
+ttyUL0
+ttyUL1
+ttyUL2
+ttyUL3
+
+# Xen virtual console - port 0
+xvc0
+
+# pmac_zilog - port
+ttyPZ0
+ttyPZ1
+ttyPZ2
+ttyPZ3
+
+# TX39/49 serial port
+ttyTX0
+ttyTX1
+ttyTX2
+ttyTX3
+ttyTX4
+ttyTX5
+ttyTX6
+ttyTX7
+
+# SC26xx serial ports (see SCI serial ports (SuperH))
+
+# MAX3100 serial ports
+ttyMAX0
+ttyMAX1
+ttyMAX2
+ttyMAX3
+
+# OMAP serial ports
+ttyO0
+ttyO1
+ttyO2
+ttyO3
+
+# User space serial ports
+ttyU0
+ttyU1
+
+# A2232 serial card
+ttyY0
+ttyY1
+
+# IBM 3270 terminal Unix tty access
+3270/tty1
+3270/tty2
+#...
+
+# IBM iSeries/pSeries virtual console
+hvc0
+hvc1
+#...
+#IBM pSeries console ports
+hvsi0
+hvsi1
+hvsi2
+
+# Equinox SST multi-port serial boards
+ttyEQ0
+ttyEQ1
+#...ttyEQ1027
+
+# ==========================================================
+#
+# Not in Documentation/Devices.txt
+#
+# ==========================================================
+
+# Embedded Freescale i.MX ports
+ttymxc0
+ttymxc1
+ttymxc2
+ttymxc3
+ttymxc4
+ttymxc5
+
+# LXC (Linux Containers)
+lxc/console
+lxc/tty1
+lxc/tty2
+lxc/tty3
+lxc/tty4
+
+# Serial Console for MIPS Swarm
+duart0
+duart1
+
+# s390 and s390x ports in LPAR mode
+ttysclp0
+
+======
+
+[0m		Audit:
+		Audit:
+		Since the system console has special properties to handle emergency situations, it is important to ensure that the console is in a physically secure location and that unauthorized consoles have not been defined.
+		# cat /etc/securetty
+
+		Remediation:
+		Remove entries for any consoles that are not in a physically secure location.
+
+[92m== 5.6 Ensure access to the su command is restricted ==
+
+[31mFailed![0m : 
+                Audit:
+		Run the following command and verify output includes matching line:
+		# grep pam_wheel.so /etc/pam.d/su
+		auth required pam_wheel.so use_uid
+
+
+		Run the following command and verify users in wheel group match site policy:
+		# grep wheel /etc/group
+		wheel:x:10:root,<user list>
+
+
+		Remediation:
+		Add the following line to the /etc/pam.d/su file: auth required pam_wheel.so use_uid
+		Create a comma separated list of users in the wheel statement in the /etc/group file:
+		wheel:x:10:root,<user list>
+
+Verify the users in the wheel group below match site policy:
+
+=== grep wheel /etc/group ===
+
+
+======
+
+[92m== 6 System Maintenance ==
+
+[92m== 6.1 System File Permissions ==
+
+[92m== 6.1.1 Audit system file permissions ==
+
+[0mVerify that the output below from the 'dpkg --verify' on all packages below is correct.  This could take a long time to run:
+
+[31m=== dpkg --verify <package> (on all packages on the system) ===
+
+??5?????? c /etc/pam.d/sshd
+======[0m 
+
+	Audit:
+		Run the following command to review all installed packages. Note that this may be very time consuming and may be best scheduled via the cron utility. It is recommended that the output of this command be redirected to a file that can be reviewed later.
+		# dpkg --verify > <filename>
+
+
+		Remediation:
+		Correct any discrepancies found and rerun the audit until output is clean or risk is mitigated or accepted.
+
+
+		Notes:
+		Since packages and important files may change with new updates and releases, it is recommended to verify everything, not just a finite list of files. This can be a time consuming task and results may depend on site policy therefore it is not a scorable benchmark item, but is provided for those interested in additional security measures.
+		Some of the recommendations of this benchmark alter the state of files audited by this recommendation. The audit command will alert for all changes to a file permissions even if the new state is more secure than the default.
+
+[92m== 6.1.2 Ensure permissions on /etc/passwd are configured ==
+
+Passed!
+
+[92m== 6.1.3 Ensure permissions on /etc/shadow are configured ==
+
+Passed!
+
+[92m== 6.1.4 Ensure permissions on /etc/group are configured ==
+
+Passed!
+
+[92m== 6.1.5 Ensure permissions on /etc/gshadow are configured ==
+
+Passed!
+
+[92m== 6.1.6 Ensure permissions on /etc/passwd- are configured ==
+
+Passed!
+
+[92m== 6.1.7 Ensure permissions on /etc/shadow- are configured ==
+
+Passed!
+
+[92m== 6.1.8 Ensure permissions on /etc/group- are configured ==
+
+Passed!
+
+[92m== 6.1.9 Ensure permissions on /etc/gshadow- are configured ==
+
+Passed!
+
+[92m== 6.1.10 Ensure no world writable files exist ==
+
+Passed!
+
+[92m== 6.1.11 Ensure no unowned files or directories exist ==
+
+Passed!
+
+[92m== 6.1.12 Ensure no ungrouped files or directories exist ==
+
+Passed!
+
+[92m== 6.1.13 Audit SUID executables (Not Scored) ==
+
+[0mVerify that only the files that should have SUID permissions are listed below:
+
+[31m=== df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -4000 ===
+
+/bin/su
+/bin/mount
+/bin/umount
+/usr/bin/passwd
+/usr/bin/chsh
+/usr/bin/newgrp
+/usr/bin/gpasswd
+/usr/bin/chfn
+/usr/lib/openssh/ssh-keysign
+
+======[0m
+
+		Audit:
+		Run the following command to list SUID files:
+		# df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -4000
+
+
+		The command above only searches local filesystems, there may still be compromised items on network mounted partitions. Additionally the --local option to df is not universal to all versions, it can be omitted to search all filesystems on a system including network mounted filesystems or the following command can be run manually for each partition:
+		# find <partition> -xdev -type f -perm -4000
+
+		Remediation:
+		Ensure that no rogue SUID programs have been introduced into the system. Review the files returned by the action in the Audit section and confirm the integrity of these binaries.
+
+[92m== 6.1.14 Audit SGID executables ==
+
+[0mVerify that only the files that should have SGID permissions are listed below:
+
+[31m=== df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -2000 ===
+
+/usr/bin/ssh-agent
+/usr/bin/wall
+/usr/bin/expiry
+/usr/bin/chage
+/sbin/pam_extrausers_chkpwd
+/sbin/unix_chkpwd
+
+======[0m
+
+               Audit:
+		Run the following command to list SGID files:
+		# df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -2000
+
+
+		The command above only searches local filesystems, there may still be compromised items on network mounted partitions. Additionally the --local option to df is not universal to all versions, it can be omitted to search all filesystems on a system including network mounted filesystems or the following command can be run manually for each partition:
+		# find <partition> -xdev -type f -perm -2000
+
+
+		Remediation:
+		Ensure that no rogue SGID programs have been introduced into the system. Review the files returned by the action in the Audit section and confirm the integrity of these binaries.
+
+[92m== 6.2 User and Group Settings ==
+
+[92m== 6.2.1 Ensure password fields are not empty ==
+
+Passed!
+
+[92m== 6.2.2 Ensure no legacy "+" entries exist in /etc/passwd ==
+
+Passed!
+
+[92m== 6.2.3 Ensure no legacy "+" entries exist in /etc/shadow ==
+
+Passed!
+
+[92m== 6.2.4 Ensure no legacy "+" entries exist in /etc/group ==
+
+Passed!
+
+[92m== 6.2.5 Ensure root is the only UID 0 account ==
+
+Passed!
+
+[92m== 6.2.6 Ensure root PATH Integrity ==
+
+Passed!
+
+[92m== 6.2.7 Ensure all users' home directories exist ==
+
+[31mFailed![0m : 
+
+		The home directory (/nonexistent) of user nobody does not exist. 
+
+
+		Audit:
+		Run the following script and verify no results are returned:
+
+#!/bin/bash
+cat /etc/passwd | awk -F: '{ print $1 " " $3 " " $6 }' | while read user uid dir; do
+  if [ $uid -ge 1000 -a ! -d "" -a $user != "nfsnobody" ]; then
+    echo "The home directory ($dir) of user $user does not exist."
+  fi
+done
+
+
+		Remediation:
+		If any users' home directories do not exist, create them and make sure the respective user owns the directory. Users without an assigned home directory should be removed or assigned a home directory as appropriate.
+
+[92m== 6.2.8 Ensure users' home directories permissions are 750 or more restrictive ==
+
+[31mFailed![0m : 
+
+Group Write permission set on directory /run/systemd/netif
+Other Read permission set on directory /run/systemd/netif
+Other Write permission set on directory /run/systemd/netif
+Other Execute permission set on directory /run/systemd/netif
+Group Write permission set on directory /run/systemd/resolve
+Other Read permission set on directory /run/systemd/resolve
+Other Write permission set on directory /run/systemd/resolve
+Other Execute permission set on directory /run/systemd/resolve
+Other Read permission set on directory /run/systemd
+Other Execute permission set on directory /run/systemd
+Group Write permission set on directory /nonexistent
+Other Read permission set on directory /nonexistent
+Other Write permission set on directory /nonexistent
+Other Execute permission set on directory /nonexistent
+
+		Audit:
+		Run the following script and verify no results are returned:
+
+#!/bin/bash
+for dir in `cat /etc/passwd  | egrep -v '(root|halt|sync|shutdown)' | awk -F: '( != "/usr/sbin/nologin") { print  }'`; do
+  dirperm=drwx------
+  if [ `echo $dirperm | cut -c6 ` != "-" ]; then
+    echo "Group Write permission set on directory $dir"
+  fi
+  if [ `echo $dirperm | cut -c8 ` != "-" ]; then
+echo "Other Read permission set on directory $dir"
+  fi
+  if [ `echo $dirperm | cut -c9 ` != "-" ]; then
+    echo "Other Write permission set on directory $dir"
+  fi
+  if [ `echo $dirperm | cut -c10 ` != "-" ]; then
+    echo "Other Execute permission set on directory $dir"
+  fi
+done
+
+
+		Remediation:
+		Making global modifications to user home directories without alerting the user community can result in unexpected outages and unhappy users. Therefore, it is recommended that a monitoring policy be established to report user file permissions and determine the action to be taken in accordance with site policy.
+
+[92m== 6.2.9 Ensure users own their home directories ==
+
+Passed!
+
+[92m== 6.2.10 Ensure users' dot files are not group or world writable ==
+
+Passed!
+
+[92m== 6.2.10 Ensure users' dot files are not group or world writable ==
+
+Passed!
+
+[92m== 6.2.11 Ensure no users have .forward files ==
+
+Passed!
+
+[92m== 6.2.12 Ensure no users have .netrc files ==
+
+Passed!
+
+[92m== 6.2.13 Ensure users' .netrc Files are not group or world accessible ==
+
+Passed!
+
+[92m== 6.2.14 Ensure no users have .rhosts files ==
+
+Passed!
+
+[92m== 6.2.15  Ensure all groups in /etc/passwd exist in /etc/group ==
+
+Passed!
+
+[92m== 6.2.16 Ensure no duplicate UIDs exist ==
+
+Passed!
+
+[92m== 6.2.17 Ensure no duplicate GIDs exist ==
+
+Passed!
+
+[92m== 6.2.18 Ensure no duplicate user names exist ==
+
+Passed!
+
+[92m== 6.2.19 Ensure no duplicate group names exist ==
+
+Passed!
+
+[92m== 6.2.20 Ensure shadow group is empty ==
+
+Passed!
+
+[0m
