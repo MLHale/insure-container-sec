@@ -107,7 +107,7 @@ By use of the previous architecture, the team was able to fulfill each of the fo
 
 **Scenario One and Two -** Transferred a 1GB file, The file was transferred in 29.9 seconds.  The file was sent at a speed of 33503156.0 bytes per second and was received at a speed of 5600.8 bytes per second.
 
-**Scenario Three -** Transferred a 1GB file, The file was transferred in 0.1 seconds.  The file was sent at a speed of 26659.3 bytes per second and was received at a speed of 35381.2 bytes per second.
+**Scenario Three -** Transferred a 1GB file, The file was transferred in 29.9 seconds.  The file was sent at a speed of 33447362.8 bytes per second and was received at a speed of 5823.3 bytes per second.
 
 **Scenario Four-** Transferred a 1GB file, The file was transferred in 32.9 seconds.  The file was sent at a speed of 30402188.4 bytes per second and was received at a speed of 5130.4 bytes per second.
 
