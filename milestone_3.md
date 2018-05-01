@@ -115,7 +115,20 @@ As seen above, the progression from scenarios one and two to scenario four got i
 
 ## Test Platform Architecture
 
-The team greatly considered the basic architecture of the test platform. Each tool that will be implemented in its own container that is then run from to a master container that will contain test results from each tool. Below is a break down of how each tool was implemented.
+Before implementing the project, the team considered many options for the testing architecture.  After much consideration, the team decided to use both scripts and individual containers to run the tests.  There are three testing containers and two scripts that can be leveraged for testing.  A "master container" was utilized to run the Docker containers and call upon the necessary scripts.  A breakdown of the scripts and containers can be referenced below -
+
+**Scripts**
+
+* Docker CIS Benchmark
+* Ubuntu 16.04 CIS Benchmark
+
+**Containers**
+
+* Nmap
+* OpenVAS
+* cAdvisor
+ 
+Each container has its own Dockerfile and Makefile that are necessary for instantiation.  Docker Compose is used to collectively run all the testing containers.  The docker-compose.yml file supplies the master container with the information necessary to run the testing containers in an integrated fashion.  The setup.py script, also found within the master, begins the testing process.  Setup.py clears all information, sets necessary configurations, calls docker compose to start the testing containers, and gives users the options to run the local scripts.  
 
 ### Nmap
 
