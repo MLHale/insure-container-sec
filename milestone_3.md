@@ -78,7 +78,7 @@ Dockerfiles are utilized to build and create containers with docker. All of the 
 
  ![sampleDockerfile](/Diagrams/sampleDockerfile.png "sampleDockerfile")
 
-Additionally, to make things easy, Makefiles were created for each containers. This makes building, stoping, and removing containers easy.
+Additionally, to make things easy, Makefiles were created for each containers. This makes building, stoping, and removing containers more simplistic.
 
 ## Secure Communication Amongst Containers Architecture
 
@@ -128,15 +128,15 @@ Before implementing the project, the team considered many options for the testin
 * OpenVAS
 * cAdvisor
  
-Each container has its own Dockerfile and Makefile that are necessary for instantiation.  Docker Compose is used to collectively run all the testing containers.  The docker-compose.yml file supplies the master container with the information necessary to run the testing containers in an integrated fashion.  The setup.py script, also found within the master, begins the testing process.  Setup.py clears all information, sets necessary configurations, calls docker compose to start the testing containers, and gives users the options to run the local scripts.  The output of all tests is wrtten to a HTTP server located at 137.48.191.120.  A brief overview of the various containers and scripts follows.
+Each container has its own Dockerfile and Makefile that are necessary for instantiation.  Docker Compose is used to collectively run all the testing containers.  The docker-compose.yml file supplies the master container with the information necessary to run the testing containers in an integrated fashion.  The setup.py script, also found within the master, begins the testing process.  Setup.py clears all information, sets necessary configurations, calls docker compose to start the testing containers, and gives users the options to run the local scripts.  The output of all tests is wrtten to a HTTP server located at 137.48.191.120:8080.  A brief overview of the various containers and scripts follows.
 
 ### Nmap
 
-Nmap 
+A staple security tool, Nmap was selected to discover different host and network configurations of target machines.  Ideally, the Nmap results will be utilized to help organizations change configurations that would otherwise leave them vulnerable to attack.
 
 ### Container Advisor (cAdvisor)
 
-cAdvisor it provides an in-depth understanding of performance characteristics and resource usage of containers. In which, this data would be beneficial for a Security expert to analyze the data and spot abnormalities in containers that could be an indicator of compromise.
+cAdvisor provides an in-depth understanding of performance characteristics and resource usage of containers. This data would be beneficial for a Security expert to analyze the data and spot abnormalities in containers that could be an indicator of compromise.
 
 ### OpenVAS
 
