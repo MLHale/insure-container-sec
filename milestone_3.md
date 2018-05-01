@@ -101,7 +101,7 @@ Specific documentation, including setup and how to run each scenario, can be fou
 **Scenario Four -** Scenario four requires secure communication channels to be created between four containers. There must be one container (Container 1) on one virtual machine, two containers on another virtual machine (containers 2 & 3). Both of these virtual machines are required to be on the same hypervisor. A third virtual machine with one container (Container 4) running on another hypervisor must also be used. Container 1 must only directly communicate with Container 2. Container 2 must only directly communicate with Container 1 and Container 3. Container 3 must only directly communicate with Container 2 and Container 4. Container 4 must only directly communicate with Container 3.
 ![3vms](/Diagrams/3vms.png "3vms on different hypervisors")
 
-### Secure Communication Amongst Containers Results
+### Secure Communication Amongst Containers Findings
 
 By use of the previous architecture, the team was able to fulfill each of the four scenarios described above.  In addition to proving SSH capabilites for each scenario, the team also determined the efficiency of each scenario.  For each scenario, the same one gigabyte text file was sent via SCP.  Specific findings are discussed below.
 
@@ -149,6 +149,10 @@ The Ubuntu container will only be called upon by the master container if the tar
 ### Docker
 
 Similar to the Ubuntu script, the Docker script will also only be enacted on an as needed basis.  Specifically, this script is only ran against a local container.  The goal of the Docker Benchmark is to expose any Docker configurations that may leave an organization vulnerable.
+
+## Code and Documentation
+
+Full, thorough documentation can be found in the team's Github repository.  Specifically, each "Secure Communication Amongst Containers" scenario has intensive documentation on its implementation.  As previously mentioned, each container has its respective Dockerfile and Makefile and all scripts can be found in the container_scanner.
 
 ## Qualifications
 
