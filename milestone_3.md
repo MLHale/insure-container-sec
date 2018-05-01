@@ -139,7 +139,8 @@ Nmap
 cAdvisor it provides an in-depth understanding of performance characteristics and resource usage of containers. In which, this data would be beneficial for a Security expert to analyze the data and spot abnormalities in containers that could be an indicator of compromise.
 
 ### OpenVAS
-OpenVAS is an open source vulnerability scanning tool. This will be utilized to perform a vulnerabiliity assessment provided an ip address that will be scanned. The team will utilize OpenVAS command line option through omp commands through the following structure. 
+
+OpenVAS is an open source vulnerability scanning tool that will be utilized to perform a vulnerabiliity assessment against a host provided an IP address. OpenVAS utilizes a regularly updated list of NVTs to located vulnerabilities in a system.  The team will utilize the OpenVAS command line option through OpenVAS-CLI.  A series of "omp" commands are used to communicate with the CLI.  Specific commands can be found in the openvas.sh script located in the container_scanner in the master container.  
 
 ### Ubuntu
 
@@ -147,8 +148,7 @@ The Ubuntu container will only be called upon by the master container if the tar
 
 ### Docker
 
-Similar to the Ubuntu script, the Docker script will also only be enacted on an as needed basis.  Specifically, this script is only ran against a local container.  
-
+Similar to the Ubuntu script, the Docker script will also only be enacted on an as needed basis.  Specifically, this script is only ran against a local container.  The goal of the Docker Benchmark is to expose any Docker configurations that may leave an organization vulnerable.
 
 ## Qualifications
 
