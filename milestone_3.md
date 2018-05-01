@@ -128,75 +128,15 @@ Before implementing the project, the team considered many options for the testin
 * OpenVAS
 * cAdvisor
  
-Each container has its own Dockerfile and Makefile that are necessary for instantiation.  Docker Compose is used to collectively run all the testing containers.  The docker-compose.yml file supplies the master container with the information necessary to run the testing containers in an integrated fashion.  The setup.py script, also found within the master, begins the testing process.  Setup.py clears all information, sets necessary configurations, calls docker compose to start the testing containers, and gives users the options to run the local scripts.  
+Each container has its own Dockerfile and Makefile that are necessary for instantiation.  Docker Compose is used to collectively run all the testing containers.  The docker-compose.yml file supplies the master container with the information necessary to run the testing containers in an integrated fashion.  The setup.py script, also found within the master, begins the testing process.  Setup.py clears all information, sets necessary configurations, calls docker compose to start the testing containers, and gives users the options to run the local scripts.  The output of all tests is wrtten to a HTTP server located at 137.48.191.120.  A brief overview of the various containers and scripts follows.
 
 ### Nmap
+
+Nmap 
 
 ### Container Advisor (cAdvisor)
 
 cAdvisor it provides an in-depth understanding of performance characteristics and resource usage of containers. In which, this data would be beneficial for a Security expert to analyze the data and spot abnormalities in containers that could be an indicator of compromise.
-
-### cAdvisor implemetation:
-
-1. On a linux box run
-2. mkdir cAdvisor
-3. vim Dockerfile
-
-```
-From alpine:3.4
-
-ENV GLIBC_VERSION "2.23-r3"
-
-FROM golang:latest
-
-RUN apt-get update && apt-get install -y git dmsetup && apt-get clean
-RUN git clone https://github.com/google/cadvisor.git /go/src/github.com/google/cadvisor
-RUN cd /go/src/github.com/google/cadvisor && make
-ENTRYPOINT ["/go/src/github.com/google/cadvisor/cadvisor"]
-```
-
-4.Then vim Makefile
-
-```
-build: Dockerfile *
-	docker build -t cadvisor.img .
-
-start: build
-	-docker run -d -p 8888:22 -t --name cadvisor.cont cadvisor.img
-
-stop:
-	-docker container stop cadvisor.cont
-
-clean:
-	-docker container stop cadvisor.cont
-	-docker container rm cadvisor.cont
-```
-
-  a. The Makefile is utilize to stand up the container, start it, stop, and clean it if needed to.
-
-
-5. Now Run 'make Run'
-
-6. To ensure the container is running run:
-
-	a. Docker ps --to list containers that are currently running
-
-7. Run:
-
-  a. sudo docker run \
-  --volume=/:/rootfs:ro \
-  --volume=/var/run:/var/run:rw \
-  --volume=/sys:/sys:ro \
-  --volume=/var/lib/docker/:/var/lib/docker:ro \
-  --volume=/dev/disk/:/dev/disk:ro \
-  --publish=8080:8080 \
-  --detach=true \
-  --name=cadvisor \
-  google/cadvisor:latest
-
-8. Now navigate to the machine's ipaddress:8080 to view cAdvisor and start analyzing the containers being run.
-
-    a. 137.48.191.120:8080 in our scenario.
 
 ### OpenVAS
 OpenVAS is an open source vulnerability scanning tool. This will be utilized to perform a vulnerabiliity assessment provided an ip address that will be scanned. The team will utilize OpenVAS command line option through omp commands through the following structure. 
