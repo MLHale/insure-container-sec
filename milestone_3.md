@@ -190,13 +190,12 @@ OpenVAS is an open source vulnerability scanning tool. This will be utilized to 
 
 ### Ubuntu
 
-The Ubuntu container will only be called upon by the master container if the target machines run a Ubuntu operating system.  Users running the master container will have the option to enter "yes" or "no" when prompted whether or not the target machine is running Ubuntu.  If the users enter "no", the master container will skip over this script.  Thus, the Ubuntu script will only be copied into the container being tested by the master container when necessary.  The Ubuntu script can be found in the X CONTAINER under benchmark.sh file.
+The Ubuntu container will only be called upon by the master container if the target machines run a Ubuntu operating system.  Users running the master container will have the option to enter "yes" or "no" when prompted whether or not the target machine is running Ubuntu.  If the users enter "no", the master container will skip over this script.  Thus, the Ubuntu script will only be copied into the container being tested by the master container when necessary.  The Ubuntu script can be found in the container_scanner directory under ubuntu_cis.sh file.
 
 ### Docker
 
-Similar to the Ubuntu script, the Docker script will also only be enacted on an as needed basis.
+Similar to the Ubuntu script, the Docker script will also only be enacted on an as needed basis.  Specifically, this script is only ran against a local container.  
 
-Docker benchmark stuff  --> just a script
 
 ## Qualifications
 
