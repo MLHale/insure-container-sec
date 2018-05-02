@@ -30,7 +30,7 @@ def cleanup():
    # os.system("mv ./outputs/*.txt './outputs/{0}'".format(x))
    # os.system("mv ./outputs/*.html './outputs/{0}'".format(x))
    # os.system("mv ./outputs/*.html {0}".format(x))
-    
+
 def get_ipaddr():
     match=None
     while match == None:
@@ -57,7 +57,7 @@ def get_container_name():
     while line_count == 0:
         container_name=raw_input("What is the name of the container you want to scan? ")
         command='docker ps -f "name={0}" | grep -w {0} | wc -l'.format(container_name)
-        line_count=int(os.popen(command).read().strip()) 
+        line_count=int(os.popen(command).read().strip())
     return container_name
 
 def get_ubuntu_container():
@@ -66,7 +66,7 @@ def get_ubuntu_container():
         ubuntu=raw_input("Are you scanning an Ubuntu container (yes/no): ").lower()
     if ubuntu in yes:
         return True
-    else: 
+    else:
         return False
 
 def do_openvas(name):
@@ -90,11 +90,12 @@ else:
     write_nmap(ip_addr)
 
 start_docker()
-os.system("docker network connect master_default {0}".format(container_name))
-open('previous_container','w').write(container_name)
+
 if local_scan:
+    os.system("docker network connect master_default {0}".format(container_name))
+    open('previous_container','w').write(container_name)
     docker_cis()
-    if ubuntu: 
+    if ubuntu:
         ubuntu_cis(container_name)
     do_openvas(container_name)
 else:
