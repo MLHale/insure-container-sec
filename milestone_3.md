@@ -153,7 +153,7 @@ Similar to the Ubuntu script, the Docker script will also only be enacted on an 
 
 ## Code and Documentation
 
-Full, thorough documentation can be found in the team's Github repository.  Specifically, each "Secure Communication Amongst Containers" scenario has intensive documentation on its implementation.  As previously mentioned, each container has its respective Dockerfile and Makefile and all scripts can be found in the container_scanner.
+Full, thorough documentation can be found in the team's Github repository.  Specifically, each "Secure Communication Amongst Containers" scenario has intensive documentation on its implementation.  Documentation for the container scanner can be found in the README.md file of the container_scanner directory. 
 
 ## Qualifications
 
