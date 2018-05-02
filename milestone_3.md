@@ -19,11 +19,11 @@ The completion of CCVAS will look to achieve the following list of goals:
 
 # Project Overview
 
-Over the course of this semester, the team has worked intensively with Docker to fulfill the goals associated with the CCVAC project.  The project was composed of two parts, namley Secure Communication Amongst Containers and Container Verification as a Container.  Specifically, Secure Communication Amongst Containers verified SSH capabilites by utilizing four predetermined scenarios obtained from the team sponsor.  The Container Verification as a Container aspect of the project was established with purpose of leveraging a series of containers to run test scripts against other Docker containers.  These test scripts would locate security issues found in the configurations of the host containers.  Results of these efforts can be seen below. 
+Over the course of this semester, the team has worked intensively with Docker to fulfill the goals associated with the CCVAC project.  The project was composed of two parts, namely Secure Communication Amongst Containers and Container Verification as a Container.  Specifically, Secure Communication Amongst Containers verified SSH capabilities by utilizing four predetermined scenarios obtained from the team sponsor.  The Container Verification as a Container aspect of the project was established with purpose of leveraging a series of containers to run test scripts against other Docker containers.  These test scripts would locate security issues found in the configurations of the host containers.  Results of these efforts can be seen below.
 
 # Project Realization
 
-Part one of the project, Secure Communication Amongst Containers, was completed during the first milestone. Thus, the past few weeks, the team has focused primarly on architecting a cummulative testing platform to scan various containers, whether they are local or remote.  A total of three "test containers" were created and are relevant to nearly all systems.  Additionally, the team has two scripts that will be leveraged to test local containers.  These scripts were written based upon relevant CIS Benchmark documents.  Specifically, the team chose the "CIS Ubuntu Linux 16.04 LTS Benchmark" and the "CIS Docker Community Benchmark" documents.  It was the goal of the team to create test containers that would detect some of the most basic security issues that could be encountered when working with Docker containers.  Upon creating the test containers, a "master container" was established to run the test containers, call upon the Docker and Ubuntu scripts when necessay, and write test resutls up to a HTTP server.
+Part one of the project, Secure Communication Amongst Containers, was completed during the first milestone. Thus, the past few weeks, the team has focused primarily on architecting a cumulative testing platform to scan various containers, whether they are local or remote.  A total of three "test containers" were created and are relevant to nearly all systems.  Additionally, the team has two scripts that will be leveraged to test local containers.  These scripts were written based upon relevant CIS Benchmark documents.  Specifically, the team chose the "CIS Ubuntu Linux 16.04 LTS Benchmark" and the "CIS Docker Community Benchmark" documents.  It was the goal of the team to create test containers that would detect some of the most basic security issues that could be encountered when working with Docker containers.  docker-compose is used to run the test containers in an orchestrated fashion. A python setup script calls upon the Docker and Ubuntu scripts when necessary, and will start the testing containers.
 
 # Project Methodology
 
@@ -40,7 +40,7 @@ Relevant research papers have been identified. These are listed in the "Relevant
 
 **Technical Plan**<br>
 
-The following displays the team's original technical plan.  This can be used to compare the changes and outcomes of the project with the inital project intentions.
+The following displays the team's original technical plan.  This can be used to compare the changes and outcomes of the project with the initial project intentions.
 
 >Our general plan is to create a Docker container, composed of other Docker containers and components. Each component will >complete a dedicated security related task. Components will use existing scripts and tools, when possible, to evaluate >targets.  Currently, we plan to run tests such as nmap and OWASP Top 10 to discover any possible configuration >vulnerabilities. Docker files will be checked for configuration issues and threats. Scripts to use these tools will be >written in bash and python. Any important output will be sent up to the component caller, where it will be added to a report. >This report will be a consolidation of all the important data and output in a PDF file.
 
@@ -50,16 +50,17 @@ Although the team changed some of the tests performed on the test containers, th
 
 # Results
 
-Upon culmination of this semester, the team fully completed CCVAC.  The conclusion of the project saw the achievement of all goals listed above.  Specifically, the team successfully implemented all four SSH scenarios requested by the team sponsor.  Upon completing all scenarios, the times of file tranfers were compared.  Regardless of the differences in physical implementation of the containers, VMs, and hypervisors, all four scenarios saw fairly consistant transfer times.  These findings can be made useful when considering a virtual architecture in the future.  
+Upon culmination of this semester, the team fully completed CCVAC.  The conclusion of the project saw the achievement of all goals listed above.  Specifically, the team successfully implemented all four SSH scenarios requested by the team sponsor.  Upon completing all scenarios, the times of file transfers were compared.  Regardless of the differences in physical implementation of the containers, VMs, and hypervisors, all four scenarios saw fairly consistent transfer times.  These findings can be made useful when considering a virtual architecture in the future.  
 
-Additionally, the team created a series of testing containers that are used to test the configurations of other Docker containers.  The goal of these tests is to find security vulnerabilities, so organizations can correct them before they are exploited.  The team created a series of three testing containers and two test scripts.  All five tools are ran by a "master" container.  The master container may prompt users to run the two scripts, depending on their system needs.  Results of these tests are written to a HTTP server for review.  
+Additionally, the team utilized a series of testing containers that are used to test the configurations of other Docker containers.  The goal of these tests is to find security vulnerabilities, so organizations can correct them before they are exploited.  The team also utilized and two CIS test scripts. A python setup file will prompt users to run the two scripts, depending on their system needs.  Results of these tests are written to a directory served by a HTTP server for review.  
 
 **Outcomes**
+
 A summarized, bulleted list of the team's outcomes can be referenced below.
 
 * The team successfully enacted the four SSH scenarios given by team sponsor.
 * The team compared results of the SSH scenarios to determine relative efficiency.
-* The team created a series of containers, ran by a master Docker container, to test the configurations of other containers.
+* The team utilized a series of containers, ran together using docker-compose, to test the configurations of other containers.
 * The team created a HTTP server to host results of the tests.
 
 **Hindrances**
@@ -67,7 +68,7 @@ A summarized, bulleted list of the team's outcomes can be referenced below.
 Early on, the team had a total of 2.5 project changes.  However, the team was able to recover from this setback quickly. The team's only other hinderance was miscommunication with the project sponsor about the goals for Part 2 of the project.
 
 
-## Getting Started 
+## Getting Started
 
 The setup process started with hosting a Ubuntu 16.04 virtual machine at UNO. Docker was installed using:
 ```
@@ -103,7 +104,7 @@ Specific documentation, including setup and how to run each scenario, can be fou
 
 ### Secure Communication Amongst Containers Findings
 
-By use of the previous architecture, the team was able to fulfill each of the four scenarios described above.  In addition to proving SSH capabilites for each scenario, the team also determined the efficiency of each scenario.  For each scenario, the same one gigabyte text file was sent via SCP.  Specific findings are discussed below.
+By use of the previous architecture, the team was able to fulfill each of the four scenarios described above.  In addition to proving SSH capabilities for each scenario, the team also determined the efficiency of each scenario.  For each scenario, the same one gigabyte text file was sent via SCP.  Specific findings are discussed below.
 
 **Scenario One and Two -** Transferred a 1GB file, The file was transferred in 29.9 seconds.  The file was sent at a speed of 33503156.0 bytes per second and was received at a speed of 5600.8 bytes per second.
 
@@ -111,11 +112,11 @@ By use of the previous architecture, the team was able to fulfill each of the fo
 
 **Scenario Four-** Transferred a 1GB file, The file was transferred in 32.9 seconds.  The file was sent at a speed of 30402188.4 bytes per second and was received at a speed of 5130.4 bytes per second.
 
-As seen above, the progression from scenarios one and two to scenario four got increasingly more expensive.  Even though there was a physical difference in the set up of the VMs, the increase in time was not very significant.  Obviously, the scenario one and two script executed the fastest, transferring the file in only 29.9 seconds.  This was the anticipated outcome because the file is simply being transferred between containers.  Scenario three did see about a two second increase in time when transferring the file not only between containers, but also to an additional VM.  Regardless, the increase in time was only an additional two seconds, with total transfer time being 31.9 seconds.  Scenario four proved to be the most intensive, by extending the functionality of scenario three and requiring the transfer of the file from container 3 to container 4 that is located on another VM on a different hypervisor.  The team expected this scenario to take the longest to transfer.  Although scenario four added another VM, it only took one additional second to transfer the file to the final VM.  Thus, the effiency of SCP can been seen here.  Even when transferring a one gigabyte file, the transfer time between containers, VMs, and hypervisors remained fairly low.
+As seen above, the progression from scenarios one and two to scenario four got increasingly more expensive.  Even though there was a physical difference in the set up of the VMs, the increase in time was not very significant.  Obviously, the scenario one and two script executed the fastest, transferring the file in only 29.9 seconds.  This was the anticipated outcome because the file is simply being transferred between containers.  Scenario three did see about a two second increase in time when transferring the file not only between containers, but also to an additional VM.  Regardless, the increase in time was only an additional two seconds, with total transfer time being 31.9 seconds.  Scenario four proved to be the most intensive, by extending the functionality of scenario three and requiring the transfer of the file from container 3 to container 4 that is located on another VM on a different hypervisor.  The team expected this scenario to take the longest to transfer.  Although scenario four added another VM, it only took one additional second to transfer the file to the final VM.  Thus, the efficiency of SCP can been seen here.  Even when transferring a one gigabyte file, the transfer time between containers, VMs, and hypervisors remained fairly low.
 
-## Test Platform Architecture
+## CCVAC Test Platform Architecture
 
-Before implementing the project, the team considered many options for the testing architecture.  After much consideration, the team decided to use both scripts and individual containers to run the tests.  There are three testing containers and two scripts that can be leveraged for testing.  A "master container" was utilized to run the Docker containers and call upon the necessary scripts.  A breakdown of the scripts and containers can be referenced below -
+Before implementing the project, the team considered many options for the testing architecture.  After much consideration, the team decided to use both scripts and individual containers to run the tests.  There are three testing containers and two scripts that can be leveraged for testing.  A fourth container was utilized to serve outputs from the other scripts and containers. A breakdown of the scripts and containers can be referenced below -
 
 **Scripts**
 
@@ -127,8 +128,8 @@ Before implementing the project, the team considered many options for the testin
 * Nmap
 * OpenVAS
 * cAdvisor
- 
-Each container has its own Dockerfile and Makefile that are necessary for instantiation.  Docker Compose is used to collectively run all the testing containers.  The docker-compose.yml file supplies the master container with the information necessary to run the testing containers in an integrated fashion.  The setup.py script, also found within the master, begins the testing process.  Setup.py clears all information, sets necessary configurations, calls docker compose to start the testing containers, and gives users the options to run the local scripts.  The output of all tests is wrtten to a HTTP server located at 137.48.191.120:8080.  A brief overview of the various containers and scripts follows.
+
+Docker Compose is used to collectively run all the testing containers.  The docker-compose.yml file supplies configuration details to run the testing containers in an integrated fashion. A python file, setup.py, clears all information, sets necessary configurations, calls docker compose to start the testing containers, and gives users the options to run the local scripts.  The output of all tests are written to a directory and are served via Python Simple HTTP server on port 8000.  A brief overview of the various containers and scripts follows.
 
 ### Nmap
 
@@ -136,19 +137,19 @@ A staple security tool, Nmap was selected to discover different host and network
 
 ### Container Advisor (cAdvisor)
 
-cAdvisor provides an in-depth understanding of performance characteristics and resource usage of containers. This data would be beneficial for a Security expert to analyze the data and spot abnormalities in containers that could be an indicator of compromise.
+cAdvisor provides an in-depth understanding of performance characteristics and resource usage of containers. This data would be beneficial for a security expert to analyze the data and spot abnormalities in containers that could be an indicator of compromise.
 
 ### OpenVAS
 
-OpenVAS is an open source vulnerability scanning tool that will be utilized to perform a vulnerabiliity assessment against a host provided an IP address. OpenVAS utilizes a regularly updated list of NVTs to located vulnerabilities in a system.  The team will utilize the OpenVAS command line option through OpenVAS-CLI.  A series of "omp" commands are used to communicate with the CLI.  Specific commands can be found in the openvas.sh script located in the container_scanner in the master container.  
+OpenVAS is an open source vulnerability scanning tool that will be utilized to perform a vulnerability assessment against a host provided an IP address or container name. OpenVAS utilizes a regularly updated list of NVTs to located vulnerabilities in a system.  The team will utilize the OpenVAS command line option through OpenVAS-CLI.  A series of "omp" commands are used to communicate with the CLI.  Specific commands can be found in the openvas.sh script located in the container_scanner directory.
 
 ### Ubuntu
 
-The Ubuntu container will only be called upon by the master container if the target machines run a Ubuntu operating system.  Users running the master container will have the option to enter "yes" or "no" when prompted whether or not the target machine is running Ubuntu.  If the users enter "no", the master container will skip over this script.  Thus, the Ubuntu script will only be copied into the container being tested by the master container when necessary.  The Ubuntu script can be found in the container_scanner directory under ubuntu_cis.sh file.
+The Ubuntu container will only be called upon if the target machines run a Ubuntu operating system.  Users running  setup.py will have the option to enter "yes" or "no" when prompted whether or not the target machine is running Ubuntu.  If the users enter "no", the this script will be skipped.  Thus, the Ubuntu script will only be copied into the container being tested when necessary.  The Ubuntu script can be found in the container_scanner directory under ubuntu_cis.sh file.
 
 ### Docker
 
-Similar to the Ubuntu script, the Docker script will also only be enacted on an as needed basis.  Specifically, this script is only ran against a local container.  The goal of the Docker Benchmark is to expose any Docker configurations that may leave an organization vulnerable.
+Similar to the Ubuntu script, the Docker script will also only be enacted on an as needed basis.  Specifically, this script will run on the host machine only if you are scanning a local container.  The goal of the Docker benchmark is to expose any Docker configurations that may leave an organization vulnerable.
 
 ## Code and Documentation
 
@@ -175,4 +176,3 @@ This team consists of two graduate students and three undergrad students from th
 - Michael Keck (michaelkeck@unomaha.edu)
 - Alisa Bohac (abohac@unomaha.edu)
 - Alexander Diaz (agdiaz@unomaha.edu)
-
