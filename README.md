@@ -1,22 +1,3 @@
-# License
-    CCVAC is a tool that can be used to run a variety of open source tools against containers. This repository also contains scripts, Dockerfiles, and Makefiles that help demonstrate the ability to securely communicate amongst containers. 
-    Copyright (C) 2018  Dan Ritter, Kerolos Lotfy, Alisa Bohac, Michael Keck, Alexander Diaz
-
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 # Executive Summary
 
 In today’s world, the use of virtual machines in daily business operations has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduces costs associated with purchases of physical machines, energy consumption and cooling. Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  As organizations dependence on virtual infrastructure, continues to grow, so do security attacks against these systems. A single security breach due to poor configurations can end up costing organizations much more than they saved by switching to virtual infrastructure.
@@ -123,3 +104,21 @@ This team consists of two graduate students and three undergrad students from th
 
 * Mp, A. R., Kumar, A., Pai, S. J., & Gopal, A. (2016). Enhancing security of Docker using Linux hardening techniques. 2016 2nd International Conference on Applied and Theoretical Computing and Communication Technology (iCATccT). doi:10.1109/icatcct.2016.7911971
   * This paper provides Linux security features and techniques that will enhance the security of the Docker container.  Using AppArmor       and SELinux module settings within this systems to help harden the Docker system.  
+  
+# License
+    CCVAC is a tool that can be used to run a variety of open source tools against containers. This repository also contains scripts, Dockerfiles, and Makefiles that help demonstrate the ability to securely communicate amongst containers. 
+    Copyright (C) 2018  Dan Ritter, Kerolos Lotfy, Alisa Bohac, Michael Keck, Alexander Diaz
+
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
