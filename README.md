@@ -1,3 +1,22 @@
+# License
+    CCVAC is a tool that can be used to run a variety of open source tools against containers. This repository also contains scripts, Dockerfiles, and Makefiles that help demonstrate the ability to securely communicate amongst containers. 
+    Copyright (C) 2018  Dan Ritter, Kerolos Lotfy, Alisa Bohac, Michael Keck, Alexander Diaz
+
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
 # Executive Summary
 
 In today’s world, the use of virtual machines in daily business operations has become prolific.  Virtual machines can greatly enhance the efficiency of a business and drastically reduces costs associated with purchases of physical machines, energy consumption and cooling. Consequently, as the adoption of virtual environments continues to grow, so does the concern of their security.  As organizations dependence on virtual infrastructure, continues to grow, so do security attacks against these systems. A single security breach due to poor configurations can end up costing organizations much more than they saved by switching to virtual infrastructure.
@@ -94,11 +113,11 @@ This team consists of two graduate students and three undergrad students from th
 ### Relevant Literature
 
 * Chelladhurai, J., Chelliah, P. R., & Kumar, S. A. (2016). Securing Docker Containers from Denial of Service (DoS) Attacks. 2016 IEEE International Conference on Services Computing (SCC). doi:10.1109/scc.2016.123
-  * Securing Docker Containers from Denial of Service (DOS) Attacks gives users a look at a few vulnerabilities that comes with using       the Docker environment.  The Paper points out that because of the way containers forwards all incoming packets without filtering         them, they are open to ARP and MAC flooding attacks.  This information will help by providing our team with known issues of the         containers architect that we will be able look at and expand on during our testing of the containers. 
-  
+  * Securing Docker Containers from Denial of Service (DOS) Attacks gives users a look at a few vulnerabilities that comes with using       the Docker environment.  The Paper points out that because of the way containers forwards all incoming packets without filtering         them, they are open to ARP and MAC flooding attacks.  This information will help by providing our team with known issues of the         containers architect that we will be able look at and expand on during our testing of the containers.
+
 * Combe, T., Martin, A., & Pietro, R. D. (2016). To Docker or Not to Docker: A Security Perspective. IEEE Cloud Computing,3(5), 54-62. doi:10.1109/mcc.2016.100
-  * To Docker or Not to Docker: A Security Perspective, provides and overview of the container environment.   The over view encompasses     everything from Docker internals, and specifications to security issues that come with using the containers.  The paper provides         Common Vulnerabilities and Exposures (CVE) that are relevant to the Docker containers, and gives information on weak access         controls, image distribution vulnerabilities and configuration security issues. 
-  
+  * To Docker or Not to Docker: A Security Perspective, provides and overview of the container environment.   The over view encompasses     everything from Docker internals, and specifications to security issues that come with using the containers.  The paper provides         Common Vulnerabilities and Exposures (CVE) that are relevant to the Docker containers, and gives information on weak access         controls, image distribution vulnerabilities and configuration security issues.
+
 * Luo, Y., Luo, W., Sun, X., Shen, Q., Ruan, A., & Wu, Z. (2016). Whispers between the Containers: High-Capacity Covert Channel Attacks in Docker. 2016 IEEE Trustcom/BigDataSE/ISPA. doi:10.1109/trustcom.2016.0119
   * Due to the rapid development of the Docker environment, security was not set as a high priority leaving the system opened to             security issues.  This paper investigates several possible covert channels that cause information leaks between containers.  
 
